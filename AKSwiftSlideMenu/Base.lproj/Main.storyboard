@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DGj-7d-jfR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DGj-7d-jfR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,16 +20,26 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="v8n-MU-eY3">
+                                <rect key="frame" x="89" y="288" width="225" height="128"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="v8n-MU-eY3" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="SgM-Gd-xxy"/>
+                            <constraint firstItem="v8n-MU-eY3" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" id="hxg-BX-5k2"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Go Queer" id="a1u-Ki-tSz"/>
                     <connections>
+                        <outlet property="mapView" destination="v8n-MU-eY3" id="hg2-lE-CiW"/>
                         <segue destination="khG-SL-0rk" kind="show" identifier="pushToPlay" id="WvG-AQ-ekI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1110.4000000000001" y="305.84707646176912"/>
+            <point key="canvasLocation" x="1109.5999999999999" y="305.39730134932535"/>
         </scene>
         <!--Play-->
         <scene sceneID="q6l-iR-WN3">
