@@ -14,107 +14,8 @@ import CoreLocation
 
 
 class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
-var locationManager:CLLocationManager!
+    var locationManager:CLLocationManager!
     @IBOutlet weak var mapView: MKMapView!
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        addSlideMenuButton()
-//        let initialLocation = CLLocation(latitude: 53.5563, longitude: -113.5186)
-//        centerMapOnLocation(location: initialLocation)
-//        // show artwork on map
-//        let artwork = Location(title: "King David Kalakaua",
-//                              locationName: "Waikiki Gateway Park",
-//                              discipline: "Sculpture",
-//                              coordinate: CLLocationCoordinate2D(latitude: 53.5563, longitude: -113.5186))
-//        mapView.addAnnotation(artwork)
-//            
-//        mapView.showsUserLocation = true;
-//    }
-//    
-//    let regionRadius: CLLocationDistance = 5000
-//    func centerMapOnLocation(location: CLLocation) {
-//        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-//            regionRadius * 2.0, regionRadius * 2.0)
-//            mapView.setRegion(coordinateRegion, animated: true)
-//    }
-//    
-//    class CustomPointAnnotation: MKPointAnnotation {
-//        var pinCustomImageName:String!
-//    }
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
-//    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        
-//        locationManager = CLLocationManager()
-//        locationManager.delegate = self as! CLLocationManagerDelegate
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//    }
-//    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        
-//        determineCurrentLocation()
-//    }
-//    
-//    func determineCurrentLocation()
-//    {
-//        locationManager.requestWhenInUseAuthorization()
-//        
-//        if CLLocationManager.locationServicesEnabled() {
-//            //locationManager.startUpdatingHeading()
-//            locationManager.startUpdatingLocation()
-//        }
-//    }
-//    
-//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        let userLocation:CLLocation = locations[0] as CLLocation
-//        print("Updating location")
-//        // Call stopUpdatingLocation() to stop listening for location updates,
-//        // other wise this function will be called every time when user location changes.
-//        // manager.stopUpdatingLocation()
-//        
-//        let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-//        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-//        
-//        mapView.setRegion(region, animated: true)
-//        
-//        // Drop a pin at user's Current Location
-//        let myAnnotation: MKPointAnnotation = MKPointAnnotation()
-//        myAnnotation.coordinate = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude);
-//        myAnnotation.title = "Current location"
-//        mapView.addAnnotation(myAnnotation)
-//    }
-//    
-//    func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
-//    {
-//        print("Error \(error)")
-//    }
-//    
-//    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView?
-//    {
-//        if !(annotation is MKPointAnnotation) {
-//            return nil
-//        }
-//        
-//        let annotationIdentifier = "AnnotationIdentifier"
-//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
-//        
-//        if annotationView == nil {
-//            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
-//            annotationView!.canShowCallout = true
-//        }
-//        else {
-//            annotationView!.annotation = annotation
-//        }
-//        annotationView!.canShowCallout = true
-//        let pinImage = UIImage(named: "CameraIcon")
-//        annotationView!.image = pinImage
-//        return annotationView
-//    }
 
     
        /*
@@ -154,7 +55,7 @@ var locationManager:CLLocationManager!
         {
             let coordinate = coordinates[i]
             let point = CustomPin(coordinate: CLLocationCoordinate2D(latitude: coordinate[0] , longitude: coordinate[1] ))
-            point.image = UIImage(named: "starbucks-\(i+1).jpg")
+            point.image = UIImage(named: "splashScreen")
             point.name = names[i]
             point.address = addresses[i]
             point.phone = phones[i]
@@ -182,8 +83,7 @@ var locationManager:CLLocationManager!
         annotationView?.image = UIImage(named: "myPin")
         return annotationView
     }
-    func mapView(_ mapView: MKMapView,
-                 didSelect view: MKAnnotationView)
+    func mapView(_ mapView: MKMapView,didSelect view: MKAnnotationView)
     {
         // 1
         if view.annotation is MKUserLocation
@@ -219,9 +119,5 @@ var locationManager:CLLocationManager!
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
 }
