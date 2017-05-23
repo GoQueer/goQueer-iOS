@@ -16,6 +16,10 @@
 		C6EEF9F61CB7E2AD00A3DC6D /* PlayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EEF9F51CB7E2AD00A3DC6D /* PlayVC.swift */; };
 		C6EEF9F81CB7E4E000A3DC6D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EEF9F71CB7E4E000A3DC6D /* HomeVC.swift */; };
 		CE5B145B1ECFE4D6004D1A1A /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B145A1ECFE4D6004D1A1A /* Location.swift */; };
+		CE5B145D1ED3F34D004D1A1A /* CustomPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B145C1ED3F34D004D1A1A /* CustomPin.swift */; };
+		CE5B145F1ED3F402004D1A1A /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B145E1ED3F401004D1A1A /* AnnotationView.swift */; };
+		CE5B14621ED3F529004D1A1A /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B14601ED3F529004D1A1A /* CustomCalloutView.swift */; };
+		CE5B14631ED3F529004D1A1A /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5B14611ED3F529004D1A1A /* CustomCalloutView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		C6EEF9F51CB7E2AD00A3DC6D /* PlayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayVC.swift; sourceTree = "<group>"; };
 		C6EEF9F71CB7E4E000A3DC6D /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		CE5B145A1ECFE4D6004D1A1A /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		CE5B145C1ED3F34D004D1A1A /* CustomPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomPin.swift; path = ../CustomPin.swift; sourceTree = "<group>"; };
+		CE5B145E1ED3F401004D1A1A /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
+		CE5B14601ED3F529004D1A1A /* CustomCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
+		CE5B14611ED3F529004D1A1A /* CustomCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCalloutView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +70,12 @@
 		753A55BF1BB073E900254F27 /* AKSwiftSlideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				CE5B145C1ED3F34D004D1A1A /* CustomPin.swift */,
 				753A55C21BB073E900254F27 /* AppDelegate.swift */,
 				C6EEF9F71CB7E4E000A3DC6D /* HomeVC.swift */,
+				CE5B14601ED3F529004D1A1A /* CustomCalloutView.swift */,
+				CE5B14611ED3F529004D1A1A /* CustomCalloutView.xib */,
+				CE5B145E1ED3F401004D1A1A /* AnnotationView.swift */,
 				753A55E41BB0755100254F27 /* BaseViewController.swift */,
 				753A55E21BB0753B00254F27 /* MenuViewController.swift */,
 				C6EEF9F51CB7E2AD00A3DC6D /* PlayVC.swift */,
@@ -144,6 +156,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE5B14631ED3F529004D1A1A /* CustomCalloutView.xib in Resources */,
 				753A55C81BB073E900254F27 /* Main.storyboard in Resources */,
 				753A55CD1BB073E900254F27 /* LaunchScreen.xib in Resources */,
 				753A55CA1BB073E900254F27 /* Images.xcassets in Resources */,
@@ -158,9 +171,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				753A55E51BB0755100254F27 /* BaseViewController.swift in Sources */,
+				CE5B145D1ED3F34D004D1A1A /* CustomPin.swift in Sources */,
 				C6EEF9F61CB7E2AD00A3DC6D /* PlayVC.swift in Sources */,
+				CE5B14621ED3F529004D1A1A /* CustomCalloutView.swift in Sources */,
 				C6EEF9F81CB7E4E000A3DC6D /* HomeVC.swift in Sources */,
 				753A55E31BB0753B00254F27 /* MenuViewController.swift in Sources */,
+				CE5B145F1ED3F402004D1A1A /* AnnotationView.swift in Sources */,
 				CE5B145B1ECFE4D6004D1A1A /* Location.swift in Sources */,
 				753A55C31BB073E900254F27 /* AppDelegate.swift in Sources */,
 			);
