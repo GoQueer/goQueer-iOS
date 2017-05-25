@@ -31,6 +31,7 @@
                     <navigationItem key="navigationItem" title="Go Queer" id="a1u-Ki-tSz"/>
                     <connections>
                         <outlet property="mapView" destination="v8n-MU-eY3" id="hg2-lE-CiW"/>
+                        <outlet property="picture" destination="9py-vd-bkJ" id="FHc-ZN-pDH"/>
                         <segue destination="khG-SL-0rk" kind="show" identifier="pushToPlay" id="WvG-AQ-ekI"/>
                     </connections>
                 </viewController>
@@ -38,7 +39,7 @@
             </objects>
             <point key="canvasLocation" x="1109.5999999999999" y="305.39730134932535"/>
         </scene>
-        <!--Play-->
+        <!--Gallery-->
         <scene sceneID="q6l-iR-WN3">
             <objects>
                 <viewController restorationIdentifier="PlayVC" storyboardIdentifier="PlayVC" id="khG-SL-0rk" customClass="PlayVC" customModule="AKSwiftSlideMenu" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,18 +51,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9py-vd-bkJ">
-                                <rect key="frame" x="119" y="126" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="rGd-3H-r4B">
+                                <rect key="frame" x="0.0" y="167" width="375" height="339"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="title jlkj llkj lk jl jklk jl j" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzf-3P-qSS">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9py-vd-bkJ">
+                                        <rect key="frame" x="0.0" y="22.5" width="375" height="262"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTd-Et-4yy">
+                                        <rect key="frame" x="0.0" y="286.5" width="375" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Uac-dr-oSj">
+                                        <rect key="frame" x="0.0" y="309" width="375" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ew-ms-Lwb">
+                                                <rect key="frame" x="0.0" y="0.0" width="185" height="30"/>
+                                                <state key="normal" title="Previous"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n89-EU-WsS">
+                                                <rect key="frame" x="190" y="0.0" width="185" height="30"/>
+                                                <state key="normal" title="Next">
+                                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Play" id="f24-Ia-thn"/>
+                    <navigationItem key="navigationItem" title="Gallery" id="f24-Ia-thn"/>
+                    <connections>
+                        <outlet property="picture" destination="9py-vd-bkJ" id="Prr-4W-yuf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mmn-PL-HS6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1862" y="305"/>
+            <point key="canvasLocation" x="1861.5999999999999" y="304.4977511244378"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nrt-yR-DmY">

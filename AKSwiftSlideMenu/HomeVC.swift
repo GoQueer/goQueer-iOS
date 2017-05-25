@@ -61,9 +61,10 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
             point.phone = phones[i]
             self.mapView.addAnnotation(point)
         }
-        // 3
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 48.856614, longitude: 2.3522219000000177), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
         self.mapView.setRegion(region, animated: true)
+        
+        
     }
     
     //MARK: MKMapViewDelegate
@@ -119,5 +120,9 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         }
     }
     
+    
+    @IBOutlet weak var picture: UIImageView!
+    
+      
 
 }
