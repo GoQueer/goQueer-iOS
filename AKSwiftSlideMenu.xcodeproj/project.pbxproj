@@ -20,6 +20,8 @@
 		CE5B145F1ED3F402004D1A1A /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B145E1ED3F401004D1A1A /* AnnotationView.swift */; };
 		CE5B14621ED3F529004D1A1A /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B14601ED3F529004D1A1A /* CustomCalloutView.swift */; };
 		CE5B14631ED3F529004D1A1A /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5B14611ED3F529004D1A1A /* CustomCalloutView.xib */; };
+		CE5B14681ED8FC14004D1A1A /* Edmonton.gpx in Resources */ = {isa = PBXBuildFile; fileRef = CE5B14671ED8FC14004D1A1A /* Edmonton.gpx */; };
+		CE5B146A1ED8FDC6004D1A1A /* Edmonton.gpx in Resources */ = {isa = PBXBuildFile; fileRef = CE5B14691ED8FDC6004D1A1A /* Edmonton.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		CE5B145E1ED3F401004D1A1A /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		CE5B14601ED3F529004D1A1A /* CustomCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
 		CE5B14611ED3F529004D1A1A /* CustomCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCalloutView.xib; sourceTree = "<group>"; };
+		CE5B14671ED8FC14004D1A1A /* Edmonton.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Edmonton.gpx; sourceTree = "<group>"; };
+		CE5B14691ED8FDC6004D1A1A /* Edmonton.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Edmonton.gpx; path = AKSwiftSlideMenu/Edmonton.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 		753A55B41BB073E900254F27 = {
 			isa = PBXGroup;
 			children = (
+				CE5B14691ED8FDC6004D1A1A /* Edmonton.gpx */,
 				753A55BF1BB073E900254F27 /* AKSwiftSlideMenu */,
 				753A55BE1BB073E900254F27 /* Products */,
 			);
@@ -73,6 +78,7 @@
 				CE5B145C1ED3F34D004D1A1A /* CustomPin.swift */,
 				753A55C21BB073E900254F27 /* AppDelegate.swift */,
 				C6EEF9F71CB7E4E000A3DC6D /* HomeVC.swift */,
+				CE5B14671ED8FC14004D1A1A /* Edmonton.gpx */,
 				CE5B14601ED3F529004D1A1A /* CustomCalloutView.swift */,
 				CE5B14611ED3F529004D1A1A /* CustomCalloutView.xib */,
 				CE5B145E1ED3F401004D1A1A /* AnnotationView.swift */,
@@ -157,9 +163,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE5B14631ED3F529004D1A1A /* CustomCalloutView.xib in Resources */,
+				CE5B14681ED8FC14004D1A1A /* Edmonton.gpx in Resources */,
 				753A55C81BB073E900254F27 /* Main.storyboard in Resources */,
 				753A55CD1BB073E900254F27 /* LaunchScreen.xib in Resources */,
 				753A55CA1BB073E900254F27 /* Images.xcassets in Resources */,
+				CE5B146A1ED8FDC6004D1A1A /* Edmonton.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

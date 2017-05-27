@@ -1,33 +1,14 @@
-//
-//  HomeVC.swift
-//  AKSwiftSlideMenu
-//
-//  Created by MAC-186 on 4/8/16.
-//  Copyright © 2016 Kode. All rights reserved.
-//
 import Foundation
 import UIKit
 import MapKit
-
-
 import CoreLocation
 
 
 class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
-    var locationManager:CLLocationManager!
     @IBOutlet weak var mapView: MKMapView!
-
     
-       /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
+    var locationManager: CLLocationManager = CLLocationManager()
+    var startLocation: CLLocation!
     var coordinates: [[Double]]!
     var names:[String]!
     var addresses:[String]!
@@ -45,7 +26,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         super.viewDidLoad()
         addSlideMenuButton()
         // 1
-        coordinates = [[48.85672,2.35501],[48.85196,2.33944],[48.85376,2.33953]]// Latitude,Longitude
+        coordinates = [[53.521436, -113.487262],[53.53436, -113.487262],[53.521436, -113.497262]]// Latitude,Longitude
         names = ["Coffee Shop · Rue de Rivoli","Cafe · Boulevard Saint-Germain","Coffee Shop · Rue Saint-André des Arts"]
         addresses = ["46 Rue de Rivoli, 75004 Paris, France","91 Boulevard Saint-Germain, 75006 Paris, France","62 Rue Saint-André des Arts, 75006 Paris, France"]
         phones = ["+33144789478","+33146345268","+33146340672"]
@@ -61,12 +42,30 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
             point.phone = phones[i]
             self.mapView.addAnnotation(point)
         }
-        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 48.856614, longitude: 2.3522219000000177), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 53.521436, longitude: -113.487262), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
         self.mapView.setRegion(region, animated: true)
         
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        startLocation = nil
         
     }
     
+    
+    var point:CustomPin!
+    func locationManager(_ manager: CLLocationManager,didUpdateLocations locations: [CLLocation])
+    {
+        if point != nil {
+            self.mapView.removeAnnotation(point)
+        }
+        let latestLocation: CLLocation = locations[locations.count - 1]
+        point = CustomPin(coordinate: CLLocationCoordinate2D(latitude: latestLocation.coordinate.latitude , longitude:latestLocation.coordinate.longitude ))
+        point.image = UIImage(named: "splashScreen")
+//        self.mapView.addAnnotation(point)
+
+    }
     //MARK: MKMapViewDelegate
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
@@ -81,9 +80,11 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         }else{
             annotationView?.annotation = annotation
         }
-        annotationView?.image = UIImage(named: "myPin")
+        annotationView?.image = UIImage(named: "locationPin")
         return annotationView
     }
+    
+    
     func mapView(_ mapView: MKMapView,didSelect view: MKAnnotationView)
     {
         // 1
