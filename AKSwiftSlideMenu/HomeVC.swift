@@ -14,6 +14,9 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     var addresses:[String]!
     var phones:[String]!
     
+    var names1: [String] = []
+    var contacts: [String] = []
+    
     func callPhoneNumber(sender: UIButton)
     {
         let v = sender.superview as! CustomCalloutView
@@ -54,18 +57,29 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     }
     
     
-    var point:CustomPin!
     func locationManager(_ manager: CLLocationManager,didUpdateLocations locations: [CLLocation])
     {
-        if point != nil {
-            self.mapView.removeAnnotation(point)
-        }
-        let latestLocation: CLLocation = locations[locations.count - 1]
-        point = CustomPin(coordinate: CLLocationCoordinate2D(latitude: latestLocation.coordinate.latitude , longitude:latestLocation.coordinate.longitude ))
-        point.image = UIImage(named: "splashScreen")
-//        self.mapView.addAnnotation(point)
 
+        if let url = URL(string: "http://206.167.180.114/client/getAllLocations?device_id=1") {
+            do {
+                let contents = try String(contentsOf: url)
+                parseAndCompare(contents)
+                print(contents)
+            } catch {
+                
+            }
+        } else {
+        }
     }
+    
+    
+    func parseAndCompare(_ input:String)
+    {
+        let index = input.index(input.startIndex, offsetBy: 1)
+        input.substring(from: index)
+        let final = "{\"locations\"" + input + "}"
+    }
+    
     //MARK: MKMapViewDelegate
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
