@@ -16,4 +16,24 @@ class QLocation {
     var address: String?
     var galleryId: Int = 0
     var userId: Int = 0
+    public func getType() -> String {
+        let result = coordinate?.components(separatedBy: "{type:Feature,properties:{},geometry:{")[1]
+        let typeCoordinate = result?.components(separatedBy: "type:")[1]
+        return (typeCoordinate?.components(separatedBy: ",")[0])!
+    }
+    
+    public func getCoordinate() -> String {
+        var result = coordinate?.components(separatedBy: "{type:Feature,properties:{},geometry:{")[1]
+        let typeCoordinate = result?.components(separatedBy: "type:")[1]
+        let result1 = (typeCoordinate?.components(separatedBy: ",coordinates:[")[1])!
+        let result2 = result1.components(separatedBy: "]")[0]
+        return result2
+    }
+    public func getLat() -> String {
+        return getCoordinate().components(separatedBy: ",")[0]
+    }
+    public func getlong() -> String {
+        return getCoordinate().components(separatedBy: ",")[1]
+    }
+
 }

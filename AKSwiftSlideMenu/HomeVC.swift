@@ -15,8 +15,11 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     var addresses:[String]!
     var phones:[String]!
     var allLocations:[QLocation] = []
+    var myLocations:[QLocation] = []
     var names1: [String] = []
     var contacts: [String] = []
+    
+    static let baseUrl = "http://206.167.180.114/"
     
     func callPhoneNumber(sender: UIButton)
     {
@@ -61,43 +64,70 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     func locationManager(_ manager: CLLocationManager,didUpdateLocations locations: [CLLocation])
     {
 
-        if let url = URL(string: "http://206.167.180.114/client/getAllLocations?device_id=1") {
+        if let url = URL(string: HomeVC.baseUrl + "/client/getAllLocations?device_id=1") {
             do {
                 let contents = try String(contentsOf: url)
                 allLocations = []
-                parseLocations(contents)
-                print("")
+                allLocations = parseLocations(contents)
+                if let url = URL(string: HomeVC.baseUrl + "/client/getMyLocations?device_id=1") {
+                    do {
+                        let contents = try String(contentsOf: url)
+                        myLocations = []
+                        myLocations = parseLocations(contents)
+                        compareCoordinates(all: allLocations,my: myLocations)
+                        print("")
+                    } catch {}
+                } else {
+                }
+
+                
             } catch {
                 
             }
         } else {
         }
     }
+    func compareCoordinates(all: [QLocation], my: [QLocation]) {
+        for locationFromAll in all {
+            for locationFromMy in my {
+                if locationFromMy.getType() == "Point" && locationFromAll.getType() == "Point" {
+                    
+                    let coordinate0 = CLLocation(latitude: Double(locationFromMy.getLat())!, longitude: Double(locationFromMy.getlong())!)
+                    let coordinate1 = CLLocation(latitude: Double(locationFromAll.getLat())!, longitude: Double(locationFromAll.getlong())!)
+
+                    let distanceInMeters = coordinate0.distance(from: coordinate1) // result is in meters
+                    if distanceInMeters < 50 {
+                        // add custom point
+                    }
+                }
+            }
+        }
+    }
     
     
-    func parseLocations(_ input:String)
+    func parseLocations(_ input:String) -> [QLocation]
     {
-        let index = input.index(input.startIndex, offsetBy: 2)
-        input.substring(from: index)
+        var all:[QLocation] = []
         var rows = input.components(separatedBy: "\"id\":")
         rows.remove(at: 0);
         for row in rows {
             var data = row.components(separatedBy: ",\"")
-            var location = QLocation()
+            let location = QLocation()
             location.id = Int(data[0])!
-            var coordinate = data[3].components(separatedBy: "coordinate\":")[1]
+            let coordinate = data[3].components(separatedBy: "coordinate\":")[1]
             location.coordinate = coordinate.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
                 .replacingOccurrences(of: "\\" , with: "", options: .literal, range: nil)
-            var name = data[4].components(separatedBy: "name\":")[1]
+            let name = data[4].components(separatedBy: "name\":")[1]
             location.name = name.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
-            var description = data[5].components(separatedBy: "description\":")[1]
+            let description = data[5].components(separatedBy: "description\":")[1]
             location.description = description.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
-            var address = data[6].components(separatedBy: "address\":")[1]
+            let address = data[6].components(separatedBy: "address\":")[1]
             location.address = address.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
             location.userId = Int(data[7].components(separatedBy: "user_id\":")[1])!
             location.galleryId = Int(data[8].components(separatedBy: "gallery_id\":")[1].components(separatedBy: "}")[0])!
-            allLocations.append(location)
+            all.append(location)
         }
+        return all
     }
     
     //MARK: MKMapViewDelegate
