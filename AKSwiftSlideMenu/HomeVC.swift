@@ -4,6 +4,7 @@ import MapKit
 import CoreLocation
 
 
+
 class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
@@ -75,9 +76,14 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     func parseAndCompare(_ input:String)
     {
-        let index = input.index(input.startIndex, offsetBy: 1)
+        let index = input.index(input.startIndex, offsetBy: 2)
         input.substring(from: index)
-        let final = "{\"locations\"" + input + "}"
+     //   let final = "{\"locations\":" + input + "}"
+        var myStringArr = input.components(separatedBy: "\"id\":")
+        
+       for row in myStringArr as! String {
+        
+        }
     }
     
     //MARK: MKMapViewDelegate
