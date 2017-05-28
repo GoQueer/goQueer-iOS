@@ -22,7 +22,6 @@
 		CE5B14631ED3F529004D1A1A /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5B14611ED3F529004D1A1A /* CustomCalloutView.xib */; };
 		CE5B14681ED8FC14004D1A1A /* Edmonton.gpx in Resources */ = {isa = PBXBuildFile; fileRef = CE5B14671ED8FC14004D1A1A /* Edmonton.gpx */; };
 		CE5B146A1ED8FDC6004D1A1A /* Edmonton.gpx in Resources */ = {isa = PBXBuildFile; fileRef = CE5B14691ED8FDC6004D1A1A /* Edmonton.gpx */; };
-		CE5B148E1EDA6AA7004D1A1A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B148D1EDA6AA7004D1A1A /* SwiftyJSON.swift */; };
 		CEE6AB781EDA7579003F4AF6 /* QLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE6AB771EDA7579003F4AF6 /* QLocation.swift */; };
 /* End PBXBuildFile section */
 
@@ -390,7 +389,6 @@
 				753A55E51BB0755100254F27 /* BaseViewController.swift in Sources */,
 				CE5B145D1ED3F34D004D1A1A /* CustomPin.swift in Sources */,
 				C6EEF9F61CB7E2AD00A3DC6D /* PlayVC.swift in Sources */,
-				CE5B148E1EDA6AA7004D1A1A /* SwiftyJSON.swift in Sources */,
 				CEE6AB781EDA7579003F4AF6 /* QLocation.swift in Sources */,
 				CE5B14621ED3F529004D1A1A /* CustomCalloutView.swift in Sources */,
 				C6EEF9F81CB7E4E000A3DC6D /* HomeVC.swift in Sources */,
