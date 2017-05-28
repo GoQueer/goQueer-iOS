@@ -25,6 +25,7 @@
 		CE5B148A1EDA6A01004D1A1A /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5B147D1EDA69BB004D1A1A /* SwiftyJSON.framework */; };
 		CE5B148C1EDA6A49004D1A1A /* SwiftyJSON.xcworkspace in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5B148B1EDA6A49004D1A1A /* SwiftyJSON.xcworkspace */; };
 		CE5B148E1EDA6AA7004D1A1A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5B148D1EDA6AA7004D1A1A /* SwiftyJSON.swift */; };
+		CEE6AB781EDA7579003F4AF6 /* QLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE6AB771EDA7579003F4AF6 /* QLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		CE5B14711EDA69BB004D1A1A /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = ../SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
 		CE5B148B1EDA6A49004D1A1A /* SwiftyJSON.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; name = SwiftyJSON.xcworkspace; path = ../SwiftyJSON/SwiftyJSON.xcworkspace; sourceTree = "<group>"; };
 		CE5B148D1EDA6AA7004D1A1A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		CEE6AB771EDA7579003F4AF6 /* QLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				CE5B145C1ED3F34D004D1A1A /* CustomPin.swift */,
 				753A55C21BB073E900254F27 /* AppDelegate.swift */,
 				C6EEF9F71CB7E4E000A3DC6D /* HomeVC.swift */,
+				CEE6AB771EDA7579003F4AF6 /* QLocation.swift */,
 				CE5B14671ED8FC14004D1A1A /* Edmonton.gpx */,
 				CE5B14601ED3F529004D1A1A /* CustomCalloutView.swift */,
 				CE5B14611ED3F529004D1A1A /* CustomCalloutView.xib */,
@@ -327,6 +330,7 @@
 				CE5B145D1ED3F34D004D1A1A /* CustomPin.swift in Sources */,
 				C6EEF9F61CB7E2AD00A3DC6D /* PlayVC.swift in Sources */,
 				CE5B148E1EDA6AA7004D1A1A /* SwiftyJSON.swift in Sources */,
+				CEE6AB781EDA7579003F4AF6 /* QLocation.swift in Sources */,
 				CE5B14621ED3F529004D1A1A /* CustomCalloutView.swift in Sources */,
 				C6EEF9F81CB7E4E000A3DC6D /* HomeVC.swift in Sources */,
 				753A55E31BB0753B00254F27 /* MenuViewController.swift in Sources */,

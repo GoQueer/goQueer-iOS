@@ -14,7 +14,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     var names:[String]!
     var addresses:[String]!
     var phones:[String]!
-    
+    var allLocations:[QLocation] = []
     var names1: [String] = []
     var contacts: [String] = []
     
@@ -64,8 +64,9 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         if let url = URL(string: "http://206.167.180.114/client/getAllLocations?device_id=1") {
             do {
                 let contents = try String(contentsOf: url)
-                parseAndCompare(contents)
-                print(contents)
+                allLocations = []
+                parseLocations(contents)
+                print("")
             } catch {
                 
             }
@@ -74,15 +75,28 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     }
     
     
-    func parseAndCompare(_ input:String)
+    func parseLocations(_ input:String)
     {
         let index = input.index(input.startIndex, offsetBy: 2)
         input.substring(from: index)
-     //   let final = "{\"locations\":" + input + "}"
-        var myStringArr = input.components(separatedBy: "\"id\":")
-        
-       for row in myStringArr as! String {
-        
+        var rows = input.components(separatedBy: "\"id\":")
+        rows.remove(at: 0);
+        for row in rows {
+            var data = row.components(separatedBy: ",\"")
+            var location = QLocation()
+            location.id = Int(data[0])!
+            var coordinate = data[3].components(separatedBy: "coordinate\":")[1]
+            location.coordinate = coordinate.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+                .replacingOccurrences(of: "\\" , with: "", options: .literal, range: nil)
+            var name = data[4].components(separatedBy: "name\":")[1]
+            location.name = name.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+            var description = data[5].components(separatedBy: "description\":")[1]
+            location.description = description.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+            var address = data[6].components(separatedBy: "address\":")[1]
+            location.address = address.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+            location.userId = Int(data[7].components(separatedBy: "user_id\":")[1])!
+            location.galleryId = Int(data[8].components(separatedBy: "gallery_id\":")[1].components(separatedBy: "}")[0])!
+            allLocations.append(location)
         }
     }
     
