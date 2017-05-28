@@ -61,48 +61,58 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     }
     
     
+    
+    
+    func showToast(message : String) {
+            
+            let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+            toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+            toastLabel.textColor = UIColor.white
+            toastLabel.textAlignment = .center;
+            toastLabel.font = UIFont(name: "Montserrat-Light", size: 12.0)
+            toastLabel.text = message
+            toastLabel.alpha = 1.0
+            toastLabel.layer.cornerRadius = 10;
+            toastLabel.clipsToBounds  =  true
+            self.view.addSubview(toastLabel)
+            UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+                toastLabel.alpha = 0.0
+            }, completion: {(isCompleted) in
+                toastLabel.removeFromSuperview()
+            })
+    }
+    
+    
     func locationManager(_ manager: CLLocationManager,didUpdateLocations locations: [CLLocation])
     {
-
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         if let url = URL(string: HomeVC.baseUrl + "/client/getAllLocations?device_id=1") {
             do {
                 let contents = try String(contentsOf: url)
                 allLocations = []
                 allLocations = parseLocations(contents)
-                if let url = URL(string: HomeVC.baseUrl + "/client/getMyLocations?device_id=1") {
-                    do {
-                        let contents = try String(contentsOf: url)
-                        myLocations = []
-                        myLocations = parseLocations(contents)
-                        compareCoordinates(all: allLocations,my: myLocations)
-                        print("")
-                    } catch {}
-                } else {
-                }
-
-                
+                compareCoordinates(all: allLocations, my: locValue)
             } catch {
                 
             }
         } else {
         }
     }
-    func compareCoordinates(all: [QLocation], my: [QLocation]) {
+    func compareCoordinates(all: [QLocation], my: CLLocationCoordinate2D) {
         for locationFromAll in all {
-            for locationFromMy in my {
-                if locationFromMy.getType() == "Point" && locationFromAll.getType() == "Point" {
+                if  locationFromAll.getType() == "Point" {
                     
-                    let coordinate0 = CLLocation(latitude: Double(locationFromMy.getLat())!, longitude: Double(locationFromMy.getlong())!)
+                    let coordinate0 = CLLocation(latitude: my.latitude, longitude: my.longitude)
                     let coordinate1 = CLLocation(latitude: Double(locationFromAll.getLat())!, longitude: Double(locationFromAll.getlong())!)
 
                     let distanceInMeters = coordinate0.distance(from: coordinate1) // result is in meters
                     if distanceInMeters < 50 {
-                        // add custom point
+                        showToast(message: "You have discovered something!")
                     }
                 }
-            }
         }
     }
+    
     
     
     func parseLocations(_ input:String) -> [QLocation]

@@ -30,10 +30,10 @@ class QLocation {
         return result2
     }
     public func getLat() -> String {
-        return getCoordinate().components(separatedBy: ",")[0]
+        return getCoordinate().components(separatedBy: ",")[1]
     }
     public func getlong() -> String {
-        return getCoordinate().components(separatedBy: ",")[1]
+        return getCoordinate().components(separatedBy: ",")[0]
     }
 
 }
