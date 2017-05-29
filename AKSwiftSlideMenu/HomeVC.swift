@@ -74,20 +74,21 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                             point.myDescription = myLocation.description
                             point.image = UIImage(named: "splashScreen")
                             self.mapView.addAnnotation(point)
-                            if let url = URL(string: HomeVC.baseUrl + "client/getGalleryById?gallery_id=" + String(myLocation.galleryId)) {
-                                do {
-                                    let contents = try String(contentsOf: url)
-                                    let notVerifiedGallery = parseGalleries(contents,galleryId: myLocation.galleryId)
-                                    var flag = false
-                                    for gallery in myGalleries {
-                                        if gallery.id == notVerifiedGallery.id{
-                                            flag = true
-                                        }
-                                    }
-                                    if (!flag) {
-                                        myGalleries.append(notVerifiedGallery)
+                            var flag = false
+                            for gallery in myGalleries {
+                                if gallery.id == myLocation.galleryId{
+                                    flag = true
+                                }
+                            }
+                            if (!flag) {
+                                if let url = URL(string: HomeVC.baseUrl + "client/getGalleryById?gallery_id=" + String(myLocation.galleryId)) {
+                                    do {
+                                        let contents = try String(contentsOf: url)
+                                        myGalleries.append(parseGallery(contents,galleryId: myLocation.galleryId))
+                                        
                                     }
                                 }
+
                             }
                         }
                         
@@ -96,7 +97,6 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                         
                     }
                 }
-//                compareCoordinates(all: allLocations, my: currentCoordinate)
             } catch {
                 
             }
@@ -104,7 +104,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     }
 
-    func parseGalleries(_ input:String, galleryId: Int) -> QGallery {
+    func parseGallery(_ input:String, galleryId: Int) -> QGallery {
         let qGallery = QGallery()
         var result = input.components(separatedBy: ",\"")
         qGallery.id = Int(result[0].components(separatedBy: ":")[1])!
