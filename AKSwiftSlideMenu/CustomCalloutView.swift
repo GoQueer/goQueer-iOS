@@ -8,8 +8,10 @@
 
 import UIKit
 
-class CustomCalloutView: UIView {
+class CustomCalloutView:  UIView {
 
+
+    
     @IBOutlet var starbucksImage: UIImageView!
     @IBOutlet var starbucksName: UILabel!
     @IBOutlet var starbucksAddress: UILabel!

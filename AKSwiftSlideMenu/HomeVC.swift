@@ -22,16 +22,16 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     var currentCoordinate:CLLocationCoordinate2D!
     var timer = Timer()
     var myPins:[CustomPin]!
-    static let baseUrl = "http://206.167.180.114/"
+    public static let baseUrl = "http://206.167.180.114/"
     
-    func callPhoneNumber(sender: UIButton)
-    {
-        let v = sender.superview as! CustomCalloutView
-        if let url = URL(string: "telprompt://\(v.starbucksPhone.text!)"), UIApplication.shared.canOpenURL(url)
-        {
-            UIApplication.shared.openURL(url)
-        }
-    }
+//    func callPhoneNumber(sender: UIButton)
+//    {
+//        let v = sender.superview as! CustomCalloutView
+//        if let url = URL(string: "telprompt://\(v.starbucksPhone.text!)"), UIApplication.shared.canOpenURL(url)
+//        {
+//            UIApplication.shared.openURL(url)
+//        }
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
         addSlideMenuButton()
@@ -48,6 +48,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         startLocation = nil
         
     }
+    
     
     
     func scheduledTimerWithTimeInterval(){
@@ -251,14 +252,25 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         
         //
         let button = UIButton(frame: calloutView.starbucksPhone.frame)
-        button.addTarget(self, action: #selector(HomeVC.callPhoneNumber(sender:)), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(HomeVC.callPhoneNumber(sender:)), for: .touchUpInside)
         calloutView.addSubview(button)
         calloutView.starbucksImage.image = starbucksAnnotation.image
         // 3
         calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
         view.addSubview(calloutView)
+        let gestureRec = UITapGestureRecognizer(target: self, action:  #selector (self.someAction (_:)))
+        calloutView.addGestureRecognizer(gestureRec)
+        
         mapView.setCenter((view.annotation?.coordinate)!, animated: true)
     }
+    
+    func someAction(_ sender:UITapGestureRecognizer){
+        
+        PlayVC.myGallery = myGalleries[0]
+        performSegue(withIdentifier: "gallerySegue", sender: self)
+    }
+    
+    
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         if view.isKind(of: AnnotationView.self)
         {
