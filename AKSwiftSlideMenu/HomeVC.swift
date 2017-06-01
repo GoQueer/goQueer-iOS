@@ -22,6 +22,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     var currentCoordinate:CLLocationCoordinate2D!
     var timer = Timer()
     var myPins:[CustomPin]!
+    var selectedLocationId : Int = 0
     public static let baseUrl = "http://206.167.180.114/"
     
 //    func callPhoneNumber(sender: UIButton)
@@ -71,9 +72,13 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                         for myLocation in myLocations {
                             let point = CustomPin(coordinate: CLLocationCoordinate2D(latitude: Double(myLocation.getLat())! , longitude: Double(myLocation.getlong())! ))
                             point.name = myLocation.name
+                            point.id = myLocation.id
                             point.address = myLocation.address
                             point.myDescription = myLocation.description
-                            point.image = UIImage(named: "splashScreen")
+//                            point.image = UIImage(named: "splashScreen")
+                            let imageURL = URL(string: HomeVC.baseUrl + "client/downloadMediaById?media_id=" + String(findCoverPicture(galleryId: myLocation.galleryId)) )
+                            fetchImageFromURL(imageURL: imageURL!, point: point)
+
                             self.mapView.addAnnotation(point)
                             var flag = false
                             for gallery in myGalleries {
@@ -104,6 +109,27 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         }
     
     }
+    func findCoverPicture(galleryId: Int) -> Int {
+        for gallery in myGalleries {
+            if gallery.id ==  galleryId && gallery.media.count > 0 {
+                return gallery.media[0].id
+            }
+        }
+        return 0
+    }
+    
+    func fetchImageFromURL(imageURL: URL, point: CustomPin)   {
+        DispatchQueue.global(qos: DispatchQoS.userInitiated.qosClass).async {
+            let fetch = NSData(contentsOf: imageURL as URL)
+            // Display about the actual image
+            DispatchQueue.main.async {
+                if let imageData = fetch {
+                    point.image =   UIImage(data: imageData as Data)
+                }
+            }
+        }
+    }
+
 
     func parseGallery(_ input:String, galleryId: Int) -> QGallery {
         let qGallery = QGallery()
@@ -249,7 +275,8 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         calloutView.starbucksName.text = starbucksAnnotation.name
         calloutView.starbucksAddress.text = starbucksAnnotation.address
         calloutView.starbucksPhone.text = starbucksAnnotation.phone
-        
+        calloutView.id = starbucksAnnotation.id
+        selectedLocationId = calloutView.id
         //
         let button = UIButton(frame: calloutView.starbucksPhone.frame)
 //        button.addTarget(self, action: #selector(HomeVC.callPhoneNumber(sender:)), for: .touchUpInside)
@@ -265,8 +292,17 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     }
     
     func someAction(_ sender:UITapGestureRecognizer){
-        
-        PlayVC.myGallery = myGalleries[0]
+        var resultGallery = QGallery()
+        for location in myLocations {
+            if location.id == selectedLocationId {
+                for gallery in myGalleries {
+                    if gallery.id == location.galleryId {
+                        resultGallery = gallery
+                    }
+                }
+            }
+        }
+        PlayVC.myGallery = resultGallery
         performSegue(withIdentifier: "gallerySegue", sender: self)
     }
     

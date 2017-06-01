@@ -11,7 +11,7 @@ import UIKit
 class CustomCalloutView:  UIView {
 
 
-    
+    var id: Int = 0
     @IBOutlet var starbucksImage: UIImageView!
     @IBOutlet var starbucksName: UILabel!
     @IBOutlet var starbucksAddress: UILabel!

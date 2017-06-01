@@ -16,6 +16,7 @@ class CustomPin: NSObject, MKAnnotation {
     var myDescription: String!
     var address: String!
     var image: UIImage!
+    var id: Int = 0
     
     init(coordinate: CLLocationCoordinate2D) {
         self.coordinate = coordinate

@@ -46,15 +46,6 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tT9-Ic-Z04">
-                    <rect key="frame" x="259" y="133" width="36" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="More"/>
-                    <connections>
-                        <action selector="more:" destination="iN0-l3-epB" eventType="touchUpInside" id="Guc-xv-bEY"/>
-                        <action selector="moreBtnPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="1mj-fZ-kf4"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
