@@ -23,7 +23,9 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     var timer = Timer()
     var myPins:[CustomPin]!
     var selectedLocationId : Int = 0
-    public static let baseUrl = "http://206.167.180.114/"
+    //public static let baseUrl = "http://206.167.180.114/"
+    public static let baseUrl = "http://192.168.40.1:8000/"
+    
     
 //    func callPhoneNumber(sender: UIButton)
 //    {
@@ -50,19 +52,26 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         
     }
     
+    func getDeviceId() -> String {
+        let UUID = NSUUID().uuidString
+        return UUID
+    }
     
     
     func scheduledTimerWithTimeInterval(){
         // Scheduling timer to Call the function **Countdown** with the interval of 1 seconds
         timer = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(self.updateLocations), userInfo: nil, repeats: true)
     }
+    func getProfileName() -> String {
+        return "Edmonton";
+    }
     func updateLocations(){
-        if let url = URL(string: HomeVC.baseUrl + "/client/getAllLocations?device_id=1") {
+        if let url = URL(string: HomeVC.baseUrl + "/client/getAllLocations?device_id=" + getDeviceId() + "&profile_name=" + getProfileName()) {
             do {
                 let contents = try String(contentsOf: url)
                 allLocations = []
                 allLocations = parseLocations(contents)
-                if let url = URL(string: HomeVC.baseUrl + "/client/getMyLocations?device_id=1") {
+                if let url = URL(string: HomeVC.baseUrl + "/client/getMyLocations?device_id=" + getDeviceId() + "&profile_name=" + getProfileName()) {
                     do {
                         let contents = try String(contentsOf: url)
                         myLocations = []
@@ -70,31 +79,33 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                         let allAnnotations = self.mapView.annotations
                         self.mapView.removeAnnotations(allAnnotations)
                         for myLocation in myLocations {
-                            let point = CustomPin(coordinate: CLLocationCoordinate2D(latitude: Double(myLocation.getLat())! , longitude: Double(myLocation.getlong())! ))
-                            point.name = myLocation.name
-                            point.id = myLocation.id
-                            point.address = myLocation.address
-                            point.myDescription = myLocation.description
-//                            point.image = UIImage(named: "splashScreen")
-                            let imageURL = URL(string: HomeVC.baseUrl + "client/downloadMediaById?media_id=" + String(findCoverPicture(galleryId: myLocation.galleryId)) )
-                            fetchImageFromURL(imageURL: imageURL!, point: point)
+                            if myLocation.type == "Point" {
+                                let point = CustomPin(coordinate: CLLocationCoordinate2D(latitude: Double(myLocation.getLat())! , longitude: Double(myLocation.getlong())! ))
+                                point.name = myLocation.name
+                                point.id = myLocation.id
+                                point.address = myLocation.address
+                                point.myDescription = myLocation.description
+    //                            point.image = UIImage(named: "splashScreen")
+                                let imageURL = URL(string: HomeVC.baseUrl + "client/downloadMediaById?media_id=" + String(findCoverPicture(galleryId: myLocation.galleryId)) )
+                                fetchImageFromURL(imageURL: imageURL!, point: point)
 
-                            self.mapView.addAnnotation(point)
-                            var flag = false
-                            for gallery in myGalleries {
-                                if gallery.id == myLocation.galleryId{
-                                    flag = true
-                                }
-                            }
-                            if (!flag) {
-                                if let url = URL(string: HomeVC.baseUrl + "client/getGalleryById?gallery_id=" + String(myLocation.galleryId)) {
-                                    do {
-                                        let contents = try String(contentsOf: url)
-                                        myGalleries.append(parseGallery(contents,galleryId: myLocation.galleryId))
-                                        
+                                self.mapView.addAnnotation(point)
+                                var flag = false
+                                for gallery in myGalleries {
+                                    if gallery.id == myLocation.galleryId{
+                                        flag = true
                                     }
                                 }
+                                if (!flag) {
+                                    if let url = URL(string: HomeVC.baseUrl + "client/getGalleryById?gallery_id=" + String(myLocation.galleryId)) {
+                                        do {
+                                            let contents = try String(contentsOf: url)
+                                            myGalleries.append(parseGallery(contents,galleryId: myLocation.galleryId))
+                                            
+                                        }
+                                    }
 
+                                }
                             }
                         }
                         
@@ -141,8 +152,10 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         if let url = URL(string: HomeVC.baseUrl + "client/getGalleryMediaById?gallery_id=" + String(galleryId)) {
             do {
                 let contents = try String(contentsOf: url)
-                qGallery.media = parseMedias(contents)
-                print()
+                if (contents != "[]"){
+                    qGallery.media = parseMedias(contents)
+                    print()
+                }
                 
             }catch {
                 
@@ -227,6 +240,22 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
             let coordinate = data[3].components(separatedBy: "coordinate\":")[1]
             location.coordinate = coordinate.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
                 .replacingOccurrences(of: "\\" , with: "", options: .literal, range: nil)
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            let type = location.coordinate?.components(separatedBy: "type:")[2]
+            let index = type?.index((type?.startIndex)!, offsetBy: 5)
+            location.type = type?.substring(to: index!)
             let name = data[4].components(separatedBy: "name\":")[1]
             location.name = name.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
             let description = data[5].components(separatedBy: "description\":")[1]

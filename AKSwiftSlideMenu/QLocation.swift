@@ -14,6 +14,7 @@ class QLocation {
     var description: String?
     var coordinate: String?
     var address: String?
+    var type: String?
     var galleryId: Int = 0
     var userId: Int = 0
     public func getType() -> String {
