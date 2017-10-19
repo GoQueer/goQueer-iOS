@@ -82,6 +82,24 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
                 }
             }
             break
+        case 7:
+            
+            if let url = URL(string: HomeVC.baseUrl + "/client/getSetStatusSummary?device_id=" + getDeviceId()) {
+                do {
+                    let contents = try String(contentsOf: url)
+                    if (contents != ""){
+                        let alertController = UIAlertController(title: "Set Status:", message:
+                            contents, preferredStyle: UIAlertControllerStyle.alert)
+                        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                        
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                    
+                }catch {
+                    
+                }
+            }
+            break
         default:
             print("default\n", terminator: "")
         }

@@ -59,11 +59,13 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         arrayMenuOptions.append(["title":"Set", "icon":"set"])
         arrayMenuOptions.append(["title":"Gallery", "icon":"gallery"])
-                arrayMenuOptions.append(["title":"Slideshow", "icon":"slideshow"])
+        arrayMenuOptions.append(["title":"Slideshow", "icon":"slideshow"])
         arrayMenuOptions.append(["title":"Tools", "icon":"tools"])
-                arrayMenuOptions.append(["title":"Achievement", "icon":"achievement"])
-                arrayMenuOptions.append(["title":"Share", "icon":"share"])
+        arrayMenuOptions.append(["title":"Achievement", "icon":"achievement"])
+        arrayMenuOptions.append(["title":"Share", "icon":"share"])
         arrayMenuOptions.append(["title":"Hint", "icon":"hint"])
+        arrayMenuOptions.append(["title":"Set Status?", "icon":"status"])
+
         
         tblMenuOptions.reloadData()
     }
