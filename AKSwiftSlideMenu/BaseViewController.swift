@@ -20,6 +20,34 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func getDeviceId() -> String {
+        //let UUID = NSUUID().uuidString
+        let UUID = UIDevice.current.identifierForVendor!.uuidString
+        return UUID
+    }
+    func getProfileName() -> String {
+        return "Edmonton";
+    }
+    
+    func showToast(message : String) {
+        
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center;
+        toastLabel.font = UIFont(name: "Montserrat-Light", size: 12.0)
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    }
+    
     func slideMenuItemSelectedAtIndex(_ index: Int32) {
         let topViewController : UIViewController = self.navigationController!.topViewController!
         print("View Controller is : \(topViewController) \n", terminator: "")
@@ -35,6 +63,24 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
             
             self.openViewControllerBasedOnIdentifier("PlayVC")
             
+            break
+        case 6:
+
+            if let url = URL(string: HomeVC.baseUrl + "/client/getHint?device_id=" + getDeviceId()+"&profile_name=" + getProfileName() ) {
+                do {
+                    let contents = try String(contentsOf: url)
+                    if (contents != ""){
+                        let alertController = UIAlertController(title: "Hint", message:
+                            contents, preferredStyle: UIAlertControllerStyle.alert)
+                        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                        
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                    
+                }catch {
+                    
+                }
+            }
             break
         default:
             print("default\n", terminator: "")

@@ -23,8 +23,8 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     var timer = Timer()
     var myPins:[CustomPin]!
     var selectedLocationId : Int = 0
-    //public static let baseUrl = "http://206.167.180.114/"
-    public static let baseUrl = "http://192.168.40.1:8000/"
+//    public static let baseUrl = "http://206.167.180.114/"
+    public static let baseUrl = "http://localhost:8000/"
     
     
 //    func callPhoneNumber(sender: UIButton)
@@ -52,19 +52,14 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         
     }
     
-    func getDeviceId() -> String {
-        let UUID = NSUUID().uuidString
-        return UUID
-    }
+   
     
     
     func scheduledTimerWithTimeInterval(){
         // Scheduling timer to Call the function **Countdown** with the interval of 1 seconds
         timer = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(self.updateLocations), userInfo: nil, repeats: true)
     }
-    func getProfileName() -> String {
-        return "Edmonton";
-    }
+   
     func updateLocations(){
         if let url = URL(string: HomeVC.baseUrl + "/client/getAllLocations?device_id=" + getDeviceId() + "&profile_name=" + getProfileName()) {
             do {
@@ -185,24 +180,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     
     
-    func showToast(message : String) {
-            
-            let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
-            toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-            toastLabel.textColor = UIColor.white
-            toastLabel.textAlignment = .center;
-            toastLabel.font = UIFont(name: "Montserrat-Light", size: 12.0)
-            toastLabel.text = message
-            toastLabel.alpha = 1.0
-            toastLabel.layer.cornerRadius = 10;
-            toastLabel.clipsToBounds  =  true
-            self.view.addSubview(toastLabel)
-            UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
-                toastLabel.alpha = 0.0
-            }, completion: {(isCompleted) in
-                toastLabel.removeFromSuperview()
-            })
-    }
+   
     
     
     func locationManager(_ manager: CLLocationManager,didUpdateLocations locations: [CLLocation])
@@ -240,18 +218,6 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
             let coordinate = data[3].components(separatedBy: "coordinate\":")[1]
             location.coordinate = coordinate.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
                 .replacingOccurrences(of: "\\" , with: "", options: .literal, range: nil)
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             
             let type = location.coordinate?.components(separatedBy: "type:")[2]
             let index = type?.index((type?.startIndex)!, offsetBy: 5)
