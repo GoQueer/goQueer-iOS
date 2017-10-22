@@ -49,38 +49,6 @@
             endingLineNumber = "57"
             landmarkName = "fetchImageFromURL(imageURL:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AKSwiftSlideMenu.PlayVC.fetchImageFromURL(imageURL: Foundation.URL) -&gt; ()"
-                  moduleName = "AKSwiftSlideMenu"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/labadmin/Workspace/goQueer-iOS/AKSwiftSlideMenu/PlayVC.swift"
-                  timestampString = "530337059.706747"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
-                  offsetFromSymbolStart = "21">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in AKSwiftSlideMenu.PlayVC.fetchImageFromURL(imageURL: Foundation.URL) -&gt; ()"
-                  moduleName = "AKSwiftSlideMenu"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/labadmin/Workspace/goQueer-iOS/AKSwiftSlideMenu/PlayVC.swift"
-                  timestampString = "530337059.711007"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "21">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
