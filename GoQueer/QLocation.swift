@@ -24,7 +24,7 @@ class QLocation {
     }
     
     public func getCoordinate() -> String {
-        var result = coordinate?.components(separatedBy: "{type:Feature,properties:{},geometry:{")[1]
+        let result = coordinate?.components(separatedBy: "{type:Feature,properties:{},geometry:{")[1]
         let typeCoordinate = result?.components(separatedBy: "type:")[1]
         let result1 = (typeCoordinate?.components(separatedBy: ",coordinates:[")[1])!
         let result2 = result1.components(separatedBy: "]")[0]

@@ -60,7 +60,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         timer = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(self.updateLocations), userInfo: nil, repeats: true)
     }
    
-    func updateLocations(){
+    @objc func updateLocations(){
         if let url = URL(string: HomeVC.baseUrl + "/client/getAllLocations?device_id=" + getDeviceId() + "&profile_name=" + getProfileName()) {
             do {
                 let contents = try String(contentsOf: url)
@@ -286,7 +286,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         mapView.setCenter((view.annotation?.coordinate)!, animated: true)
     }
     
-    func someAction(_ sender:UITapGestureRecognizer){
+    @objc func someAction(_ sender:UITapGestureRecognizer){
         var resultGallery = QGallery()
         for location in myLocations {
             if location.id == selectedLocationId {
