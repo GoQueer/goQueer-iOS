@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4D1C20DA1F959A43002D6E59 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1C20D91F959A43002D6E59 /* MapKit.framework */; };
+		4DF54C8B1F9C6DE700C71C4E /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 4DF54C8A1F9C6DE700C71C4E /* Base.lproj */; };
 		753A55C31BB073E900254F27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753A55C21BB073E900254F27 /* AppDelegate.swift */; };
 		753A55C81BB073E900254F27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 753A55C61BB073E900254F27 /* Main.storyboard */; };
 		753A55CA1BB073E900254F27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 753A55C91BB073E900254F27 /* Images.xcassets */; };
@@ -29,8 +30,8 @@
 
 /* Begin PBXFileReference section */
 		4D1C20D91F959A43002D6E59 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		753A55BD1BB073E900254F27 /* AKSwiftSlideMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AKSwiftSlideMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		753A55C11BB073E900254F27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DF54C8A1F9C6DE700C71C4E /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
+		753A55BD1BB073E900254F27 /* GoQueer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoQueer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		753A55C21BB073E900254F27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		753A55C71BB073E900254F27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		753A55C91BB073E900254F27 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -75,7 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				CE5B14691ED8FDC6004D1A1A /* Edmonton.gpx */,
-				753A55BF1BB073E900254F27 /* AKSwiftSlideMenu */,
+				753A55BF1BB073E900254F27 /* GoQueer */,
 				753A55BE1BB073E900254F27 /* Products */,
 				B33F9094694632131F5ABFF1 /* Pods */,
 				4D1C20D81F959A43002D6E59 /* Frameworks */,
@@ -85,14 +86,15 @@
 		753A55BE1BB073E900254F27 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				753A55BD1BB073E900254F27 /* AKSwiftSlideMenu.app */,
+				753A55BD1BB073E900254F27 /* GoQueer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		753A55BF1BB073E900254F27 /* AKSwiftSlideMenu */ = {
+		753A55BF1BB073E900254F27 /* GoQueer */ = {
 			isa = PBXGroup;
 			children = (
+				4DF54C8A1F9C6DE700C71C4E /* Base.lproj */,
 				CE5B145C1ED3F34D004D1A1A /* CustomPin.swift */,
 				753A55C21BB073E900254F27 /* AppDelegate.swift */,
 				C6EEF9F71CB7E4E000A3DC6D /* HomeVC.swift */,
@@ -112,13 +114,12 @@
 				753A55CB1BB073E900254F27 /* LaunchScreen.xib */,
 				753A55C01BB073E900254F27 /* Supporting Files */,
 			);
-			path = AKSwiftSlideMenu;
+			path = GoQueer;
 			sourceTree = "<group>";
 		};
 		753A55C01BB073E900254F27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				753A55C11BB073E900254F27 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -133,9 +134,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		753A55BC1BB073E900254F27 /* AKSwiftSlideMenu */ = {
+		753A55BC1BB073E900254F27 /* GoQueer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 753A55DC1BB073E900254F27 /* Build configuration list for PBXNativeTarget "AKSwiftSlideMenu" */;
+			buildConfigurationList = 753A55DC1BB073E900254F27 /* Build configuration list for PBXNativeTarget "GoQueer" */;
 			buildPhases = (
 				753A55B91BB073E900254F27 /* Sources */,
 				753A55BA1BB073E900254F27 /* Frameworks */,
@@ -146,9 +147,9 @@
 			);
 			dependencies = (
 			);
-			name = AKSwiftSlideMenu;
+			name = GoQueer;
 			productName = AKSwiftSlideMenu;
-			productReference = 753A55BD1BB073E900254F27 /* AKSwiftSlideMenu.app */;
+			productReference = 753A55BD1BB073E900254F27 /* GoQueer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -178,8 +179,8 @@
 					};
 				};
 			};
-			buildConfigurationList = 753A55B81BB073E900254F27 /* Build configuration list for PBXProject "AKSwiftSlideMenu" */;
-			compatibilityVersion = "Xcode 3.2";
+			buildConfigurationList = 753A55B81BB073E900254F27 /* Build configuration list for PBXProject "GoQueer" */;
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -191,7 +192,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				753A55BC1BB073E900254F27 /* AKSwiftSlideMenu */,
+				753A55BC1BB073E900254F27 /* GoQueer */,
 			);
 		};
 /* End PBXProject section */
@@ -205,6 +206,7 @@
 				CE5B14681ED8FC14004D1A1A /* Edmonton.gpx in Resources */,
 				753A55C81BB073E900254F27 /* Main.storyboard in Resources */,
 				753A55CD1BB073E900254F27 /* LaunchScreen.xib in Resources */,
+				4DF54C8B1F9C6DE700C71C4E /* Base.lproj in Resources */,
 				753A55CA1BB073E900254F27 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,10 +321,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos11.0;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -368,9 +370,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos11.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -405,7 +408,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		753A55B81BB073E900254F27 /* Build configuration list for PBXProject "AKSwiftSlideMenu" */ = {
+		753A55B81BB073E900254F27 /* Build configuration list for PBXProject "GoQueer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				753A55DA1BB073E900254F27 /* Debug */,
@@ -414,7 +417,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		753A55DC1BB073E900254F27 /* Build configuration list for PBXNativeTarget "AKSwiftSlideMenu" */ = {
+		753A55DC1BB073E900254F27 /* Build configuration list for PBXNativeTarget "GoQueer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				753A55DD1BB073E900254F27 /* Debug */,
