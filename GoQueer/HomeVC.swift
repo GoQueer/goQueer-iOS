@@ -62,7 +62,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     func scheduledTimerWithTimeInterval(){
         // Scheduling timer to Call the function **Countdown** with the interval of 1 seconds
-        timer = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(self.updateLocations), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 40, target: self, selector: #selector(self.updateLocations), userInfo: nil, repeats: true)
     }
    
     @objc func updateLocations(){
@@ -75,8 +75,12 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                 if let url = URL(string: HomeVC.baseUrl + "/client/getMyLocations?device_id=" + getDeviceId() + "&profile_name=" + getProfileName()) {
                     do {
                         let contents = try String(contentsOf: url)
-                        myLocations = []
-                        myLocations = parseLocations(contents)
+                        
+                        let tempMyLocations = parseLocations(contents)
+                        if (tempMyLocations.count == myLocations.count ){
+                            return;
+                        }
+                        myLocations = tempMyLocations
                         let allAnnotations = self.mapView.annotations
                         self.mapView.removeAnnotations(allAnnotations)
                         for myLocation in myLocations {
@@ -202,7 +206,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                 let coordinate0 = CLLocation(latitude: my.latitude, longitude: my.longitude)
                 let coordinate1 = CLLocation(latitude: Double(locationFromAll.getLat())!, longitude: Double(locationFromAll.getlong())!)
                 let distanceInMeters = coordinate0.distance(from: coordinate1) // result is in meters
-                if distanceInMeters < 50 {
+                if distanceInMeters < 5 {
                     
                     showToast(message: "You have discovered something!")
                 }

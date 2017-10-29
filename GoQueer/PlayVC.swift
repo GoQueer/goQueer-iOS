@@ -39,14 +39,17 @@ class PlayVC: BaseViewController {
     public static var myGallery = QGallery()
     override func viewDidLoad() {
         super.viewDidLoad()
-        chooseImage(mediaId: PlayVC.myGallery.media[index].id)
+        //chooseImage(mediaId: PlayVC.myGallery.media[index].id)
         descriptionText.text = PlayVC.myGallery.media[index].description
+        descriptionText.sizeToFit()
         titleText.text = PlayVC.myGallery.media[index].name
+        titleText.sizeToFit()
     }
     
     
+    @IBOutlet weak var pic: UIImageView!
     
-    @IBOutlet weak var picture: UIImageView!
+   
     func chooseImage(mediaId: Int) {
         var imageURL = URL(string: "")
         imageURL = URL(string: HomeVC.baseUrl + "client/downloadMediaById?media_id=" + String(mediaId) )
@@ -59,7 +62,7 @@ class PlayVC: BaseViewController {
             // Display about the actual image
             DispatchQueue.main.async {
                 if let imageData = fetch {
-                    self.picture.image = UIImage(data: imageData as Data)
+                    self.pic.image = UIImage(data: imageData as Data)
                 }
             }
         }

@@ -35,11 +35,11 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
         let defaults = UserDefaults.standard
         if let stringOne = defaults.string(forKey: defaultsKeys.keyOne) {
             if (stringOne == ""){
-                return "Orlando"
+                return "HASTAC"
             }
             else{ return stringOne}
         }
-        return "Orlando"
+        return "HASTAC"
     }
     
     
