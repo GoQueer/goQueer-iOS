@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomCalloutView" customModule="AKSwiftSlideMenu" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomCalloutView" customModule="GoQueer" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="300" height="165"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starbucks-2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="08t-aW-Ig0">
-                    <rect key="frame" x="0.0" y="0.0" width="165" height="165"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slideshow" translatesAutoresizingMaskIntoConstraints="NO" id="08t-aW-Ig0">
+                    <rect key="frame" x="0.0" y="0.0" width="157" height="165"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HF6-1M-H5a">
-                    <rect key="frame" x="173" y="8" width="119" height="51"/>
+                    <rect key="frame" x="165" y="0.0" width="119" height="67"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="119" id="AEw-Zb-XUm"/>
                     </constraints>
@@ -29,7 +28,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbz-X3-0mT">
-                    <rect key="frame" x="173" y="72" width="119" height="35"/>
+                    <rect key="frame" x="165" y="80" width="119" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="p1t-Dc-8Uc"/>
                     </constraints>
@@ -38,7 +37,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jix-yG-UqL">
-                    <rect key="frame" x="173" y="121" width="119" height="36"/>
+                    <rect key="frame" x="165" y="129" width="119" height="36"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="S6c-Ri-PnA"/>
                     </constraints>
@@ -75,6 +74,6 @@
         </view>
     </objects>
     <resources>
-        <image name="starbucks-2.jpg" width="259" height="194"/>
+        <image name="slideshow" width="50" height="50"/>
     </resources>
 </document>

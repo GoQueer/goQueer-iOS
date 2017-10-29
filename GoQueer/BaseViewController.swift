@@ -15,6 +15,11 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
         // Do any additional setup after loading the view.
     }
     
+    struct defaultsKeys {
+        static let keyOne = "currentProfileKey"
+        static let keyTwo = "secondStringKey"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -26,8 +31,18 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
         return UUID
     }
     func getProfileName() -> String {
-        return "Edmonton";
+        
+        let defaults = UserDefaults.standard
+        if let stringOne = defaults.string(forKey: defaultsKeys.keyOne) {
+            if (stringOne == ""){
+                return "Orlando"
+            }
+            else{ return stringOne}
+        }
+        return "Orlando"
     }
+    
+    
     
     func showToast(message : String) {
         
@@ -54,8 +69,31 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
         switch(index){
         case 0:
             print("Home\n", terminator: "")
+            //1. Create the alert controller.
+            let alert = UIAlertController(title: "City", message: "Enter a city name", preferredStyle: .alert)
+            
+            //2. Add the text field. You can configure it however you need.
+            alert.addTextField { (textField) in
+                textField.text = self.getProfileName()
+            }
+            
+            // 3. Grab the value from the text field, and print it when the user clicks OK.
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+                let textField = alert?.textFields![0] // Force unwrapping because we know it
+                let defaults = UserDefaults.standard
+                defaults.set((textField?.text)!, forKey: defaultsKeys.keyOne)
+                
 
-            self.openViewControllerBasedOnIdentifier("Home")
+               // self.setMyProfileName((textField?.text)!)
+            }))
+            
+            // 4. Present the alert.
+            self.present(alert, animated: true, completion: nil)
+            
+            
+            
+            
+           // self.openViewControllerBasedOnIdentifier("Home")
             
             break
         case 1:
@@ -78,6 +116,11 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
                     }
                     
                 }catch {
+                    let alertController = UIAlertController(title: "Hint", message:
+                        "No Hint available at the moment", preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                    
+                    self.present(alertController, animated: true, completion: nil)
                     
                 }
             }
@@ -148,7 +191,7 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
         return defaultMenuImage;
     }
     
-    func onSlideMenuButtonPressed(_ sender : UIButton){
+    @objc func onSlideMenuButtonPressed(_ sender : UIButton){
         if (sender.tag == 10)
         {
             // To Hide Menu If it already there

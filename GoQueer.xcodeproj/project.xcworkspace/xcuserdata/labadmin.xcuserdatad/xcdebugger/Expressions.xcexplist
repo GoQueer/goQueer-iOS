@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "closure #2 in BaseViewController.slideMenuItemSelectedAtIndex(_:):BaseViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "textField?.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "HomeVC.updateLocations():HomeVC.swift">
          <PersistentStrings>
             <PersistentString

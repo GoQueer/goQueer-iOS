@@ -23,8 +23,8 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     var timer = Timer()
     var myPins:[CustomPin]!
     var selectedLocationId : Int = 0
-//    public static let baseUrl = "http://206.167.180.114/"
-    public static let baseUrl = "http://localhost:8000/"
+    public static let baseUrl = "http://206.167.180.114/"
+   // public static let baseUrl = "http://localhost:8000/"
     
     
 //    func callPhoneNumber(sender: UIButton)
@@ -52,6 +52,11 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
    
     
     
@@ -64,6 +69,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         if let url = URL(string: HomeVC.baseUrl + "/client/getAllLocations?device_id=" + getDeviceId() + "&profile_name=" + getProfileName()) {
             do {
                 let contents = try String(contentsOf: url)
+                
                 allLocations = []
                 allLocations = parseLocations(contents)
                 if let url = URL(string: HomeVC.baseUrl + "/client/getMyLocations?device_id=" + getDeviceId() + "&profile_name=" + getProfileName()) {

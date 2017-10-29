@@ -15,28 +15,28 @@ protocol SlideMenuDelegate {
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     /**
-    *  Array to display menu options
-    */
+     *  Array to display menu options
+     */
     @IBOutlet var tblMenuOptions : UITableView!
     
     /**
-    *  Transparent button to hide menu
-    */
+     *  Transparent button to hide menu
+     */
     @IBOutlet var btnCloseMenuOverlay : UIButton!
     
     /**
-    *  Array containing menu options
-    */
+     *  Array containing menu options
+     */
     var arrayMenuOptions = [Dictionary<String,String>]()
     
     /**
-    *  Menu button which was tapped to display the menu
-    */
+     *  Menu button which was tapped to display the menu
+     */
     var btnMenu : UIButton!
     
     /**
-    *  Delegate of the MenuVC
-    */
+     *  Delegate of the MenuVC
+     */
     var delegate : SlideMenuDelegate?
     
     override func viewDidLoad() {
@@ -85,9 +85,9 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.view.frame = CGRect(x: -UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width,height: UIScreen.main.bounds.size.height)
             self.view.layoutIfNeeded()
             self.view.backgroundColor = UIColor.clear
-            }, completion: { (finished) -> Void in
-                self.view.removeFromSuperview()
-                self.removeFromParentViewController()
+        }, completion: { (finished) -> Void in
+            self.view.removeFromSuperview()
+            self.removeFromParentViewController()
         })
     }
     
