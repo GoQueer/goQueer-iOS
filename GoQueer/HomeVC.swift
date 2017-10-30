@@ -6,7 +6,7 @@ import CoreLocation
 
 
 class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
-    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet  var mapView: MKMapView!
     
     var locationManager: CLLocationManager = CLLocationManager()
     var startLocation: CLLocation!
@@ -138,6 +138,22 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                                     }
 
                                 }
+                            } else if myLocation.type == "Polyg" {
+                                var places = [CustomPolygon]()
+                                
+                                for item in myLocation.parseCoordinateOfLocation() {
+                                    
+                                    
+                                    let place = CustomPolygon(title: myLocation.name, subtitle: myLocation.address, coordinate: CLLocationCoordinate2DMake(Double(item.lat)!, Double(item.lng)!))
+                                    places.append(place)
+                                }
+                                
+                                //let polygon = CustomPolygon(title: myLocation.name, subtitle: myLocation.address,qlocation: myLocation)
+                                //let places = polygon.getPlaces()
+                                addAnnotations(places: places)
+                                addPolyline(places: places)
+                                addPolygon(places: places)
+                                
                             }
                         }
                         
@@ -152,6 +168,36 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         }
     
     }
+    func addAnnotations(places: [CustomPolygon]) {
+        mapView?.delegate = self
+        mapView?.addAnnotations(places)
+        
+        let overlays = places.map { MKCircle(center: $0.coordinate, radius: 100) }
+        mapView?.addOverlays(overlays)
+        
+        // Add polylines
+        
+        //        var locations = places.map { $0.coordinate }
+        //        print("Number of locations: \(locations.count)")
+        //        let polyline = MKPolyline(coordinates: &locations, count: locations.count)
+        //        mapView?.add(polyline)
+        
+    }
+    
+    func addPolyline(places: [CustomPolygon]) {
+        var locations = places.map { $0.coordinate }
+        let polyline = MKPolyline(coordinates: &locations, count: locations.count)
+        
+        mapView?.add(polyline)
+    }
+    
+    func addPolygon(places: [CustomPolygon]) {
+        var locations = places.map { $0.coordinate }
+        let polygon = MKPolygon(coordinates: &locations, count: locations.count)
+        mapView?.add(polygon)
+    }
+    
+    
     func findCoverPicture(galleryId: Int) -> Int {
         for gallery in myGalleries {
             if gallery.id ==  galleryId && gallery.media.count > 0 {
@@ -284,8 +330,65 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     }
     
     
-    //MARK: MKMapViewDelegate
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKCircle {
+            let renderer = MKCircleRenderer(overlay: overlay)
+            renderer.fillColor = UIColor.black.withAlphaComponent(0.5)
+            renderer.strokeColor = UIColor.blue
+            renderer.lineWidth = 2
+            return renderer
+            
+        } else if overlay is MKPolyline {
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            renderer.strokeColor = UIColor.orange
+            renderer.lineWidth = 3
+            return renderer
+            
+        } else if overlay is MKPolygon {
+            let renderer = MKPolygonRenderer(polygon: overlay as! MKPolygon)
+            renderer.fillColor = UIColor.black.withAlphaComponent(0.5)
+            renderer.strokeColor = UIColor.orange
+            renderer.lineWidth = 2
+            return renderer
+        }
+        
+        return MKOverlayRenderer()
+    }
+    
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let annotation = view.annotation as? CustomPolygon, let title = annotation.title else { return }
+        
+        let alertController = UIAlertController(title: "Welcome to \(title)", message: "You've selected \(title)", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+   
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+            
+        else {
+            var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "Pin")
+        
+            if annotationView == nil{
+                annotationView = AnnotationView(annotation: annotation, reuseIdentifier: "Pin")
+                annotationView?.canShowCallout = false
+            }else{
+                annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationView") ?? MKAnnotationView()
+            }
+            
+            annotationView?.image = UIImage(named: "locationPin")
+        
+            
+            return annotationView
+        }
+    }
+    /*
+   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         if annotation is MKUserLocation
         {
@@ -298,9 +401,12 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         }else{
             annotationView?.annotation = annotation
         }
+        
         annotationView?.image = UIImage(named: "locationPin")
+        
+        
         return annotationView
-    }
+    }*/
     
     
     func mapView(_ mapView: MKMapView,didSelect view: MKAnnotationView)
@@ -366,3 +472,5 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
       
 
 }
+
+

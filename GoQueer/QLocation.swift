@@ -36,5 +36,31 @@ class QLocation {
     public func getlong() -> String {
         return getCoordinate().components(separatedBy: ",")[0]
     }
+    
+    func parseCoordinateOfLocation() -> [QCoordinate]{
+        var finalArray: [QCoordinate] = []
+        var result = coordinate?.components(separatedBy: "{type:Feature,properties:{},geometry:{type:Polygon,coordinates:[[")[1]
+        let index = result?.index((result?.endIndex)!, offsetBy: -4)
+        result = result?.substring(to: index!)
+        let records = result?.components(separatedBy: "[")
+        for chunk in records! {
+            if chunk != "" {
+                var temp = chunk.replacingOccurrences(of: "]", with: "")
+                let qCoordinate = QCoordinate()
+                qCoordinate.lat = temp.components(separatedBy: ",")[0]
+                qCoordinate.lng = temp.components(separatedBy: ",")[1]
+                
+                
+                
+                finalArray.append(qCoordinate)
+            }
+        }
+        
+        
+        
+        
+        return finalArray
+        
+    }
 
 }
