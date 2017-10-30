@@ -72,16 +72,42 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                 
                 allLocations = []
                 allLocations = parseLocations(contents)
+       
+                
+                
                 if let url = URL(string: HomeVC.baseUrl + "/client/getMyLocations?device_id=" + getDeviceId() + "&profile_name=" + getProfileName()) {
                     do {
                         let contents = try String(contentsOf: url)
                         
                        
                         let tempMyLocations = parseLocations(contents)
-                        if (tempMyLocations.count == myLocations.count ){
-                              return;
-                       }
+                       // if (tempMyLocations.count == myLocations.count && tempMyLocations.count>0){
+                       //       return;
+                      // }
                         myLocations = tempMyLocations
+                        
+                        var undiscoveredLocations:[QLocation] = []
+                        for allLocation in allLocations {
+                            var flag = false
+                            for myLocation in myLocations {
+                                
+                                if (myLocation.id == allLocation.id){
+                                    flag = true
+                                }
+                                
+                            }
+                            if (!flag){
+                                undiscoveredLocations.append(allLocation)
+                            }
+                            
+                            
+                        }
+                        if (undiscoveredLocations.count>0){
+                            if (currentCoordinate != nil){
+                                compareCoordinates(all: undiscoveredLocations, my: currentCoordinate)
+                            }
+                        }
+                        
                         let allAnnotations = self.mapView.annotations
                         self.mapView.removeAnnotations(allAnnotations)
                         for myLocation in myLocations {
@@ -207,13 +233,24 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                 let coordinate0 = CLLocation(latitude: my.latitude, longitude: my.longitude)
                 let coordinate1 = CLLocation(latitude: Double(locationFromAll.getLat())!, longitude: Double(locationFromAll.getlong())!)
                 let distanceInMeters = coordinate0.distance(from: coordinate1) // result is in meters
-                if distanceInMeters < 50 {
+                if distanceInMeters < 10 {
+                    if let url = URL(string: HomeVC.baseUrl + "/client/setDiscoveryStatus?device_id=" + getDeviceId() + "&location_id=" + String(locationFromAll.id)) {
+                        do {
+                            let contents = try String(contentsOf: url)
+                                showToast(message: "You have discovered something! stop!")
+                        }
+                        catch {
+                            
+                        }
+                    }
+                }
                     
-                    showToast(message: "You have discovered something!")
+                
+                    
                 }
             }
         }
-    }
+    
     
     
     

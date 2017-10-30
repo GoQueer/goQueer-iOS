@@ -25,13 +25,21 @@ class PlayVC: BaseViewController {
             self.index = index - 1
             return self.index
         }
+        else{
+            showToast(message: "Nothing left")
+        }
         return 0
     }
+    
+    
     
     func getNext(index: Int) -> Int{
         if index < PlayVC.myGallery.media.count-1 {
             self.index = index+1 
             return self.index
+        }
+        else{
+            showToast(message: "Nothing left")
         }
         return PlayVC.myGallery.media.count-1
     }

@@ -14,10 +14,16 @@
          contextName = "HomeVC.updateLocations():HomeVC.swift">
          <PersistentStrings>
             <PersistentString
+               value = "allLocations">
+            </PersistentString>
+            <PersistentString
                value = "myGalleries">
             </PersistentString>
             <PersistentString
                value = "myLocations">
+            </PersistentString>
+            <PersistentString
+               value = "currentCoordinate">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
