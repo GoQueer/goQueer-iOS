@@ -29,11 +29,11 @@ class PlayVC: BaseViewController {
     }
     
     func getNext(index: Int) -> Int{
-        if index < PlayVC.myGallery.media.count {
+        if index < PlayVC.myGallery.media.count-1 {
             self.index = index+1 
             return self.index
         }
-        return PlayVC.myGallery.media.count
+        return PlayVC.myGallery.media.count-1
     }
     var index: Int = 0
     public static var myGallery = QGallery()
