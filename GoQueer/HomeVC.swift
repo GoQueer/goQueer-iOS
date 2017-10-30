@@ -62,7 +62,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     func scheduledTimerWithTimeInterval(){
         // Scheduling timer to Call the function **Countdown** with the interval of 1 seconds
-        timer = Timer.scheduledTimer(timeInterval: 40, target: self, selector: #selector(self.updateLocations), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(self.updateLocations), userInfo: nil, repeats: true)
     }
    
     @objc func updateLocations(){
@@ -76,10 +76,11 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                     do {
                         let contents = try String(contentsOf: url)
                         
+                       
                         let tempMyLocations = parseLocations(contents)
                         if (tempMyLocations.count == myLocations.count ){
-                            return;
-                        }
+                              return;
+                       }
                         myLocations = tempMyLocations
                         let allAnnotations = self.mapView.annotations
                         self.mapView.removeAnnotations(allAnnotations)
@@ -206,7 +207,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
                 let coordinate0 = CLLocation(latitude: my.latitude, longitude: my.longitude)
                 let coordinate1 = CLLocation(latitude: Double(locationFromAll.getLat())!, longitude: Double(locationFromAll.getlong())!)
                 let distanceInMeters = coordinate0.distance(from: coordinate1) // result is in meters
-                if distanceInMeters < 5 {
+                if distanceInMeters < 50 {
                     
                     showToast(message: "You have discovered something!")
                 }

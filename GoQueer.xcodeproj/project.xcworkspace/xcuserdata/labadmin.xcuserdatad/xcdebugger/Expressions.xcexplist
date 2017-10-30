@@ -17,7 +17,7 @@
                value = "myGalleries">
             </PersistentString>
             <PersistentString
-               value = "allLocations">
+               value = "myLocations">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
