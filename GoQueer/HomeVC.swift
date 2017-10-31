@@ -5,7 +5,7 @@ import CoreLocation
 
 
 
-class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, SlideMenuDelegate {
     @IBOutlet  var mapView: MKMapView!
     
     var locationManager: CLLocationManager = CLLocationManager()
@@ -41,14 +41,8 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         scheduledTimerWithTimeInterval()
         updateLocations()
         self.mapView.delegate = self
-        if (getProfileName() == "HASTAC"){
-            let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 28.602, longitude: -81.200), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-                self.mapView.setRegion(region, animated: true)
-        } else if (getProfileName() == "Edmonton") {
-            let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 53.521436, longitude: -113.487262), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-                self.mapView.setRegion(region, animated: true)
-        }
-        
+      
+        moveToRegion(city: getProfileName())
         
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
@@ -56,6 +50,161 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         locationManager.startUpdatingLocation()
         startLocation = nil
         
+    }
+    
+    var skinType: String!
+    func slideMenuItemSelectedAtIndex(_ index: Int32) {
+        let topViewController : UIViewController = self.navigationController!.topViewController!
+        print("View Controller is : \(topViewController) \n", terminator: "")
+        switch(index){
+        case 0:
+            print("Home\n", terminator: "")
+            
+            //1.
+            
+            let alert = UIAlertController(title: "City", message: "Select your City", preferredStyle: .alert)
+            
+            
+           // alert.addTextField { (textField) in
+            //    textField.text = self.getProfileName()
+           // }
+            
+          
+            alert.addAction(UIAlertAction(title: "Edmonton", style: .default, handler: { [weak alert] (_) in
+                
+                let defaults = UserDefaults.standard
+                defaults.set("Edmonton", forKey: defaultsKeys.keyOne)
+                self.moveToRegion(city: "Edmonton")
+                
+            
+            }))
+            
+            alert.addAction(UIAlertAction(title: "HASTAC", style: .default, handler: { [weak alert] (_) in
+                
+                let defaults = UserDefaults.standard
+                defaults.set("HASTAC", forKey: defaultsKeys.keyOne)
+                self.moveToRegion(city: "HASTAC")
+                
+                
+            }))
+ 
+            self.present(alert, animated: true, completion: nil)
+ 
+            // 4.
+            
+            ////////////
+            
+ 
+            
+            break
+        case 1:
+            print("Play\n", terminator: "")
+            
+            self.openViewControllerBasedOnIdentifier("PlayVC")
+            
+            break
+        case 6:
+            
+            if let url = URL(string: HomeVC.baseUrl + "/client/getHint?device_id=" + getDeviceId()+"&profile_name=" + getProfileName() ) {
+                do {
+                    let contents = try String(contentsOf: url)
+                    if (contents != ""){
+                        let alertController = UIAlertController(title: "Hint", message:
+                            contents, preferredStyle: UIAlertControllerStyle.alert)
+                        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                        
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                    
+                }catch {
+                    let alertController = UIAlertController(title: "Hint", message:
+                        "No Hint available at the moment", preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                    
+                }
+            }
+            break
+        case 7:
+            
+            if let url = URL(string: HomeVC.baseUrl + "/client/getSetStatusSummary?device_id=" + getDeviceId()) {
+                do {
+                    let contents = try String(contentsOf: url)
+                    if (contents != ""){
+                        let alertController = UIAlertController(title: "Set Status:", message:
+                            contents, preferredStyle: UIAlertControllerStyle.alert)
+                        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                        
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                    
+                }catch {
+                    
+                }
+            }
+            break
+        default:
+            print("default\n", terminator: "")
+        }
+    }
+     func moveToRegion(city: String){
+        if (city == "HASTAC"){
+            let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 28.602, longitude: -81.200), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+            self.mapView.setRegion(region, animated: true)
+        } else if (city == "Edmonton" || city == "edmonton" ) {
+            let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 53.521436, longitude: -113.487262), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+            self.mapView.setRegion(region, animated: true)
+        }
+    }
+    func addSlideMenuButton(){
+        let btnShowMenu = UIButton(type: UIButtonType.system)
+        btnShowMenu.setImage(self.defaultMenuImage(), for: UIControlState())
+        btnShowMenu.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        btnShowMenu.addTarget(self, action: #selector(HomeVC.onSlideMenuButtonPressed(_:)), for: UIControlEvents.touchUpInside)
+        let customBarItem = UIBarButtonItem(customView: btnShowMenu)
+        self.navigationItem.leftBarButtonItem = customBarItem;
+    }
+    @objc func onSlideMenuButtonPressed(_ sender : UIButton){
+        if (sender.tag == 10)
+        {
+            // To Hide Menu If it already there
+            self.slideMenuItemSelectedAtIndex(-1);
+            
+            sender.tag = 0;
+            
+            let viewMenuBack : UIView = view.subviews.last!
+            
+            UIView.animate(withDuration: 0.3, animations: { () -> Void in
+                var frameMenu : CGRect = viewMenuBack.frame
+                frameMenu.origin.x = -1 * UIScreen.main.bounds.size.width
+                viewMenuBack.frame = frameMenu
+                viewMenuBack.layoutIfNeeded()
+                viewMenuBack.backgroundColor = UIColor.clear
+            }, completion: { (finished) -> Void in
+                viewMenuBack.removeFromSuperview()
+            })
+            
+            return
+        }
+        
+        sender.isEnabled = false
+        sender.tag = 10
+        
+        let menuVC : MenuViewController = self.storyboard!.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        menuVC.btnMenu = sender
+        menuVC.delegate = self
+        self.view.addSubview(menuVC.view)
+        self.addChildViewController(menuVC)
+        menuVC.view.layoutIfNeeded()
+        
+        
+        menuVC.view.frame=CGRect(x: 0 - UIScreen.main.bounds.size.width, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
+        
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
+            menuVC.view.frame=CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
+            sender.isEnabled = true
+        }, completion:nil)
     }
     
     override func didReceiveMemoryWarning() {

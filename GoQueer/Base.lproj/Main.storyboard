@@ -34,7 +34,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Go Queer" id="a1u-Ki-tSz"/>
                     <connections>
-                        <outlet property="mapView" destination="v8n-MU-eY3" id="hg2-lE-CiW"/>
+                        <outlet property="mapView" destination="v8n-MU-eY3" id="gGJ-lU-TzX"/>
                         <outlet property="picture" destination="9py-vd-bkJ" id="FHc-ZN-pDH"/>
                         <segue destination="khG-SL-0rk" kind="show" identifier="gallerySegue" id="jcP-5w-5Ql"/>
                     </connections>
