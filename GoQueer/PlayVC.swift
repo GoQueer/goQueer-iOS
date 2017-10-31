@@ -67,7 +67,11 @@ class PlayVC: BaseViewController {
             // Display about the actual image
             DispatchQueue.main.async {
                 if let imageData = fetch {
+                    
+                    let imageView = UIImageView(frame: self.view.bounds)
                     self.picture.image = UIImage(data: imageData as Data)
+                    //imageView.image = UIImage(named: "bkgrd")
+                    self.view.addSubview(imageView)
                 }
             }
         }

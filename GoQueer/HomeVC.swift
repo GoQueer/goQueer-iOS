@@ -41,8 +41,14 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate {
         scheduledTimerWithTimeInterval()
         updateLocations()
         self.mapView.delegate = self
-        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 53.521436, longitude: -113.487262), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-        self.mapView.setRegion(region, animated: true)
+        if (getProfileName() == "HASTAC"){
+            let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 28.602, longitude: -81.200), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+                self.mapView.setRegion(region, animated: true)
+        } else if (getProfileName() == "Edmonton") {
+            let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 53.521436, longitude: -113.487262), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+                self.mapView.setRegion(region, animated: true)
+        }
+        
         
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self

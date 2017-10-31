@@ -57,7 +57,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func updateArrayMenuOptions(){
         
-        arrayMenuOptions.append(["title":"Set", "icon":"set"])
+        arrayMenuOptions.append(["title":"Set City", "icon":"set"])
         arrayMenuOptions.append(["title":"Gallery", "icon":"gallery"])
         arrayMenuOptions.append(["title":"Slideshow", "icon":"slideshow"])
         arrayMenuOptions.append(["title":"Tools", "icon":"tools"])
