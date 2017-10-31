@@ -3,12 +3,23 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "HomeVC.someAction(_:):HomeVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "myGalleries">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #2 in BaseViewController.slideMenuItemSelectedAtIndex(_:):BaseViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "textField?.text">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "main:AppDelegate.swift">
       </ContextState>
       <ContextState
          contextName = "HomeVC.updateLocations():HomeVC.swift">

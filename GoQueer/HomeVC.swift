@@ -38,7 +38,8 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         addSlideMenuButton()
-        scheduledTimerWithTimeInterval()
+        scheduledTimerWithTimeIntervalForPullingData()
+        scheduledTimerWithTimeIntervalForComparingCoordinates()
         updateLocations()
         self.mapView.delegate = self
       
@@ -228,9 +229,39 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
    
     
     
-    func scheduledTimerWithTimeInterval(){
+    func scheduledTimerWithTimeIntervalForPullingData(){
         // Scheduling timer to Call the function **Countdown** with the interval of 1 seconds
         timer = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(self.updateLocations), userInfo: nil, repeats: true)
+    }
+    
+    func scheduledTimerWithTimeIntervalForComparingCoordinates(){
+        // Scheduling timer to Call the function **Countdown** with the interval of 1 seconds
+        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.prepareAndCompare), userInfo: nil, repeats: true)
+    }
+    
+    @objc func prepareAndCompare(){
+        var undiscoveredLocations:[QLocation] = []
+        let tempAllLocations = allLocations
+        for allLocation in tempAllLocations {
+            var flag = false
+            for myLocation in myLocations {
+                
+                if (myLocation.id == allLocation.id){
+                    flag = true
+                }
+                
+            }
+            if (!flag){
+                undiscoveredLocations.append(allLocation)
+            }
+            
+            
+        }
+        if (undiscoveredLocations.count>0){
+            if (currentCoordinate != nil){
+                compareCoordinates(all: undiscoveredLocations, my: currentCoordinate)
+            }
+        }
     }
    
     @objc func updateLocations(){
