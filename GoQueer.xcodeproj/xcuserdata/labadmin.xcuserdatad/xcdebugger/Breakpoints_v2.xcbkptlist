@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoQueer/HomeVC.swift"
-            timestampString = "531109367.328315"
+            timestampString = "531111713.799583"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "460"
-            endingLineNumber = "460"
+            startingLineNumber = "481"
+            endingLineNumber = "481"
             landmarkName = "parseLocations(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoQueer/HomeVC.swift"
-            timestampString = "531109367.328381"
+            timestampString = "531111713.800329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "updateLocations()"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoQueer/HomeVC.swift"
-            timestampString = "531109367.328436"
+            timestampString = "531111713.800992"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "438"
-            endingLineNumber = "438"
+            startingLineNumber = "459"
+            endingLineNumber = "459"
             landmarkName = "compareCoordinates(all:my:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoQueer/HomeVC.swift"
-            timestampString = "531109367.328489"
+            timestampString = "531111713.801579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "updateLocations()"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoQueer/HomeVC.swift"
-            timestampString = "531109367.328541"
+            timestampString = "531111713.802164"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
             landmarkName = "updateLocations()"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoQueer/HomeVC.swift"
-            timestampString = "531109367.328593"
+            timestampString = "531111713.802769"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "238"
-            endingLineNumber = "238"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
             landmarkName = "updateLocations()"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoQueer/HomeVC.swift"
-            timestampString = "531109367.328645"
+            timestampString = "531111713.803357"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
+            startingLineNumber = "328"
+            endingLineNumber = "328"
             landmarkName = "updateLocations()"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoQueer/HomeVC.swift"
-            timestampString = "531109367.328697"
+            timestampString = "531111713.803987"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "560"
-            endingLineNumber = "560"
+            startingLineNumber = "589"
+            endingLineNumber = "589"
             landmarkName = "HomeVC"
             landmarkType = "3">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoQueer/HomeVC.swift"
-            timestampString = "531109367.328748"
+            timestampString = "531111713.804591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "525"
-            endingLineNumber = "525"
+            startingLineNumber = "554"
+            endingLineNumber = "554"
             landmarkName = "mapView(_:viewFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoQueer/HomeVC.swift"
-            timestampString = "531109367.328799"
+            timestampString = "531111713.805178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "489"
-            endingLineNumber = "489"
+            startingLineNumber = "518"
+            endingLineNumber = "518"
             landmarkName = "mapView(_:rendererFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoQueer/HomeVC.swift"
-            timestampString = "531109367.328851"
+            timestampString = "531111713.805768"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "515"
-            endingLineNumber = "515"
+            startingLineNumber = "544"
+            endingLineNumber = "544"
             landmarkName = "mapView(_:annotationView:calloutAccessoryControlTapped:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoQueer/HomeVC.swift"
-            timestampString = "531109367.328902"
+            timestampString = "531111713.806333"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "569"
-            endingLineNumber = "569"
+            startingLineNumber = "598"
+            endingLineNumber = "598"
             landmarkName = "mapView(_:didSelect:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoQueer/HomeVC.swift"
-            timestampString = "531109367.328954"
+            timestampString = "531111713.806896"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "moveToRegion(city:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoQueer/HomeVC.swift"
-            timestampString = "531109367.329005"
+            timestampString = "531111713.807466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "slideMenuItemSelectedAtIndex(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -298,12 +298,108 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GoQueer/HomeVC.swift"
-            timestampString = "531109367.329052"
+            timestampString = "531111713.80801"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "slideMenuItemSelectedAtIndex(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoQueer/HomeVC.swift"
+            timestampString = "531111713.808554"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "slideMenuItemSelectedAtIndex(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoQueer/HomeVC.swift"
+            timestampString = "531111713.809104"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "slideMenuItemSelectedAtIndex(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoQueer/HomeVC.swift"
+            timestampString = "531111713.80968"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "slideMenuItemSelectedAtIndex(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GoQueer.HomeVC.slideMenuItemSelectedAtIndex(Swift.Int32) -&gt; ()"
+                  moduleName = "GoQueer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/labadmin/Workspace/goQueer-iOS/GoQueer/HomeVC.swift"
+                  timestampString = "531110660.291898"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "7064">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GoQueer.HomeVC.slideMenuItemSelectedAtIndex(Swift.Int32) -&gt; ()"
+                  moduleName = "GoQueer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/labadmin/Workspace/goQueer-iOS/GoQueer/HomeVC.swift"
+                  timestampString = "531110660.294054"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "8364">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GoQueer/HomeVC.swift"
+            timestampString = "531111713.810278"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "511"
+            endingLineNumber = "511"
+            landmarkName = "mapView(mapView:annotationView:control:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

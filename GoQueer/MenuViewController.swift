@@ -63,8 +63,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         arrayMenuOptions.append(["title":"Tools", "icon":"tools"])
         arrayMenuOptions.append(["title":"Achievement", "icon":"achievement"])
         arrayMenuOptions.append(["title":"Share", "icon":"share"])
-        arrayMenuOptions.append(["title":"Hint", "icon":"hint"])
-        arrayMenuOptions.append(["title":"Set Status?", "icon":"status"])
+        arrayMenuOptions.append(["title":"Get Hint?", "icon":"hint"])
+        arrayMenuOptions.append(["title":"Progress Status?", "icon":"status"])
 
         
         tblMenuOptions.reloadData()

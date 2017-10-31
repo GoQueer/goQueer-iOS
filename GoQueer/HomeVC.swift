@@ -50,9 +50,30 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
         locationManager.startUpdatingLocation()
         startLocation = nil
         
+        
+    }
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        
+        let annotationTap = UITapGestureRecognizer(target: self, action: "tapRecognized")
+        annotationTap.numberOfTapsRequired = 1
+        view.addGestureRecognizer(annotationTap)
+        
+        let selectedAnnotations = mapView.selectedAnnotations
+        
+        for annotationView in selectedAnnotations{
+            mapView.deselectAnnotation(annotationView, animated: true)
+        }
+    }
+    func tapRecognized(gesture:UITapGestureRecognizer){
+        
+        let selectedAnnotations = mapView.selectedAnnotations
+        
+        for annotationView in selectedAnnotations{
+            mapView.deselectAnnotation(annotationView, animated: true)
+        }
     }
     
-    var skinType: String!
+   
     func slideMenuItemSelectedAtIndex(_ index: Int32) {
         let topViewController : UIViewController = self.navigationController!.topViewController!
         print("View Controller is : \(topViewController) \n", terminator: "")
@@ -64,11 +85,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
             
             let alert = UIAlertController(title: "City", message: "Select your City", preferredStyle: .alert)
             
-            
-           // alert.addTextField { (textField) in
-            //    textField.text = self.getProfileName()
-           // }
-            
+        
           
             alert.addAction(UIAlertAction(title: "Edmonton", style: .default, handler: { [weak alert] (_) in
                 
@@ -90,11 +107,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
  
             self.present(alert, animated: true, completion: nil)
  
-            // 4.
-            
-            ////////////
-            
- 
+    
             
             break
         case 1:
@@ -128,7 +141,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
             break
         case 7:
             
-            if let url = URL(string: HomeVC.baseUrl + "/client/getSetStatusSummary?device_id=" + getDeviceId()) {
+            if let url = URL(string: HomeVC.baseUrl + "/client/getSetStatusSummary?device_id=" + getDeviceId() + "&gallery_id=16" ) {
                 do {
                     let contents = try String(contentsOf: url)
                     if (contents != ""){
@@ -482,6 +495,14 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
             all.append(location)
         }
         return all
+    }
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView,
+                  control: UIControl)
+    {
+        let pin = view.annotation
+        mapView.deselectAnnotation(pin, animated: false)
+        //1Gwn6U2AUZwz7oYFiiJK7careTvn7DqYTS("Next VC Segue", sender: nil)
     }
     
     
