@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4D1C20DA1F959A43002D6E59 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1C20D91F959A43002D6E59 /* MapKit.framework */; };
-		4D4F53C11FA53EEA009BC4C3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D4F53C01FA53EEA009BC4C3 /* Info.plist */; };
 		4D7B5C331FA6CA64005796B6 /* CustomPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5C321FA6CA63005796B6 /* CustomPolygon.swift */; };
 		4D7B5C351FA6CC9C005796B6 /* QCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5C341FA6CC9C005796B6 /* QCoordinate.swift */; };
 		4DF54C8B1F9C6DE700C71C4E /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 4DF54C8A1F9C6DE700C71C4E /* Base.lproj */; };
@@ -169,7 +168,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = Kode;
 				TargetAttributes = {
 					753A55BC1BB073E900254F27 = {
@@ -217,7 +216,6 @@
 				753A55CD1BB073E900254F27 /* LaunchScreen.xib in Resources */,
 				4DF54C8B1F9C6DE700C71C4E /* Base.lproj in Resources */,
 				753A55CA1BB073E900254F27 /* Images.xcassets in Resources */,
-				4D4F53C11FA53EEA009BC4C3 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,8 +333,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
-				SDKROOT = iphoneos11.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -386,7 +384,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos11.0;
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -401,6 +399,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ca.ualberta.goqueer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -416,6 +415,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ca.ualberta.goqueer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
