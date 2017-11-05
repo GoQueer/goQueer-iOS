@@ -3,10 +3,21 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "HomeVC.parseProfiles(_:):HomeVC.swift">
+      </ContextState>
+      <ContextState
          contextName = "HomeVC.someAction(_:):HomeVC.swift">
          <PersistentStrings>
             <PersistentString
                value = "myGalleries">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HomeVC.viewDidLoad():HomeVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "getProfileName() ">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

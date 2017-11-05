@@ -5,7 +5,7 @@ import CoreLocation
 
 
 
-class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, SlideMenuDelegate {
+class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, RadioButtonControllerDelegate, SlideMenuDelegate {
     @IBOutlet  var mapView: MKMapView!
     
     var locationManager: CLLocationManager = CLLocationManager()
@@ -43,7 +43,48 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
         updateLocations()
         self.mapView.delegate = self
       
-        moveToRegion(city: getProfileName())
+        //moveToRegion(city: getProfileName())
+        if (  getProfileName() == "" ) {
+            let alert = UIAlertController(title: "City", message: "Select your City", preferredStyle: .alert)
+            if let url = URL(string: HomeVC.baseUrl + "/client/getAllProfiles") {
+                do {
+                    let contents = try String(contentsOf: url)
+                    if (contents != ""){
+                        
+                        let profiles = parseProfiles(contents)
+                        for profile in profiles {
+                            alert.addAction(UIAlertAction(title: profile.name, style: .default, handler: { [weak alert] (_) in
+                                let defaults = UserDefaults.standard
+                                defaults.set(profile.name, forKey: defaultsKeys.keyOne)
+                                self.moveToRegion(city: profile)
+                                
+                                
+                            }))
+                        }
+                    }
+                }
+                catch {}
+            }
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            if let url = URL(string: HomeVC.baseUrl + "/client/getAllProfiles") {
+                do {
+                    let contents = try String(contentsOf: url)
+                    if (contents != ""){
+                        
+                        let profiles = parseProfiles(contents)
+                        for profile in profiles {
+                            if (profile.name == getProfileName()){
+                                moveToRegion(city: profile)
+                            }
+                            
+                        }
+                    }
+                }
+                catch {}
+            }
+            
+        }
         
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
@@ -74,38 +115,49 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
         }
     }
     
-   
+    var radioButtonController: RadioButtonsController?
+    func didSelectButton(selectedButton: UIButton?)
+    {
+        NSLog(" \(selectedButton)" )
+    }
     func slideMenuItemSelectedAtIndex(_ index: Int32) {
         let topViewController : UIViewController = self.navigationController!.topViewController!
-        print("View Controller is : \(topViewController) \n", terminator: "")
+        
         switch(index){
         case 0:
-            print("Home\n", terminator: "")
-            
-            //1.
-            
-            let alert = UIAlertController(title: "City", message: "Select your City", preferredStyle: .alert)
-            
         
+           
+            //
+            let alert = UIAlertController(title: "City", message: "Select your City", preferredStyle: .alert)
+            if let url = URL(string: HomeVC.baseUrl + "/client/getAllProfiles") {
+                do {
+                    let contents = try String(contentsOf: url)
+                    if (contents != ""){
+                        
+                        let profiles = parseProfiles(contents)
+                        for profile in profiles {
+                            alert.addAction(UIAlertAction(title: profile.name, style: .default, handler: { [weak alert] (_) in
+                                let defaults = UserDefaults.standard
+                                defaults.set(profile.name, forKey: defaultsKeys.keyOne)
+                                self.moveToRegion(city: profile)
+                                
+                                
+                            }))
+                        }
+                    }
+                }
+                    catch {}
+            }
+        
+            
+            
+         
+            
+            
+            
           
-            alert.addAction(UIAlertAction(title: "Edmonton", style: .default, handler: { [weak alert] (_) in
-                
-                let defaults = UserDefaults.standard
-                defaults.set("Edmonton", forKey: defaultsKeys.keyOne)
-                self.moveToRegion(city: "Edmonton")
-                
             
-            }))
             
-            alert.addAction(UIAlertAction(title: "HASTAC", style: .default, handler: { [weak alert] (_) in
-                
-                let defaults = UserDefaults.standard
-                defaults.set("HASTAC", forKey: defaultsKeys.keyOne)
-                self.moveToRegion(city: "HASTAC")
-                
-                
-            }))
- 
             self.present(alert, animated: true, completion: nil)
  
     
@@ -162,14 +214,11 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
             print("default\n", terminator: "")
         }
     }
-     func moveToRegion(city: String){
-        if (city == "HASTAC"){
-            let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 28.602, longitude: -81.200), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+     func moveToRegion(city: QProfile){
+       
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Double(city.lat)!, longitude: Double(city.lng)!), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
             self.mapView.setRegion(region, animated: true)
-        } else if (city == "Edmonton" || city == "edmonton" ) {
-            let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 53.521436, longitude: -113.487262), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-            self.mapView.setRegion(region, animated: true)
-        }
+       
     }
     func addSlideMenuButton(){
         let btnShowMenu = UIButton(type: UIButtonType.system)
@@ -231,7 +280,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
     
     func scheduledTimerWithTimeIntervalForPullingData(){
         // Scheduling timer to Call the function **Countdown** with the interval of 1 seconds
-        timer = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(self.updateLocations), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 150, target: self, selector: #selector(self.updateLocations), userInfo: nil, repeats: true)
     }
     
     func scheduledTimerWithTimeIntervalForComparingCoordinates(){
@@ -347,8 +396,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
                                     places.append(place)
                                 }
                                 
-                                //let polygon = CustomPolygon(title: myLocation.name, subtitle: myLocation.address,qlocation: myLocation)
-                                //let places = polygon.getPlaces()
+                            
                                 addAnnotations(places: places)
                                 addPolyline(places: places)
                                 addPolygon(places: places)
@@ -445,9 +493,10 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
         
     func parseMedias(_ input:String) -> [QMedia]{
         var qMedidas:[QMedia] = []
-        let qMedia = QMedia()
+        
         let rows = input.components(separatedBy: "},{")
         for row in rows {
+            let qMedia = QMedia()
             var myresult = row.components(separatedBy: ",\"")
             qMedia.id = Int(myresult[0].components(separatedBy: ":")[1])!
             qMedia.source = myresult[1].components(separatedBy: "source\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
@@ -458,6 +507,24 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
             qMedidas.append(qMedia)
         }
         return qMedidas
+    }
+    
+    
+    func parseProfiles(_ input:String) -> [QProfile]{
+       var qProfiles:[QProfile] = []
+        
+        let rows = input.components(separatedBy: "},{")
+        for row in rows {
+            let qProfile = QProfile()
+            var myresult = row.components(separatedBy: ",\"")
+            qProfile.id = Int(myresult[0].components(separatedBy: "id\":")[1])!
+            qProfile.name = myresult[3].components(separatedBy: "name\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+            qProfile.description = myresult[4].components(separatedBy: "description\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+            qProfile.lat = myresult[6].components(separatedBy: "lat\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+            qProfile.lng = myresult[7].components(separatedBy: "lng\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil).replacingOccurrences(of: "}]", with: "", options: .literal, range: nil)
+           qProfiles.append(qProfile)
+        }
+        return qProfiles
     }
 
     

@@ -10,6 +10,9 @@
 		4D1C20DA1F959A43002D6E59 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1C20D91F959A43002D6E59 /* MapKit.framework */; };
 		4D7B5C331FA6CA64005796B6 /* CustomPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5C321FA6CA63005796B6 /* CustomPolygon.swift */; };
 		4D7B5C351FA6CC9C005796B6 /* QCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5C341FA6CC9C005796B6 /* QCoordinate.swift */; };
+		4D9833F71FAEB2AA00D7BFFC /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9833F61FAEB2AA00D7BFFC /* RadioButton.swift */; };
+		4D9833F91FAEB30400D7BFFC /* RadioButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9833F81FAEB30400D7BFFC /* RadioButtonController.swift */; };
+		4D9833FB1FAEB9DC00D7BFFC /* QProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9833FA1FAEB9DC00D7BFFC /* QProfile.swift */; };
 		4DF54C8B1F9C6DE700C71C4E /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 4DF54C8A1F9C6DE700C71C4E /* Base.lproj */; };
 		753A55C31BB073E900254F27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753A55C21BB073E900254F27 /* AppDelegate.swift */; };
 		753A55C81BB073E900254F27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 753A55C61BB073E900254F27 /* Main.storyboard */; };
@@ -35,6 +38,9 @@
 		4D4F53C01FA53EEA009BC4C3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AKSwiftSlideMenu/Info.plist; sourceTree = "<group>"; };
 		4D7B5C321FA6CA63005796B6 /* CustomPolygon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPolygon.swift; sourceTree = "<group>"; };
 		4D7B5C341FA6CC9C005796B6 /* QCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QCoordinate.swift; sourceTree = "<group>"; };
+		4D9833F61FAEB2AA00D7BFFC /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		4D9833F81FAEB30400D7BFFC /* RadioButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonController.swift; sourceTree = "<group>"; };
+		4D9833FA1FAEB9DC00D7BFFC /* QProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QProfile.swift; sourceTree = "<group>"; };
 		4DF54C8A1F9C6DE700C71C4E /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		753A55BD1BB073E900254F27 /* GoQueer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoQueer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		753A55C21BB073E900254F27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,23 +110,26 @@
 				4DF54C8A1F9C6DE700C71C4E /* Base.lproj */,
 				CE5B145C1ED3F34D004D1A1A /* CustomPin.swift */,
 				753A55C21BB073E900254F27 /* AppDelegate.swift */,
+				753A55E21BB0753B00254F27 /* MenuViewController.swift */,
+				753A55E41BB0755100254F27 /* BaseViewController.swift */,
 				C6EEF9F71CB7E4E000A3DC6D /* HomeVC.swift */,
+				C6EEF9F51CB7E2AD00A3DC6D /* PlayVC.swift */,
 				CE5A4CCE1EDB8A010015872F /* QGallery.swift */,
+				4D9833FA1FAEB9DC00D7BFFC /* QProfile.swift */,
 				CE5A4CD01EDB8C0A0015872F /* QMedia.swift */,
+				4D7B5C341FA6CC9C005796B6 /* QCoordinate.swift */,
 				CEE6AB771EDA7579003F4AF6 /* QLocation.swift */,
 				CE5B14671ED8FC14004D1A1A /* Edmonton.gpx */,
 				CE5B14601ED3F529004D1A1A /* CustomCalloutView.swift */,
 				CE5B14611ED3F529004D1A1A /* CustomCalloutView.xib */,
 				CE5B145E1ED3F401004D1A1A /* AnnotationView.swift */,
-				753A55E41BB0755100254F27 /* BaseViewController.swift */,
-				753A55E21BB0753B00254F27 /* MenuViewController.swift */,
-				C6EEF9F51CB7E2AD00A3DC6D /* PlayVC.swift */,
 				753A55C61BB073E900254F27 /* Main.storyboard */,
 				CE5B145A1ECFE4D6004D1A1A /* Location.swift */,
+				4D9833F61FAEB2AA00D7BFFC /* RadioButton.swift */,
+				4D9833F81FAEB30400D7BFFC /* RadioButtonController.swift */,
 				753A55C91BB073E900254F27 /* Images.xcassets */,
 				753A55CB1BB073E900254F27 /* LaunchScreen.xib */,
 				753A55C01BB073E900254F27 /* Supporting Files */,
-				4D7B5C341FA6CC9C005796B6 /* QCoordinate.swift */,
 			);
 			path = GoQueer;
 			sourceTree = "<group>";
@@ -173,7 +182,6 @@
 				TargetAttributes = {
 					753A55BC1BB073E900254F27 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = EPX366Z92B;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -247,12 +255,15 @@
 				753A55E51BB0755100254F27 /* BaseViewController.swift in Sources */,
 				4D7B5C351FA6CC9C005796B6 /* QCoordinate.swift in Sources */,
 				CE5B145D1ED3F34D004D1A1A /* CustomPin.swift in Sources */,
+				4D9833FB1FAEB9DC00D7BFFC /* QProfile.swift in Sources */,
 				CE5A4CCF1EDB8A010015872F /* QGallery.swift in Sources */,
 				C6EEF9F61CB7E2AD00A3DC6D /* PlayVC.swift in Sources */,
+				4D9833F91FAEB30400D7BFFC /* RadioButtonController.swift in Sources */,
 				CE5A4CD11EDB8C0A0015872F /* QMedia.swift in Sources */,
 				CEE6AB781EDA7579003F4AF6 /* QLocation.swift in Sources */,
 				CE5B14621ED3F529004D1A1A /* CustomCalloutView.swift in Sources */,
 				C6EEF9F81CB7E4E000A3DC6D /* HomeVC.swift in Sources */,
+				4D9833F71FAEB2AA00D7BFFC /* RadioButton.swift in Sources */,
 				753A55E31BB0753B00254F27 /* MenuViewController.swift in Sources */,
 				CE5B145F1ED3F402004D1A1A /* AnnotationView.swift in Sources */,
 				4D7B5C331FA6CA64005796B6 /* CustomPolygon.swift in Sources */,
