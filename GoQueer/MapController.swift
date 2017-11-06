@@ -280,7 +280,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
     
     func scheduledTimerWithTimeIntervalForPullingData(){
         // Scheduling timer to Call the function **Countdown** with the interval of 1 seconds
-        timer = Timer.scheduledTimer(timeInterval: 150, target: self, selector: #selector(self.updateLocations), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(self.updateLocations), userInfo: nil, repeats: true)
     }
     
     func scheduledTimerWithTimeIntervalForComparingCoordinates(){
@@ -365,6 +365,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
                                 point.id = myLocation.id
                                 point.address = myLocation.address
                                 point.myDescription = myLocation.description
+                            
     //                            point.image = UIImage(named: "splashScreen")
                                 let imageURL = URL(string: MapController.baseUrl + "client/downloadMediaById?media_id=" + String(findCoverPicture(galleryId: myLocation.galleryId)) )
                                 fetchImageFromURL(imageURL: imageURL!, point: point)

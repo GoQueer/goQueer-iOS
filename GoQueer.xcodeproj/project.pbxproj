@@ -106,9 +106,7 @@
 		753A55BF1BB073E900254F27 /* GoQueer */ = {
 			isa = PBXGroup;
 			children = (
-				4D7B5C321FA6CA63005796B6 /* CustomPolygon.swift */,
 				4DF54C8A1F9C6DE700C71C4E /* Base.lproj */,
-				CE5B145C1ED3F34D004D1A1A /* CustomPin.swift */,
 				753A55C21BB073E900254F27 /* AppDelegate.swift */,
 				753A55E21BB0753B00254F27 /* MenuViewController.swift */,
 				753A55E41BB0755100254F27 /* BaseViewController.swift */,
@@ -120,6 +118,8 @@
 				4D7B5C341FA6CC9C005796B6 /* QCoordinate.swift */,
 				CEE6AB771EDA7579003F4AF6 /* QLocation.swift */,
 				CE5B14671ED8FC14004D1A1A /* Edmonton.gpx */,
+				CE5B145C1ED3F34D004D1A1A /* CustomPin.swift */,
+				4D7B5C321FA6CA63005796B6 /* CustomPolygon.swift */,
 				CE5B14601ED3F529004D1A1A /* CustomCalloutView.swift */,
 				CE5B14611ED3F529004D1A1A /* CustomCalloutView.xib */,
 				CE5B145E1ED3F401004D1A1A /* AnnotationView.swift */,
