@@ -30,17 +30,18 @@ class BaseViewController: UIViewController {
         //let UUID = NSUUID().uuidString
         let UUID = UIDevice.current.identifierForVendor!.uuidString
         return UUID
+        
     }
     func getProfileName() -> String {
         
         let defaults = UserDefaults.standard
         if let stringOne = defaults.string(forKey: defaultsKeys.keyOne) {
             if (stringOne == ""){
-                return "HASTAC"
+                return ""
             }
             else{ return stringOne}
         }
-        return "HASTAC"
+        return ""
     }
     
     

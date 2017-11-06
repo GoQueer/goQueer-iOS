@@ -8,17 +8,17 @@
 
 import UIKit
 
-class PlayVC: BaseViewController {
+class GalleryController: BaseViewController {
 
     @IBAction func previousPressed(_ sender: UIButton) {
-        chooseImage(mediaId: PlayVC.myGallery.media[getPrevious(index: self.index)].id)
-        descriptionText.text = PlayVC.myGallery.media[self.index].description
-        titleText.text = PlayVC.myGallery.media[self.index].name
+        chooseImage(mediaId: GalleryController.myGallery.media[getPrevious(index: self.index)].id)
+        descriptionText.text = GalleryController.myGallery.media[self.index].description
+        titleText.text = GalleryController.myGallery.media[self.index].name
     }
     @IBAction func nextPressed(_ sender: UIButton) {
-            chooseImage(mediaId: PlayVC.myGallery.media[getNext(index: self.index)].id)
-            descriptionText.text = PlayVC.myGallery.media[self.index].description
-            titleText.text = PlayVC.myGallery.media[self.index].name
+            chooseImage(mediaId: GalleryController.myGallery.media[getNext(index: self.index)].id)
+            descriptionText.text = GalleryController.myGallery.media[self.index].description
+            titleText.text = GalleryController.myGallery.media[self.index].name
     }
     func getPrevious(index: Int) -> Int{
         if index > 0 {
@@ -34,22 +34,22 @@ class PlayVC: BaseViewController {
     
     
     func getNext(index: Int) -> Int{
-        if index < PlayVC.myGallery.media.count-1 {
+        if index < GalleryController.myGallery.media.count-1 {
             self.index = index+1 
             return self.index
         }
         else{
             showToast(message: "Nothing left")
         }
-        return PlayVC.myGallery.media.count-1
+        return GalleryController.myGallery.media.count-1
     }
     var index: Int = 0
     public static var myGallery = QGallery()
     override func viewDidLoad() {
         super.viewDidLoad()
-        chooseImage(mediaId: PlayVC.myGallery.media[index].id)
-        descriptionText.text = PlayVC.myGallery.media[index].description
-        titleText.text = PlayVC.myGallery.media[index].name
+        chooseImage(mediaId: GalleryController.myGallery.media[index].id)
+        descriptionText.text = GalleryController.myGallery.media[index].description
+        titleText.text = GalleryController.myGallery.media[index].name
     }
     
     
@@ -57,7 +57,7 @@ class PlayVC: BaseViewController {
     @IBOutlet weak var picture: UIImageView!
     func chooseImage(mediaId: Int) {
         var imageURL = URL(string: "")
-        imageURL = URL(string: HomeVC.baseUrl + "client/downloadMediaById?media_id=" + String(mediaId) )
+        imageURL = URL(string: MapController.baseUrl + "client/downloadMediaById?media_id=" + String(mediaId) )
         fetchImageFromURL(imageURL: imageURL!)
     }
     

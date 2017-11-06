@@ -5,7 +5,7 @@ import CoreLocation
 
 
 
-class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, RadioButtonControllerDelegate, SlideMenuDelegate {
+class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, RadioButtonControllerDelegate, SlideMenuDelegate {
     @IBOutlet  var mapView: MKMapView!
     
     var locationManager: CLLocationManager = CLLocationManager()
@@ -46,7 +46,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
         //moveToRegion(city: getProfileName())
         if (  getProfileName() == "" ) {
             let alert = UIAlertController(title: "City", message: "Select your City", preferredStyle: .alert)
-            if let url = URL(string: HomeVC.baseUrl + "/client/getAllProfiles") {
+            if let url = URL(string: MapController.baseUrl + "/client/getAllProfiles") {
                 do {
                     let contents = try String(contentsOf: url)
                     if (contents != ""){
@@ -67,7 +67,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
             }
             self.present(alert, animated: true, completion: nil)
         } else {
-            if let url = URL(string: HomeVC.baseUrl + "/client/getAllProfiles") {
+            if let url = URL(string: MapController.baseUrl + "/client/getAllProfiles") {
                 do {
                     let contents = try String(contentsOf: url)
                     if (contents != ""){
@@ -129,7 +129,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
            
             //
             let alert = UIAlertController(title: "City", message: "Select your City", preferredStyle: .alert)
-            if let url = URL(string: HomeVC.baseUrl + "/client/getAllProfiles") {
+            if let url = URL(string: MapController.baseUrl + "/client/getAllProfiles") {
                 do {
                     let contents = try String(contentsOf: url)
                     if (contents != ""){
@@ -171,7 +171,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
             break
         case 6:
             
-            if let url = URL(string: HomeVC.baseUrl + "/client/getHint?device_id=" + getDeviceId()+"&profile_name=" + getProfileName() ) {
+            if let url = URL(string: MapController.baseUrl + "/client/getHint?device_id=" + getDeviceId()+"&profile_name=" + getProfileName() ) {
                 do {
                     let contents = try String(contentsOf: url)
                     if (contents != ""){
@@ -194,7 +194,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
             break
         case 7:
             
-            if let url = URL(string: HomeVC.baseUrl + "/client/getSetStatusSummary?device_id=" + getDeviceId() + "&gallery_id=16" ) {
+            if let url = URL(string: MapController.baseUrl + "/client/getSetStatusSummary?device_id=" + getDeviceId() + "&gallery_id=16" ) {
                 do {
                     let contents = try String(contentsOf: url)
                     if (contents != ""){
@@ -224,7 +224,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
         let btnShowMenu = UIButton(type: UIButtonType.system)
         btnShowMenu.setImage(self.defaultMenuImage(), for: UIControlState())
         btnShowMenu.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        btnShowMenu.addTarget(self, action: #selector(HomeVC.onSlideMenuButtonPressed(_:)), for: UIControlEvents.touchUpInside)
+        btnShowMenu.addTarget(self, action: #selector(MapController.onSlideMenuButtonPressed(_:)), for: UIControlEvents.touchUpInside)
         let customBarItem = UIBarButtonItem(customView: btnShowMenu)
         self.navigationItem.leftBarButtonItem = customBarItem;
     }
@@ -314,7 +314,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
     }
    
     @objc func updateLocations(){
-        if let url = URL(string: HomeVC.baseUrl + "/client/getAllLocations?device_id=" + getDeviceId() + "&profile_name=" + getProfileName()) {
+        if let url = URL(string: MapController.baseUrl + "/client/getAllLocations?device_id=" + getDeviceId() + "&profile_name=" + getProfileName()) {
             do {
                 let contents = try String(contentsOf: url)
                 
@@ -323,7 +323,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
        
                 
                 
-                if let url = URL(string: HomeVC.baseUrl + "/client/getMyLocations?device_id=" + getDeviceId() + "&profile_name=" + getProfileName()) {
+                if let url = URL(string: MapController.baseUrl + "/client/getMyLocations?device_id=" + getDeviceId() + "&profile_name=" + getProfileName()) {
                     do {
                         let contents = try String(contentsOf: url)
                         
@@ -366,7 +366,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
                                 point.address = myLocation.address
                                 point.myDescription = myLocation.description
     //                            point.image = UIImage(named: "splashScreen")
-                                let imageURL = URL(string: HomeVC.baseUrl + "client/downloadMediaById?media_id=" + String(findCoverPicture(galleryId: myLocation.galleryId)) )
+                                let imageURL = URL(string: MapController.baseUrl + "client/downloadMediaById?media_id=" + String(findCoverPicture(galleryId: myLocation.galleryId)) )
                                 fetchImageFromURL(imageURL: imageURL!, point: point)
 
                                 self.mapView.addAnnotation(point)
@@ -377,7 +377,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
                                     }
                                 }
                                 if (!flag) {
-                                    if let url = URL(string: HomeVC.baseUrl + "client/getGalleryById?gallery_id=" + String(myLocation.galleryId)) {
+                                    if let url = URL(string: MapController.baseUrl + "client/getGalleryById?gallery_id=" + String(myLocation.galleryId)) {
                                         do {
                                             let contents = try String(contentsOf: url)
                                             myGalleries.append(parseGallery(contents,galleryId: myLocation.galleryId))
@@ -474,7 +474,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
         qGallery.name = result[1].components(separatedBy: "name\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
         qGallery.description = result[2].components(separatedBy: "description\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
         
-        if let url = URL(string: HomeVC.baseUrl + "client/getGalleryMediaById?gallery_id=" + String(galleryId)) {
+        if let url = URL(string: MapController.baseUrl + "client/getGalleryMediaById?gallery_id=" + String(galleryId)) {
             do {
                 let contents = try String(contentsOf: url)
                 if (contents != "[]"){
@@ -546,7 +546,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
                 let coordinate1 = CLLocation(latitude: Double(locationFromAll.getLat())!, longitude: Double(locationFromAll.getlong())!)
                 let distanceInMeters = coordinate0.distance(from: coordinate1) // result is in meters
                 if distanceInMeters < 10 {
-                    if let url = URL(string: HomeVC.baseUrl + "/client/setDiscoveryStatus?device_id=" + getDeviceId() + "&location_id=" + String(locationFromAll.id)) {
+                    if let url = URL(string: MapController.baseUrl + "/client/setDiscoveryStatus?device_id=" + getDeviceId() + "&location_id=" + String(locationFromAll.id)) {
                         do {
                             let contents = try String(contentsOf: url)
                                 showToast(message: "You have discovered something! stop!")
@@ -702,7 +702,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
         selectedLocationId = calloutView.id
         //
         let button = UIButton(frame: calloutView.starbucksPhone.frame)
-//        button.addTarget(self, action: #selector(HomeVC.callPhoneNumber(sender:)), for: .touchUpInside)
+
         calloutView.addSubview(button)
         calloutView.starbucksImage.image = starbucksAnnotation.image
         // 3
@@ -725,7 +725,7 @@ class HomeVC: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, 
                 }
             }
         }
-        PlayVC.myGallery = resultGallery
+        GalleryController.myGallery = resultGallery
         performSegue(withIdentifier: "gallerySegue", sender: self)
     }
     
