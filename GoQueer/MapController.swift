@@ -39,20 +39,18 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //creating a camera
-        let camera = GMSCameraPosition.camera(withLatitude: 23.431351, longitude: 85.325879, zoom: 6.0)
         
         //this is our map view
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        self.mapView = GMSMapView(frame: self.view.bounds)
         
         //adding mapview to view
         view = mapView
         
         //creating a marker on the map
-        let marker = GMSMarker()
+        /*let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: 23.431351, longitude: 85.325879)
         marker.title = "Ranchi, Jharkhand"
-        marker.map = mapView
+        marker.map = mapView*/
         
         
         
@@ -60,9 +58,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         scheduledTimerWithTimeIntervalForPullingData()
         scheduledTimerWithTimeIntervalForComparingCoordinates()
         updateLocations()
-        //self.mapView.delegate = self
-      
-        //moveToRegion(city: getProfileName())
+        
         if (  getProfileName() == "" ) {
             let alert = UIAlertController(title: "City", message: "Select your City", preferredStyle: .alert)
             if let url = URL(string: MapController.baseUrl + "/client/getAllProfiles") {
@@ -75,7 +71,8 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                             alert.addAction(UIAlertAction(title: profile.name, style: .default, handler: { [weak alert] (_) in
                                 let defaults = UserDefaults.standard
                                 defaults.set(profile.name, forKey: defaultsKeys.keyOne)
-                                //self.moveToRegion(city: profile)
+                                
+                                self.moveToRegion(profile: profile)
                                 
                                 
                             }))
@@ -94,7 +91,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                         let profiles = parseProfiles(contents)
                         for profile in profiles {
                             if (profile.name == getProfileName()){
-                                //moveToRegion(city: profile)
+                                self.moveToRegion(profile: profile)
                             }
                             
                         }
@@ -159,7 +156,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                             alert.addAction(UIAlertAction(title: profile.name, style: .default, handler: { [weak alert] (_) in
                                 let defaults = UserDefaults.standard
                                 defaults.set(profile.name, forKey: defaultsKeys.keyOne)
-                                //self.moveToRegion(city: profile)
+                                self.moveToRegion(profile: profile)
                                 
                                 
                             }))
@@ -234,13 +231,13 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
             print("default\n", terminator: "")
         }
     }
-    /*
-     func moveToRegion(city: QProfile){
-       
-        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Double(city.lat)!, longitude: Double(city.lng)!), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-            self.mapView.setRegion(region, animated: true)
-       
-     }*/
+    
+     func moveToRegion(profile: QProfile){
+        
+       let camera = GMSCameraPosition.camera(withLatitude: Double(profile.lat)!, longitude: Double(profile.lng)!, zoom: Float(profile.zoom)!)
+        self.mapView.animate(to: camera)
+        
+     }
     func addSlideMenuButton(){
         let btnShowMenu = UIButton(type: UIButtonType.system)
         btnShowMenu.setImage(self.defaultMenuImage(), for: UIControlState())
@@ -546,6 +543,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
             qProfile.show = myresult[5].components(separatedBy: "show\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
             qProfile.lat = myresult[6].components(separatedBy: "lat\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
             qProfile.lng = myresult[7].components(separatedBy: "lng\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+            qProfile.zoom = myresult[9].components(separatedBy: "zoom\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
             qProfile.visibleToPlayer = myresult[11].components(separatedBy: "visibleToPlayer\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil).replacingOccurrences(of: "}]", with: "", options: .literal, range: nil)
 
            qProfiles.append(qProfile)
