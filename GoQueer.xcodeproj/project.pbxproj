@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49C7F40C98D1DEB2921C0631 /* libPods-GoQueer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6539CF5BEADE82DF03CBCF98 /* libPods-GoQueer.a */; };
 		4D1C20DA1F959A43002D6E59 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1C20D91F959A43002D6E59 /* MapKit.framework */; };
 		4D7B5C331FA6CA64005796B6 /* CustomPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5C321FA6CA63005796B6 /* CustomPolygon.swift */; };
 		4D7B5C351FA6CC9C005796B6 /* QCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5C341FA6CC9C005796B6 /* QCoordinate.swift */; };
@@ -20,6 +21,7 @@
 		753A55CD1BB073E900254F27 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 753A55CB1BB073E900254F27 /* LaunchScreen.xib */; };
 		753A55E31BB0753B00254F27 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753A55E21BB0753B00254F27 /* MenuViewController.swift */; };
 		753A55E51BB0755100254F27 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753A55E41BB0755100254F27 /* BaseViewController.swift */; };
+		B6F9305A20109CA5007986BE /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B6F9305920109CA5007986BE /* Podfile */; };
 		C6EEF9F61CB7E2AD00A3DC6D /* GalleryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EEF9F51CB7E2AD00A3DC6D /* GalleryController.swift */; };
 		C6EEF9F81CB7E4E000A3DC6D /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EEF9F71CB7E4E000A3DC6D /* MapController.swift */; };
 		CE5A4CCF1EDB8A010015872F /* QGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A4CCE1EDB8A010015872F /* QGallery.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0017EF30FCDF94B44D6AC348 /* Pods-GoQueer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoQueer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoQueer/Pods-GoQueer.debug.xcconfig"; sourceTree = "<group>"; };
+		1B0CCC1B8982C52BAB25BDFF /* Pods-GoQueer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoQueer.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoQueer/Pods-GoQueer.release.xcconfig"; sourceTree = "<group>"; };
 		4D1C20D91F959A43002D6E59 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4D4F53C01FA53EEA009BC4C3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AKSwiftSlideMenu/Info.plist; sourceTree = "<group>"; };
 		4D7B5C321FA6CA63005796B6 /* CustomPolygon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPolygon.swift; sourceTree = "<group>"; };
@@ -42,6 +46,7 @@
 		4D9833F81FAEB30400D7BFFC /* RadioButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonController.swift; sourceTree = "<group>"; };
 		4D9833FA1FAEB9DC00D7BFFC /* QProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QProfile.swift; sourceTree = "<group>"; };
 		4DF54C8A1F9C6DE700C71C4E /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
+		6539CF5BEADE82DF03CBCF98 /* libPods-GoQueer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoQueer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		753A55BD1BB073E900254F27 /* GoQueer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoQueer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		753A55C21BB073E900254F27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		753A55C71BB073E900254F27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -49,6 +54,7 @@
 		753A55CC1BB073E900254F27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		753A55E21BB0753B00254F27 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		753A55E41BB0755100254F27 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		B6F9305920109CA5007986BE /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		C6EEF9F51CB7E2AD00A3DC6D /* GalleryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryController.swift; sourceTree = "<group>"; };
 		C6EEF9F71CB7E4E000A3DC6D /* MapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		CE5A4CCE1EDB8A010015872F /* QGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QGallery.swift; sourceTree = "<group>"; };
@@ -69,6 +75,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D1C20DA1F959A43002D6E59 /* MapKit.framework in Frameworks */,
+				49C7F40C98D1DEB2921C0631 /* libPods-GoQueer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				4D1C20D91F959A43002D6E59 /* MapKit.framework */,
+				6539CF5BEADE82DF03CBCF98 /* libPods-GoQueer.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -144,6 +152,9 @@
 		B33F9094694632131F5ABFF1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				B6F9305920109CA5007986BE /* Podfile */,
+				0017EF30FCDF94B44D6AC348 /* Pods-GoQueer.debug.xcconfig */,
+				1B0CCC1B8982C52BAB25BDFF /* Pods-GoQueer.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -155,10 +166,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 753A55DC1BB073E900254F27 /* Build configuration list for PBXNativeTarget "GoQueer" */;
 			buildPhases = (
+				9B5D7395C1EC501FB1AB3956 /* [CP] Check Pods Manifest.lock */,
 				753A55B91BB073E900254F27 /* Sources */,
 				753A55BA1BB073E900254F27 /* Frameworks */,
 				753A55BB1BB073E900254F27 /* Resources */,
 				C68C03B9E2F594B8F498FBF6 /* [CP] Embed Pods Frameworks */,
+				81BA9C1582B49C8776B0DABE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -223,6 +236,7 @@
 				753A55C81BB073E900254F27 /* Main.storyboard in Resources */,
 				753A55CD1BB073E900254F27 /* LaunchScreen.xib in Resources */,
 				4DF54C8B1F9C6DE700C71C4E /* Base.lproj in Resources */,
+				B6F9305A20109CA5007986BE /* Podfile in Resources */,
 				753A55CA1BB073E900254F27 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,6 +244,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		81BA9C1582B49C8776B0DABE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GoQueer/Pods-GoQueer-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoQueer/Pods-GoQueer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9B5D7395C1EC501FB1AB3956 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GoQueer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C68C03B9E2F594B8F498FBF6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,7 +294,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoQueer/Pods-GoQueer-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -403,6 +455,7 @@
 		};
 		753A55DD1BB073E900254F27 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0017EF30FCDF94B44D6AC348 /* Pods-GoQueer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EPX366Z92B;
@@ -419,6 +472,7 @@
 		};
 		753A55DE1BB073E900254F27 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B0CCC1B8982C52BAB25BDFF /* Pods-GoQueer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EPX366Z92B;

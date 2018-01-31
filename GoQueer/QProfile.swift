@@ -13,6 +13,8 @@ class QProfile {
     var description: String!
     var lat: String!
     var lng: String!
+    var show: String!
+    var visibleToPlayer: String!
     
 }
 

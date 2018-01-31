@@ -1,12 +1,13 @@
 import Foundation
 import UIKit
-import MapKit
+
+import GoogleMaps
 import CoreLocation
 
 
 
-class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDelegate, RadioButtonControllerDelegate, SlideMenuDelegate {
-    @IBOutlet  var mapView: MKMapView!
+class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDelegate {
+    @IBOutlet  var mapView: GMSMapView!
     
     var locationManager: CLLocationManager = CLLocationManager()
     var startLocation: CLLocation!
@@ -37,11 +38,29 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
 //    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //creating a camera
+        let camera = GMSCameraPosition.camera(withLatitude: 23.431351, longitude: 85.325879, zoom: 6.0)
+        
+        //this is our map view
+        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        
+        //adding mapview to view
+        view = mapView
+        
+        //creating a marker on the map
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2D(latitude: 23.431351, longitude: 85.325879)
+        marker.title = "Ranchi, Jharkhand"
+        marker.map = mapView
+        
+        
+        
         addSlideMenuButton()
         scheduledTimerWithTimeIntervalForPullingData()
         scheduledTimerWithTimeIntervalForComparingCoordinates()
         updateLocations()
-        self.mapView.delegate = self
+        //self.mapView.delegate = self
       
         //moveToRegion(city: getProfileName())
         if (  getProfileName() == "" ) {
@@ -56,7 +75,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
                             alert.addAction(UIAlertAction(title: profile.name, style: .default, handler: { [weak alert] (_) in
                                 let defaults = UserDefaults.standard
                                 defaults.set(profile.name, forKey: defaultsKeys.keyOne)
-                                self.moveToRegion(city: profile)
+                                //self.moveToRegion(city: profile)
                                 
                                 
                             }))
@@ -75,7 +94,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
                         let profiles = parseProfiles(contents)
                         for profile in profiles {
                             if (profile.name == getProfileName()){
-                                moveToRegion(city: profile)
+                                //moveToRegion(city: profile)
                             }
                             
                         }
@@ -94,7 +113,8 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
         
         
     }
-    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+    /*
+    func mapView(mapView: GMSMapView, didSelectAnnotationView view: GSMapAnn) {
         
         let annotationTap = UITapGestureRecognizer(target: self, action: "tapRecognized")
         annotationTap.numberOfTapsRequired = 1
@@ -113,7 +133,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
         for annotationView in selectedAnnotations{
             mapView.deselectAnnotation(annotationView, animated: true)
         }
-    }
+    }*/
     
     var radioButtonController: RadioButtonsController?
     func didSelectButton(selectedButton: UIButton?)
@@ -139,7 +159,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
                             alert.addAction(UIAlertAction(title: profile.name, style: .default, handler: { [weak alert] (_) in
                                 let defaults = UserDefaults.standard
                                 defaults.set(profile.name, forKey: defaultsKeys.keyOne)
-                                self.moveToRegion(city: profile)
+                                //self.moveToRegion(city: profile)
                                 
                                 
                             }))
@@ -214,12 +234,13 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
             print("default\n", terminator: "")
         }
     }
+    /*
      func moveToRegion(city: QProfile){
        
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: Double(city.lat)!, longitude: Double(city.lng)!), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
             self.mapView.setRegion(region, animated: true)
        
-    }
+     }*/
     func addSlideMenuButton(){
         let btnShowMenu = UIButton(type: UIButtonType.system)
         btnShowMenu.setImage(self.defaultMenuImage(), for: UIControlState())
@@ -356,8 +377,8 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
                             }
                         }
                         
-                        let allAnnotations = self.mapView.annotations
-                        self.mapView.removeAnnotations(allAnnotations)
+                        //let allAnnotations = self.mapView.annotations
+                        //self.mapView.removeAnnotations(allAnnotations)
                         for myLocation in myLocations {
                             if myLocation.type == "Point" {
                                 let point = CustomPin(coordinate: CLLocationCoordinate2D(latitude: Double(myLocation.getLat())! , longitude: Double(myLocation.getlong())! ))
@@ -370,7 +391,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
                                 let imageURL = URL(string: MapController.baseUrl + "client/downloadMediaById?media_id=" + String(findCoverPicture(galleryId: myLocation.galleryId)) )
                                 fetchImageFromURL(imageURL: imageURL!, point: point)
 
-                                self.mapView.addAnnotation(point)
+                                //self.mapView.addAnnotation(point)
                                 var flag = false
                                 for gallery in myGalleries {
                                     if gallery.id == myLocation.galleryId{
@@ -398,9 +419,9 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
                                 }
                                 
                             
-                                addAnnotations(places: places)
-                                addPolyline(places: places)
-                                addPolygon(places: places)
+                                //addAnnotations(places: places)
+                                //addPolyline(places: places)
+                                //addPolygon(places: places)
                                 
                             }
                         }
@@ -416,6 +437,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
         }
     
     }
+    /*
     func addAnnotations(places: [CustomPolygon]) {
         mapView?.delegate = self
         mapView?.addAnnotations(places)
@@ -444,7 +466,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
         let polygon = MKPolygon(coordinates: &locations, count: locations.count)
         mapView?.add(polygon)
     }
-    
+    */
     
     func findCoverPicture(galleryId: Int) -> Int {
         for gallery in myGalleries {
@@ -521,8 +543,11 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
             qProfile.id = Int(myresult[0].components(separatedBy: "id\":")[1])!
             qProfile.name = myresult[3].components(separatedBy: "name\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
             qProfile.description = myresult[4].components(separatedBy: "description\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+            qProfile.show = myresult[5].components(separatedBy: "show\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
             qProfile.lat = myresult[6].components(separatedBy: "lat\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
-            qProfile.lng = myresult[7].components(separatedBy: "lng\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil).replacingOccurrences(of: "}]", with: "", options: .literal, range: nil)
+            qProfile.lng = myresult[7].components(separatedBy: "lng\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+            qProfile.visibleToPlayer = myresult[11].components(separatedBy: "visibleToPlayer\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil).replacingOccurrences(of: "}]", with: "", options: .literal, range: nil)
+
            qProfiles.append(qProfile)
         }
         return qProfiles
@@ -595,7 +620,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
         }
         return all
     }
-    
+    /*
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView,
                   control: UIControl)
     {
@@ -662,7 +687,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
             return annotationView
         }
     }
-    /*
+    
    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         if annotation is MKUserLocation
@@ -681,7 +706,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
         
         
         return annotationView
-    }*/
+    }
     
     
     func mapView(_ mapView: MKMapView,didSelect view: MKAnnotationView)
@@ -713,7 +738,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
         calloutView.addGestureRecognizer(gestureRec)
         
         mapView.setCenter((view.annotation?.coordinate)!, animated: true)
-    }
+    }*/
     
     @objc func someAction(_ sender:UITapGestureRecognizer){
         var resultGallery = QGallery()
@@ -731,7 +756,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
     }
     
     
-    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+    /*func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         if view.isKind(of: AnnotationView.self)
         {
             for subview in view.subviews
@@ -739,7 +764,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, MKMapViewDel
                 subview.removeFromSuperview()
             }
         }
-    }
+    }*/
     
     
     @IBOutlet weak var picture: UIImageView!
