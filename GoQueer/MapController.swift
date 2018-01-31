@@ -28,14 +28,6 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
    // public static let baseUrl = "http://localhost:8000/"
     
     
-//    func callPhoneNumber(sender: UIButton)
-//    {
-//        let v = sender.superview as! CustomCalloutView
-//        if let url = URL(string: "telprompt://\(v.starbucksPhone.text!)"), UIApplication.shared.canOpenURL(url)
-//        {
-//            UIApplication.shared.openURL(url)
-//        }
-//    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,7 +44,9 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         marker.title = "Ranchi, Jharkhand"
         marker.map = mapView*/
         
-        
+        //Location Manager code to fetch current location
+        //self.locationManager.delegate = self
+        //self.locationManager.startUpdatingLocation()
         
         addSlideMenuButton()
         scheduledTimerWithTimeIntervalForPullingData()
@@ -555,10 +549,15 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
     
    
     
-    
+     let currentLocationMarker = GMSMarker()
     func locationManager(_ manager: CLLocationManager,didUpdateLocations locations: [CLLocation])
     {
+        currentLocationMarker.map = nil
         currentCoordinate = manager.location!.coordinate
+       
+        currentLocationMarker.position = CLLocationCoordinate2D(latitude: currentCoordinate.latitude, longitude: currentCoordinate.longitude)
+        currentLocationMarker.title = "You Are Here!"
+        currentLocationMarker.map = mapView
     }
     
     
