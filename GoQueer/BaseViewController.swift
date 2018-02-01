@@ -18,30 +18,35 @@ class BaseViewController: UIViewController {
     
     struct defaultsKeys {
         static let keyOne = "currentProfileKey"
+        
         static let keyTwo = "secondStringKey"
+        static let keyThree = "currentProfileShow"
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func getDeviceId() -> String {
-        //let UUID = NSUUID().uuidString
         let UUID = UIDevice.current.identifierForVendor!.uuidString
         return UUID
-        
     }
-    func getProfileName() -> String {
-        
+    
+    func getProfile() -> QProfile {
+        let profile = QProfile()
+        profile.name = ""
+        profile.show = ""
         let defaults = UserDefaults.standard
         if let stringOne = defaults.string(forKey: defaultsKeys.keyOne) {
-            if (stringOne == ""){
-                return ""
-            }
-            else{ return stringOne}
+            profile.name = stringOne
         }
-        return ""
+        if let stringThree = defaults.string(forKey: defaultsKeys.keyThree) {
+            profile.show = stringThree
+        }
+        if let stringTwo = defaults.string(forKey: defaultsKeys.keyTwo) {
+            profile.id = Int(stringTwo)!
+        }
+        return profile
     }
     
     

@@ -47,8 +47,8 @@ class QLocation {
             if chunk != "" {
                 var temp = chunk.replacingOccurrences(of: "]", with: "")
                 let qCoordinate = QCoordinate()
-                qCoordinate.lat = temp.components(separatedBy: ",")[0]
-                qCoordinate.lng = temp.components(separatedBy: ",")[1]
+                qCoordinate.lng = temp.components(separatedBy: ",")[0]
+                qCoordinate.lat = temp.components(separatedBy: ",")[1]
                 
                 
                 

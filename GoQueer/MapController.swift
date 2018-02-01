@@ -1,6 +1,6 @@
 import Foundation
 import UIKit
-
+import GLKit
 import GoogleMaps
 import CoreLocation
 
@@ -27,44 +27,10 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
     public static let baseUrl = "http://206.167.180.114/"
    // public static let baseUrl = "http://localhost:8000/"
     
-    let kMapStyle = "[" +
-        "  {" +
-        "    \"featureType\": \"poi.business\"," +
-        "    \"elementType\": \"all\"," +
-        "    \"stylers\": [" +
-        "      {" +
-        "        \"visibility\": \"off\"" +
-        "      }" +
-        "    ]" +
-        "  }," +
-        "  {" +
-        "    \"featureType\": \"dark\"," +
-        "    \"elementType\": \"labels.icon\"," +
-        "    \"stylers\": [" +
-        "      {" +
-        "        \"visibility\": \"off\"" +
-        "      }" +
-        "    ]" +
-        "  }" +
-    "]"
     
     
-    func mapStyle(withFilename name: String, andType type: String) {
-        do {
-            if let styleURL = Bundle.main.url(forResource: name, withExtension: type) {
-                self.mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
-            } else {
-                NSLog("Unable to find style.json")
-            }
-        } catch {
-            NSLog("One or more of the map styles failed to load. \(error)")
-        }
-    }
-    
-    // Set the status bar style to complement night-mode.
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+  
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,16 +54,14 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         marker.title = "Ranchi, Jharkhand"
         marker.map = mapView*/
         
-        //Location Manager code to fetch current location
-        //self.locationManager.delegate = self
-        //self.locationManager.startUpdatingLocation()
+       
         
         addSlideMenuButton()
         scheduledTimerWithTimeIntervalForPullingData()
         scheduledTimerWithTimeIntervalForComparingCoordinates()
         updateLocations()
         
-        if (  getProfileName() == "" ) {
+        if (  getProfile().name == "" ) {
             let alert = UIAlertController(title: "City", message: "Select your City", preferredStyle: .alert)
             if let url = URL(string: MapController.baseUrl + "/client/getAllProfiles") {
                 do {
@@ -109,6 +73,8 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                             alert.addAction(UIAlertAction(title: profile.name, style: .default, handler: { [weak alert] (_) in
                                 let defaults = UserDefaults.standard
                                 defaults.set(profile.name, forKey: defaultsKeys.keyOne)
+                                defaults.set(profile.id, forKey: defaultsKeys.keyTwo)
+                                defaults.set(profile.show, forKey: defaultsKeys.keyThree)
                                 
                                 self.moveToRegion(profile: profile)
                                 
@@ -128,7 +94,8 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                         
                         let profiles = parseProfiles(contents)
                         for profile in profiles {
-                            if (profile.name == getProfileName()){
+                            if (profile.name == getProfile().name){
+                                
                                 self.moveToRegion(profile: profile)
                             }
                             
@@ -194,6 +161,9 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                             alert.addAction(UIAlertAction(title: profile.name, style: .default, handler: { [weak alert] (_) in
                                 let defaults = UserDefaults.standard
                                 defaults.set(profile.name, forKey: defaultsKeys.keyOne)
+                                defaults.set(profile.id, forKey: defaultsKeys.keyTwo)
+                                defaults.set(profile.show, forKey: defaultsKeys.keyThree)
+                                
                                 self.moveToRegion(profile: profile)
                                 
                                 
@@ -226,7 +196,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
             break
         case 6:
             
-            if let url = URL(string: MapController.baseUrl + "/client/getHint?device_id=" + getDeviceId()+"&profile_name=" + getProfileName() ) {
+            if let url = URL(string: MapController.baseUrl + "/client/getHint?device_id=" + getDeviceId()+"&profile_name=" + getProfile().name ) {
                 do {
                     let contents = try String(contentsOf: url)
                     if (contents != ""){
@@ -276,6 +246,19 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         self.mapView.animate(to: camera)
         
      }
+    
+    func mapStyle(withFilename name: String, andType type: String) {
+        do {
+            if let styleURL = Bundle.main.url(forResource: name, withExtension: type) {
+                self.mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+            } else {
+                NSLog("Unable to find style.json")
+            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
+    }
+    
     func addSlideMenuButton(){
         let btnShowMenu = UIButton(type: UIButtonType.system)
         btnShowMenu.setImage(self.defaultMenuImage(), for: UIControlState())
@@ -335,12 +318,11 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
     
     
     func scheduledTimerWithTimeIntervalForPullingData(){
-        // Scheduling timer to Call the function **Countdown** with the interval of 1 seconds
         timer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(self.updateLocations), userInfo: nil, repeats: true)
     }
     
     func scheduledTimerWithTimeIntervalForComparingCoordinates(){
-        // Scheduling timer to Call the function **Countdown** with the interval of 1 seconds
+
         timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.prepareAndCompare), userInfo: nil, repeats: true)
     }
     
@@ -370,7 +352,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
     }
    
     @objc func updateLocations(){
-        if let url = URL(string: MapController.baseUrl + "/client/getAllLocations?device_id=" + getDeviceId() + "&profile_name=" + getProfileName()) {
+        if let url = URL(string: MapController.baseUrl + "/client/getAllLocations?device_id=" + getDeviceId() + "&profile_name=" + getProfile().name) {
             do {
                 let contents = try String(contentsOf: url)
                 
@@ -378,33 +360,23 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                 allLocations = parseLocations(contents)
        
                 
-                
-                if let url = URL(string: MapController.baseUrl + "/client/getMyLocations?device_id=" + getDeviceId() + "&profile_name=" + getProfileName()) {
+               
+                if let url = URL(string: MapController.baseUrl + "/client/getMyLocations?device_id=" + getDeviceId() + "&profile_name=" + getProfile().name) {
                     do {
                         let contents = try String(contentsOf: url)
-                        
-                       
                         let tempMyLocations = parseLocations(contents)
-                       // if (tempMyLocations.count == myLocations.count && tempMyLocations.count>0){
-                       //       return;
-                      // }
                         myLocations = tempMyLocations
-                        
                         var undiscoveredLocations:[QLocation] = []
                         for allLocation in allLocations {
                             var flag = false
                             for myLocation in myLocations {
-                                
                                 if (myLocation.id == allLocation.id){
                                     flag = true
                                 }
-                                
                             }
                             if (!flag){
                                 undiscoveredLocations.append(allLocation)
                             }
-                            
-                            
                         }
                         if (undiscoveredLocations.count>0){
                             if (currentCoordinate != nil){
@@ -414,51 +386,11 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                         
                         //let allAnnotations = self.mapView.annotations
                         //self.mapView.removeAnnotations(allAnnotations)
-                        for myLocation in myLocations {
-                            if myLocation.type == "Point" {
-                                let point = CustomPin(coordinate: CLLocationCoordinate2D(latitude: Double(myLocation.getLat())! , longitude: Double(myLocation.getlong())! ))
-                                point.name = myLocation.name
-                                point.id = myLocation.id
-                                point.address = myLocation.address
-                                point.myDescription = myLocation.description
-                            
-    //                            point.image = UIImage(named: "splashScreen")
-                                let imageURL = URL(string: MapController.baseUrl + "client/downloadMediaById?media_id=" + String(findCoverPicture(galleryId: myLocation.galleryId)) )
-                                fetchImageFromURL(imageURL: imageURL!, point: point)
-
-                                //self.mapView.addAnnotation(point)
-                                var flag = false
-                                for gallery in myGalleries {
-                                    if gallery.id == myLocation.galleryId{
-                                        flag = true
-                                    }
-                                }
-                                if (!flag) {
-                                    if let url = URL(string: MapController.baseUrl + "client/getGalleryById?gallery_id=" + String(myLocation.galleryId)) {
-                                        do {
-                                            let contents = try String(contentsOf: url)
-                                            myGalleries.append(parseGallery(contents,galleryId: myLocation.galleryId))
-                                            
-                                        }
-                                    }
-
-                                }
-                            } else if myLocation.type == "Polyg" {
-                                var places = [CustomPolygon]()
-                                
-                                for item in myLocation.parseCoordinateOfLocation() {
-                                    
-                                    
-                                    let place = CustomPolygon(title: myLocation.name, subtitle: myLocation.address, coordinate: CLLocationCoordinate2DMake(Double(item.lat)!, Double(item.lng)!))
-                                    places.append(place)
-                                }
-                                
-                            
-                                //addAnnotations(places: places)
-                                //addPolyline(places: places)
-                                //addPolygon(places: places)
-                                
-                            }
+                        self.mapView.clear()
+                        if (getProfile().show == "1") {
+                            processLocations(locations: allLocations)
+                        } else {
+                            processLocations(locations: myLocations)
                         }
                         
                         
@@ -471,6 +403,123 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
             }
         }
     
+    }
+    
+    func processLocations(locations: [QLocation]){
+        do{
+            for myLocation in locations {
+                if myLocation.type == "Point" {
+                   
+                    let marker = GMSMarker()
+                    
+                   
+                    let markerImage = UIImage(named: "locationPin")!.withRenderingMode(.alwaysTemplate)
+                    
+                   
+                    let markerView = UIImageView(image: markerImage)
+                    
+                    
+                    markerView.tintColor = UIColor.black
+                    
+                    marker.position = CLLocationCoordinate2D(latitude: Double(myLocation.getLat())!, longitude: Double(myLocation.getlong())!)
+                    
+                    marker.iconView = markerView
+                    marker.title = myLocation.name
+                    marker.snippet = myLocation.description
+                    
+                    marker.map = mapView
+                    
+                   
+                    mapView.selectedMarker = marker
+                    
+                
+                    var flag = false
+                    for gallery in myGalleries {
+                        if gallery.id == myLocation.galleryId{
+                            flag = true
+                        }
+                    }
+                    if (!flag) {
+                        if let url = URL(string: MapController.baseUrl + "client/getGalleryById?gallery_id=" + String(myLocation.galleryId)) {
+                            do {
+                                let contents = try String(contentsOf: url)
+                                myGalleries.append(parseGallery(contents,galleryId: myLocation.galleryId))
+                            }
+                        }
+                        
+                    }
+                } else if myLocation.type == "Polyg" {
+                    
+                    let rect = GMSMutablePath()
+                    var points = [CLLocationCoordinate2D]()
+                    let items = myLocation.parseCoordinateOfLocation()
+                    for item in items {
+                        rect.add(CLLocationCoordinate2D(latitude: Double(item.lat)!, longitude: Double(item.lng)!))
+                        points.append(CLLocationCoordinate2D(latitude: Double(item.lat)!, longitude: Double(item.lng)!))
+                    }
+                    let polygon1 = GMSPolygon(path: rect)
+                    polygon1.fillColor = UIColor(red: 0.0, green: 0.55, blue: 0, alpha: 0.15);
+                    polygon1.strokeColor = .black
+                    polygon1.strokeWidth = 2
+                    polygon1.map = mapView
+                    
+                    
+                    
+                    let centerMarker = GMSMarker()
+                    
+                    
+                    let markerImage = UIImage(named: "polygonPin")!.withRenderingMode(.alwaysTemplate)
+                    
+                    
+                    let markerView = UIImageView(image: markerImage)
+                    
+                    
+                    markerView.tintColor = UIColor.black
+                    
+                    centerMarker.position = getCenterCoord(points)
+                    
+                    centerMarker.iconView = markerView
+                    centerMarker.title = myLocation.name
+                    centerMarker.snippet = myLocation.description
+                    
+                    centerMarker.map = mapView
+                    
+                    
+                    mapView.selectedMarker = centerMarker
+                    
+                    
+                    
+                    
+                    
+                }
+            }
+        }catch {
+        
+        }
+    }
+    
+    func getCenterCoord(_ LocationPoints: [CLLocationCoordinate2D]) -> CLLocationCoordinate2D{
+        var x:Float = 0.0;
+        var y:Float = 0.0;
+        var z:Float = 0.0;
+        for points in LocationPoints {
+            let lat = GLKMathDegreesToRadians(Float(points.latitude));
+            let long = GLKMathDegreesToRadians(Float(points.longitude));
+            
+            x += cos(lat) * cos(long);
+            
+            y += cos(lat) * sin(long);
+            
+            z += sin(lat);
+        }
+        x = x / Float(LocationPoints.count);
+        y = y / Float(LocationPoints.count);
+        z = z / Float(LocationPoints.count);
+        let resultLong = atan2(y, x);
+        let resultHyp = sqrt(x * x + y * y);
+        let resultLat = atan2(z, resultHyp);
+        let result = CLLocationCoordinate2D(latitude: CLLocationDegrees(GLKMathRadiansToDegrees(Float(resultLat))), longitude: CLLocationDegrees(GLKMathRadiansToDegrees(Float(resultLong))));
+        return result;
     }
     /*
     func addAnnotations(places: [CustomPolygon]) {
@@ -501,7 +550,8 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         let polygon = MKPolygon(coordinates: &locations, count: locations.count)
         mapView?.add(polygon)
     }
-    */
+  */
+    
     
     func findCoverPicture(galleryId: Int) -> Int {
         for gallery in myGalleries {
@@ -526,7 +576,11 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
 
 
     func parseGallery(_ input:String, galleryId: Int) -> QGallery {
+        
         let qGallery = QGallery()
+        if (input == "[]"){
+            return qGallery
+        }
         var result = input.components(separatedBy: ",\"")
         qGallery.id = Int(result[0].components(separatedBy: ":")[1])!
         qGallery.name = result[1].components(separatedBy: "name\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
