@@ -27,7 +27,45 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
     public static let baseUrl = "http://206.167.180.114/"
    // public static let baseUrl = "http://localhost:8000/"
     
+    let kMapStyle = "[" +
+        "  {" +
+        "    \"featureType\": \"poi.business\"," +
+        "    \"elementType\": \"all\"," +
+        "    \"stylers\": [" +
+        "      {" +
+        "        \"visibility\": \"off\"" +
+        "      }" +
+        "    ]" +
+        "  }," +
+        "  {" +
+        "    \"featureType\": \"dark\"," +
+        "    \"elementType\": \"labels.icon\"," +
+        "    \"stylers\": [" +
+        "      {" +
+        "        \"visibility\": \"off\"" +
+        "      }" +
+        "    ]" +
+        "  }" +
+    "]"
     
+    
+    func mapStyle(withFilename name: String, andType type: String) {
+        do {
+            if let styleURL = Bundle.main.url(forResource: name, withExtension: type) {
+                self.mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
+            } else {
+                NSLog("Unable to find style.json")
+            }
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
+    }
+    
+    // Set the status bar style to complement night-mode.
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,7 +73,13 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         //this is our map view
         self.mapView = GMSMapView(frame: self.view.bounds)
         
-        //adding mapview to view
+        mapView.isMyLocationEnabled = true
+        do {
+            // Set the map style by passing a valid JSON string.
+            self.mapStyle(withFilename: "grayscale", andType: "json")
+        } catch {
+            NSLog("One or more of the map styles failed to load. \(error)")
+        }
         view = mapView
         
         //creating a marker on the map
@@ -552,12 +596,10 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
      let currentLocationMarker = GMSMarker()
     func locationManager(_ manager: CLLocationManager,didUpdateLocations locations: [CLLocation])
     {
-        currentLocationMarker.map = nil
+        
         currentCoordinate = manager.location!.coordinate
        
-        currentLocationMarker.position = CLLocationCoordinate2D(latitude: currentCoordinate.latitude, longitude: currentCoordinate.longitude)
-        currentLocationMarker.title = "You Are Here!"
-        currentLocationMarker.map = mapView
+        
     }
     
     
