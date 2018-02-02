@@ -242,7 +242,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
     
      func moveToRegion(profile: QProfile){
         
-       let camera = GMSCameraPosition.camera(withLatitude: Double(profile.lat)!, longitude: Double(profile.lng)!, zoom: Float(profile.zoom)!)
+        let camera = GMSCameraPosition.camera(withLatitude: Double(profile.lat)!, longitude: Double(profile.lng)!, zoom: Float(profile.zoom)!, bearing: Double(profile.bearing)!, viewingAngle: Double(profile.viewingAngle)!)
         self.mapView.animate(to: camera)
         
      }
@@ -430,7 +430,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                     marker.map = mapView
                     
                    
-                    mapView.selectedMarker = marker
+                    //mapView.selectedMarker = marker
                     
                 
                     var flag = false
@@ -485,7 +485,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                     centerMarker.map = mapView
                     
                     
-                    mapView.selectedMarker = centerMarker
+                  //  mapView.selectedMarker = centerMarker
                     
                     
                     
@@ -635,7 +635,9 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
             qProfile.show = myresult[5].components(separatedBy: "show\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
             qProfile.lat = myresult[6].components(separatedBy: "lat\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
             qProfile.lng = myresult[7].components(separatedBy: "lng\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+            qProfile.viewingAngle = myresult[8].components(separatedBy: "tilt\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
             qProfile.zoom = myresult[9].components(separatedBy: "zoom\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+            qProfile.bearing = myresult[10].components(separatedBy: "bearing\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
             qProfile.visibleToPlayer = myresult[11].components(separatedBy: "visibleToPlayer\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil).replacingOccurrences(of: "}]", with: "", options: .literal, range: nil)
 
            qProfiles.append(qProfile)

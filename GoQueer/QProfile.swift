@@ -15,6 +15,8 @@ class QProfile {
     var lng: String!
     var zoom: String!
     var show: String!
+    var bearing: String!
+    var viewingAngle: String!
     var visibleToPlayer: String!
     
 }
