@@ -6,7 +6,7 @@ import CoreLocation
 
 
 
-class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDelegate {
+class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDelegate, GMSMapViewDelegate {
     @IBOutlet  var mapView: GMSMapView!
     
     var locationManager: CLLocationManager = CLLocationManager()
@@ -34,7 +34,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         
         //this is our map view
         self.mapView = GMSMapView(frame: self.view.bounds)
@@ -48,14 +48,8 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         }
         view = mapView
         
-        //creating a marker on the map
-        /*let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: 23.431351, longitude: 85.325879)
-        marker.title = "Ranchi, Jharkhand"
-        marker.map = mapView*/
-        
-       
-        
+        mapView.delegate = self
+  
         addSlideMenuButton()
         scheduledTimerWithTimeIntervalForPullingData()
         scheduledTimerWithTimeIntervalForComparingCoordinates()
@@ -411,28 +405,14 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                 if myLocation.type == "Point" {
                    
                     let marker = GMSMarker()
-                    
-                   
                     let markerImage = UIImage(named: "locationPin")!.withRenderingMode(.alwaysTemplate)
-                    
-                   
                     let markerView = UIImageView(image: markerImage)
-                    
-                    
                     markerView.tintColor = UIColor.black
-                    
                     marker.position = CLLocationCoordinate2D(latitude: Double(myLocation.getLat())!, longitude: Double(myLocation.getlong())!)
-                    
                     marker.iconView = markerView
                     marker.title = myLocation.name
                     marker.snippet = myLocation.description
-                    
                     marker.map = mapView
-                    
-                   
-                    //mapView.selectedMarker = marker
-                    
-                
                     var flag = false
                     for gallery in myGalleries {
                         if gallery.id == myLocation.galleryId{
@@ -466,31 +446,15 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                     
                     
                     let centerMarker = GMSMarker()
-                    
-                    
                     let markerImage = UIImage(named: "polygonPin")!.withRenderingMode(.alwaysTemplate)
-                    
-                    
                     let markerView = UIImageView(image: markerImage)
-                    
-                    
                     markerView.tintColor = UIColor.black
-                    
                     centerMarker.position = getCenterCoord(points)
-                    
                     centerMarker.iconView = markerView
                     centerMarker.title = myLocation.name
                     centerMarker.snippet = myLocation.description
                     
                     centerMarker.map = mapView
-                    
-                    
-                  //  mapView.selectedMarker = centerMarker
-                    
-                    
-                    
-                    
-                    
                 }
             }
         }catch {
@@ -521,36 +485,34 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         let result = CLLocationCoordinate2D(latitude: CLLocationDegrees(GLKMathRadiansToDegrees(Float(resultLat))), longitude: CLLocationDegrees(GLKMathRadiansToDegrees(Float(resultLong))));
         return result;
     }
-    /*
-    func addAnnotations(places: [CustomPolygon]) {
-        mapView?.delegate = self
-        mapView?.addAnnotations(places)
-        
-        let overlays = places.map { MKCircle(center: $0.coordinate, radius: 100) }
-        mapView?.addOverlays(overlays)
-        
-        // Add polylines
-        
-        //        var locations = places.map { $0.coordinate }
-        //        print("Number of locations: \(locations.count)")
-        //        let polyline = MKPolyline(coordinates: &locations, count: locations.count)
-        //        mapView?.add(polyline)
-        
-    }
     
-    func addPolyline(places: [CustomPolygon]) {
-        var locations = places.map { $0.coordinate }
-        let polyline = MKPolyline(coordinates: &locations, count: locations.count)
-        
-        mapView?.add(polyline)
-    }
     
-    func addPolygon(places: [CustomPolygon]) {
-        var locations = places.map { $0.coordinate }
-        let polygon = MKPolygon(coordinates: &locations, count: locations.count)
-        mapView?.add(polygon)
+    
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+      
+        //let customPin = CustomPin(coordinates: CLLocationCoordinate2D(latitude: Double(item.lat)!, longitude: Double(item.lng)!))
+        let mainView = UIView(frame: CGRect(x: 0, y: 0, width: 350, height: 200))
+        let button = UIButton(frame: CGRect(x: 335, y: 0, width: 15, height: 15))
+        let titleLable = UILabel(frame: CGRect(x: 150, y: 20, width: 200, height: 40))
+        let thumbNail = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 200))
+        
+        titleLable.text = marker.title
+        titleLable.font = titleLable.font.withSize(20)
+        let descriptionLable = UILabel(frame: CGRect(x: 150, y: 5, width: 200, height: 150))
+        descriptionLable.text = marker.snippet
+        descriptionLable.font = descriptionLable.font.withSize(16)
+        button.backgroundColor = UIColor.darkGray
+        button.setTitle("X", for: .normal)
+        mainView.center = CGPoint(x: self.view.frame.size.width - 250, y: self.view.frame.size.height - 180)
+        mainView.backgroundColor = UIColor.lightGray
+        mainView.addSubview(button)
+        mainView.addSubview(titleLable)
+        mainView.addSubview(descriptionLable)
+        self.view.addSubview(mainView)
+        
+        
+        
     }
-  */
     
     
     func findCoverPicture(galleryId: Int) -> Int {
