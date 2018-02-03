@@ -168,20 +168,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                 }
                     catch {}
             }
-        
-            
-            
-         
-            
-            
-            
-          
-            
-            
             self.present(alert, animated: true, completion: nil)
- 
-    
-            
             break
         case 1:
             print("Play\n", terminator: "")
@@ -487,23 +474,31 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         return result;
     }
     
+    static let thumbNailViewWidth = 400
+    static let thumbNailViewHeight = 250
+    let closeButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+    let mainView = UIView(frame: CGRect(x: 0, y: 0, width: thumbNailViewWidth, height: thumbNailViewHeight))
+    let descriptionLable = UITextView(frame: CGRect(x: 200, y: 40, width: 195, height: 205))
+    let titleLable = UITextView(frame: CGRect(x: 200, y: 5, width: 195, height: 40))
+    var image: UIImage = UIImage()
+    var thumbNailView = UIImageView(frame: CGRect(x: 5, y: 5, width: 195, height: thumbNailViewHeight-5))
     
-    let closeButton = UIButton(frame: CGRect(x: 335, y: 0, width: 15, height: 15))
-    let mainView = UIView(frame: CGRect(x: 0, y: 0, width: 350, height: 200))
-    let descriptionLable = UITextView(frame: CGRect(x: 150, y: 60, width: 200, height: 130))
-    let titleLable = UITextView(frame: CGRect(x: 150, y: 20, width: 200, height: 40))
-    let thumbNail = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 200))
+  
     func initThumNailView(){
         closeButton.addTarget(self, action: #selector(MapController.closeButtonClicked(_:)), for: .touchUpInside)
-        titleLable.font = titleLable.font?.withSize(20)
-        mainView.backgroundColor = UIColor.lightGray
-        mainView.addSubview(closeButton)
+        titleLable.font = UIFont.boldSystemFont(ofSize: 20)
+        titleLable.isEditable = false
+        mainView.backgroundColor = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
         mainView.addSubview(titleLable)
         mainView.addSubview(descriptionLable)
         descriptionLable.font = descriptionLable.font?.withSize(16)
-        closeButton.backgroundColor = UIColor.darkGray
+        descriptionLable.isEditable = false
+        closeButton.backgroundColor = UIColor.black
         closeButton.setTitle("X", for: .normal)
+        
+        mainView.addSubview(thumbNailView)
         mainView.center = CGPoint(x: self.view.frame.size.width - 250, y: self.view.frame.size.height - 180)
+        mainView.addSubview(closeButton)
         self.view.addSubview(mainView)
         mainView.isHidden = true
     }
@@ -517,6 +512,9 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         
         
         descriptionLable.text = marker.snippet
+        let url = URL(string: MapController.baseUrl + "client/downloadMediaById?media_id=" + "38")
+        fetchImageFromURL(imageURL: url!)
+        
     }
     func closeButtonClicked(_ sender: AnyObject?)
     {
@@ -535,13 +533,13 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         return 0
     }
     
-    func fetchImageFromURL(imageURL: URL, point: UIImage)   {
+    func fetchImageFromURL(imageURL: URL)   {
         DispatchQueue.global(qos: DispatchQoS.userInitiated.qosClass).async {
             let fetch = NSData(contentsOf: imageURL as URL)
             // Display about the actual image
             DispatchQueue.main.async {
                 if let imageData = fetch {
-                    point =   UIImage(data: imageData as Data)
+                    self.thumbNailView.image =   UIImage(data: imageData as Data)
                 }
             }
         }
