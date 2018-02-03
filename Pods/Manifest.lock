@@ -6,15 +6,18 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (2.5.0):
     - GoogleMaps/Base (= 2.5.0)
+  - SwiftGifOrigin (1.6.1)
 
 DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
+  - SwiftGifOrigin (~> 1.6.1)
 
 SPEC CHECKSUMS:
   GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
   GooglePlaces: dd70d9d71ea1c7944846afe67de3712c99b30a77
+  SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
 
-PODFILE CHECKSUM: 4f0b402f734d11d52ca6432215e90fe4b4e40135
+PODFILE CHECKSUM: 56fd7aaec582248bd75bac36490b522727c8f9d8
 
 COCOAPODS: 1.4.0

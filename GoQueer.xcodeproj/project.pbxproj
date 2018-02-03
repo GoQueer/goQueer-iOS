@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49C7F40C98D1DEB2921C0631 /* libPods-GoQueer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6539CF5BEADE82DF03CBCF98 /* libPods-GoQueer.a */; };
 		4D1C20DA1F959A43002D6E59 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1C20D91F959A43002D6E59 /* MapKit.framework */; };
 		4D7B5C331FA6CA64005796B6 /* CustomPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5C321FA6CA63005796B6 /* CustomPolygon.swift */; };
 		4D7B5C351FA6CC9C005796B6 /* QCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7B5C341FA6CC9C005796B6 /* QCoordinate.swift */; };
@@ -15,6 +14,7 @@
 		4D9833F91FAEB30400D7BFFC /* RadioButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9833F81FAEB30400D7BFFC /* RadioButtonController.swift */; };
 		4D9833FB1FAEB9DC00D7BFFC /* QProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9833FA1FAEB9DC00D7BFFC /* QProfile.swift */; };
 		4DF54C8B1F9C6DE700C71C4E /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 4DF54C8A1F9C6DE700C71C4E /* Base.lproj */; };
+		71A2C476905096A957AEF914 /* Pods_GoQueer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8AE6AC780CE48E867FEDF3 /* Pods_GoQueer.framework */; };
 		753A55C31BB073E900254F27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753A55C21BB073E900254F27 /* AppDelegate.swift */; };
 		753A55C81BB073E900254F27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 753A55C61BB073E900254F27 /* Main.storyboard */; };
 		753A55CA1BB073E900254F27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 753A55C91BB073E900254F27 /* Images.xcassets */; };
@@ -49,7 +49,6 @@
 		4D9833F81FAEB30400D7BFFC /* RadioButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonController.swift; sourceTree = "<group>"; };
 		4D9833FA1FAEB9DC00D7BFFC /* QProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QProfile.swift; sourceTree = "<group>"; };
 		4DF54C8A1F9C6DE700C71C4E /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
-		6539CF5BEADE82DF03CBCF98 /* libPods-GoQueer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoQueer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		753A55BD1BB073E900254F27 /* GoQueer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoQueer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		753A55C21BB073E900254F27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		753A55C71BB073E900254F27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,6 +71,7 @@
 		CE5B14611ED3F529004D1A1A /* CustomCalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCalloutView.xib; sourceTree = "<group>"; };
 		CE5B14671ED8FC14004D1A1A /* Edmonton.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Edmonton.gpx; sourceTree = "<group>"; };
 		CE5B14691ED8FDC6004D1A1A /* Edmonton.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Edmonton.gpx; path = AKSwiftSlideMenu/Edmonton.gpx; sourceTree = "<group>"; };
+		CE8AE6AC780CE48E867FEDF3 /* Pods_GoQueer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoQueer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE6AB771EDA7579003F4AF6 /* QLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,7 +81,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D1C20DA1F959A43002D6E59 /* MapKit.framework in Frameworks */,
-				49C7F40C98D1DEB2921C0631 /* libPods-GoQueer.a in Frameworks */,
+				71A2C476905096A957AEF914 /* Pods_GoQueer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				4D1C20D91F959A43002D6E59 /* MapKit.framework */,
-				6539CF5BEADE82DF03CBCF98 /* libPods-GoQueer.a */,
+				CE8AE6AC780CE48E867FEDF3 /* Pods_GoQueer.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -300,9 +300,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GoQueer/Pods-GoQueer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGifOrigin.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

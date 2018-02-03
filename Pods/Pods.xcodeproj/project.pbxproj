@@ -3,140 +3,187 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C661548506896CFBED2668DBD4D5201 /* Pods-GoQueer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 332AC14F1EA144929363812AAA6C1BEF /* Pods-GoQueer-dummy.m */; };
-		FB0D208BAD5240D993FFBBD35671C54F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		322D604B05FC305D90DC46D66120B66E /* Pods-GoQueer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 209D1608FE9AE0B66143008D4C28FC81 /* Pods-GoQueer-dummy.m */; };
+		849D5FD7C88BAA4E928A99C918E59057 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435766018947597AF7548A5177415456 /* UIImage+Gif.swift */; };
+		BE445D94FF854D3B588ABAEAECAF6422 /* SwiftGifOrigin-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B2187EB506B6DB7D628D4642CFBA2DC /* SwiftGifOrigin-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF8120BA53C8ADCC181AAE5AC082248B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		D7A6BCD2B0E10F541DE8F38B1B46537C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		EC9FA14E847F7C0783A789AF6986F9D0 /* Pods-GoQueer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F894C382F214A46FABD67C66A3E3AED /* Pods-GoQueer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F1004648489ADA3A26D4497FD8621BCD /* SwiftGifOrigin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB160414C59B8695AB91FBDE4451F7A /* SwiftGifOrigin-dummy.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A544A22D10E8E8AFBA236F62D92791FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29497DE5A4C312D691FEE3BB1235F896;
+			remoteInfo = SwiftGifOrigin;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		08F1229163C7F5E61C7C4B361510F11C /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
-		1C6200385182862E9168588E60B1CD37 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
-		332AC14F1EA144929363812AAA6C1BEF /* Pods-GoQueer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GoQueer-dummy.m"; sourceTree = "<group>"; };
-		39F00141E107A6BEC52A0A17DB385C53 /* Pods-GoQueer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GoQueer-acknowledgements.plist"; sourceTree = "<group>"; };
-		60A4C9CBD337C0774C62BFFF92E06D6E /* Pods-GoQueer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GoQueer-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0011EAD728A96396134C5BB39DFE9B5F /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		0366083DA260BCEE075C8D9E0F80CB6B /* Pods-GoQueer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-GoQueer.modulemap"; sourceTree = "<group>"; };
+		209D1608FE9AE0B66143008D4C28FC81 /* Pods-GoQueer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GoQueer-dummy.m"; sourceTree = "<group>"; };
+		215FAA207511C2B9493590A4B540416C /* Pods_GoQueer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GoQueer.framework; path = "Pods-GoQueer.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DA1FCA292C9AA02E093ECEC84F3C54B /* Pods-GoQueer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GoQueer-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2EE3CB16437D3A0F82D59DFF7B34CC32 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		435766018947597AF7548A5177415456 /* UIImage+Gif.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Gif.swift"; path = "SwiftGifCommon/UIImage+Gif.swift"; sourceTree = "<group>"; };
+		486D417E817F4193ACE138669A52358D /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
+		5F894C382F214A46FABD67C66A3E3AED /* Pods-GoQueer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GoQueer-umbrella.h"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		70324FDF1FBB41BEA92DE76E00BD3E96 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
-		7D46DEBDBE199EEF32F58BB34CBEC1BB /* Pods-GoQueer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GoQueer.debug.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; };
-		A65ED65616C5861E2765BDC60AAAF910 /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
-		A92DFDA40F47C0FD221B2872C31099A1 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
-		B22C69ADCE7C9D529F11B17B4EF5E065 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
-		B25DD2B90D11CF09163D34E62EB40070 /* libPods-GoQueer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoQueer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8E357CBD44890BEF76FE8771D02280F /* Pods-GoQueer-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GoQueer-resources.sh"; sourceTree = "<group>"; };
-		B8F8AAFA52DD644353652AFCA30A96E9 /* Pods-GoQueer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GoQueer.release.xcconfig"; sourceTree = "<group>"; };
-		E4816D2FFDC9507B6771EA678BCEAEAC /* Pods-GoQueer-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GoQueer-frameworks.sh"; sourceTree = "<group>"; };
+		6C877BD94C8548722E60045862EE03DB /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
+		70716ACA92449E98AC45809B18D53A7F /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		73084ED6B8CA8E7F5830F8ACDD0AED7B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79BFE6E6047D8FCC9F56683441EB674F /* SwiftGifOrigin-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftGifOrigin-prefix.pch"; sourceTree = "<group>"; };
+		88583249ADC44114B36F5CCC708B36BF /* SwiftGifOrigin.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftGifOrigin.xcconfig; sourceTree = "<group>"; };
+		8B2187EB506B6DB7D628D4642CFBA2DC /* SwiftGifOrigin-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftGifOrigin-umbrella.h"; sourceTree = "<group>"; };
+		8D0BBCBF3C0CA2F579761637D3D0966C /* Pods-GoQueer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GoQueer-acknowledgements.plist"; sourceTree = "<group>"; };
+		914B12E0515910059634F2F69281EFFB /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A4FBF716C491D3F8C222D3450DA447BB /* Pods-GoQueer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GoQueer.debug.xcconfig"; sourceTree = "<group>"; };
+		A726DE97956FD2403DC0D089AAFC8306 /* Pods-GoQueer-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GoQueer-frameworks.sh"; sourceTree = "<group>"; };
+		A9F23F39EF21EE9111432BB27738DDE7 /* SwiftGifOrigin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftGifOrigin.framework; path = SwiftGifOrigin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEB160414C59B8695AB91FBDE4451F7A /* SwiftGifOrigin-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftGifOrigin-dummy.m"; sourceTree = "<group>"; };
+		B3EBA019B8A9BC3B5D77DD19BDECEA1E /* Pods-GoQueer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GoQueer.release.xcconfig"; sourceTree = "<group>"; };
+		EC65B2080D8BA046018C3BDD53096AAF /* Pods-GoQueer-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GoQueer-resources.sh"; sourceTree = "<group>"; };
+		F14651EEF01A99DD41618B532CC096B1 /* SwiftGifOrigin.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftGifOrigin.modulemap; sourceTree = "<group>"; };
+		FB53B5AA2125041757F5643FA20C4AC9 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DDFFD5B6B71DCBE58FCE96CFB0B530A1 /* Frameworks */ = {
+		3ED020160951711ABA469AAF02297F80 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB0D208BAD5240D993FFBBD35671C54F /* Foundation.framework in Frameworks */,
+				D7A6BCD2B0E10F541DE8F38B1B46537C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5095D86E0D313D55E06A269F995F50E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF8120BA53C8ADCC181AAE5AC082248B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00B63D9B3EBC8ECAFD5DA8C24F1A42DF /* GooglePlaces */ = {
+		0E0E4FD4B31CABB94A0C34DA80D58CAB /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				475420FA59EFC8377CF994A338979247 /* Frameworks */,
-				09DB508F39D8BE758EA4A7B9047268E9 /* Resources */,
+				7BA42A85BB62987ED5F961B8560F3286 /* Frameworks */,
 			);
-			path = GooglePlaces;
+			name = Base;
 			sourceTree = "<group>";
 		};
-		09DB508F39D8BE758EA4A7B9047268E9 /* Resources */ = {
+		21564D1FA219765E5ADCE84EED899B68 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A65ED65616C5861E2765BDC60AAAF910 /* GooglePlaces.bundle */,
+				486D417E817F4193ACE138669A52358D /* GooglePlaces.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		1DC8A4B37623E8DA62E6615D48FEAD7F /* Pods-GoQueer */ = {
+		23204B52B8E3D02B4AD8B9A19D8B5601 /* Pods-GoQueer */ = {
 			isa = PBXGroup;
 			children = (
-				60A4C9CBD337C0774C62BFFF92E06D6E /* Pods-GoQueer-acknowledgements.markdown */,
-				39F00141E107A6BEC52A0A17DB385C53 /* Pods-GoQueer-acknowledgements.plist */,
-				332AC14F1EA144929363812AAA6C1BEF /* Pods-GoQueer-dummy.m */,
-				E4816D2FFDC9507B6771EA678BCEAEAC /* Pods-GoQueer-frameworks.sh */,
-				B8E357CBD44890BEF76FE8771D02280F /* Pods-GoQueer-resources.sh */,
-				7D46DEBDBE199EEF32F58BB34CBEC1BB /* Pods-GoQueer.debug.xcconfig */,
-				B8F8AAFA52DD644353652AFCA30A96E9 /* Pods-GoQueer.release.xcconfig */,
+				2EE3CB16437D3A0F82D59DFF7B34CC32 /* Info.plist */,
+				0366083DA260BCEE075C8D9E0F80CB6B /* Pods-GoQueer.modulemap */,
+				2DA1FCA292C9AA02E093ECEC84F3C54B /* Pods-GoQueer-acknowledgements.markdown */,
+				8D0BBCBF3C0CA2F579761637D3D0966C /* Pods-GoQueer-acknowledgements.plist */,
+				209D1608FE9AE0B66143008D4C28FC81 /* Pods-GoQueer-dummy.m */,
+				A726DE97956FD2403DC0D089AAFC8306 /* Pods-GoQueer-frameworks.sh */,
+				EC65B2080D8BA046018C3BDD53096AAF /* Pods-GoQueer-resources.sh */,
+				5F894C382F214A46FABD67C66A3E3AED /* Pods-GoQueer-umbrella.h */,
+				A4FBF716C491D3F8C222D3450DA447BB /* Pods-GoQueer.debug.xcconfig */,
+				B3EBA019B8A9BC3B5D77DD19BDECEA1E /* Pods-GoQueer.release.xcconfig */,
 			);
 			name = "Pods-GoQueer";
 			path = "Target Support Files/Pods-GoQueer";
 			sourceTree = "<group>";
 		};
-		21A4F3D86CF306EA3C3687894BF65E63 /* Targets Support Files */ = {
+		3D1E43890B869944DA1BECD615FBB7EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1DC8A4B37623E8DA62E6615D48FEAD7F /* Pods-GoQueer */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		26C94CF6FBD559155351548F2127E7DB /* GoogleMaps */ = {
-			isa = PBXGroup;
-			children = (
-				B2F22323EA3B1ADB4F96376E3F709A68 /* Base */,
-				488E301C4ACDDA928635C4886F5F6158 /* Maps */,
-			);
-			path = GoogleMaps;
-			sourceTree = "<group>";
-		};
-		343584E22C57489C672A8E6F731CB43A /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				1C6200385182862E9168588E60B1CD37 /* GoogleMaps.bundle */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		385FA015FFB9210F372AB1078B856AAB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				26C94CF6FBD559155351548F2127E7DB /* GoogleMaps */,
-				00B63D9B3EBC8ECAFD5DA8C24F1A42DF /* GooglePlaces */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		475420FA59EFC8377CF994A338979247 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				70324FDF1FBB41BEA92DE76E00BD3E96 /* GooglePlaces.framework */,
+				914B12E0515910059634F2F69281EFFB /* GoogleMaps.framework */,
+				FB53B5AA2125041757F5643FA20C4AC9 /* GoogleMapsCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		488E301C4ACDDA928635C4886F5F6158 /* Maps */ = {
+		449627459368E1803667562DD119698C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				82CE66B3B7EC3F6274BF43A52FEEAE6E /* Frameworks */,
-				343584E22C57489C672A8E6F731CB43A /* Resources */,
-			);
-			name = Maps;
-			sourceTree = "<group>";
-		};
-		4CC7FAC83FC40E85FDFF3B55C968563E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B25DD2B90D11CF09163D34E62EB40070 /* libPods-GoQueer.a */,
+				215FAA207511C2B9493590A4B540416C /* Pods_GoQueer.framework */,
+				A9F23F39EF21EE9111432BB27738DDE7 /* SwiftGifOrigin.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4CFA8C2E94378AFFDBA3DF92FBE7E3DC /* Frameworks */ = {
+		6A84DBF7F127E6F1EF4DA62A7C8CAB46 /* SwiftGifOrigin */ = {
 			isa = PBXGroup;
 			children = (
-				B22C69ADCE7C9D529F11B17B4EF5E065 /* GoogleMapsBase.framework */,
+				435766018947597AF7548A5177415456 /* UIImage+Gif.swift */,
+				72FC94A3B7B5E5C24386E5895D58DE26 /* Support Files */,
+			);
+			name = SwiftGifOrigin;
+			path = SwiftGifOrigin;
+			sourceTree = "<group>";
+		};
+		71D6AB74EFC1556E7B756A6BC768E0CB /* GooglePlaces */ = {
+			isa = PBXGroup;
+			children = (
+				7AD9B28915385B69A88B3ABDDBD05CC2 /* Frameworks */,
+				21564D1FA219765E5ADCE84EED899B68 /* Resources */,
+			);
+			name = GooglePlaces;
+			path = GooglePlaces;
+			sourceTree = "<group>";
+		};
+		72FC94A3B7B5E5C24386E5895D58DE26 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				73084ED6B8CA8E7F5830F8ACDD0AED7B /* Info.plist */,
+				F14651EEF01A99DD41618B532CC096B1 /* SwiftGifOrigin.modulemap */,
+				88583249ADC44114B36F5CCC708B36BF /* SwiftGifOrigin.xcconfig */,
+				AEB160414C59B8695AB91FBDE4451F7A /* SwiftGifOrigin-dummy.m */,
+				79BFE6E6047D8FCC9F56683441EB674F /* SwiftGifOrigin-prefix.pch */,
+				8B2187EB506B6DB7D628D4642CFBA2DC /* SwiftGifOrigin-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftGifOrigin";
+			sourceTree = "<group>";
+		};
+		7712D8FBD53869E7AAD2ADBC9D2D6AAF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BAF0D58996817D5B398E1F3627A74D34 /* GoogleMaps */,
+				71D6AB74EFC1556E7B756A6BC768E0CB /* GooglePlaces */,
+				6A84DBF7F127E6F1EF4DA62A7C8CAB46 /* SwiftGifOrigin */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7AD9B28915385B69A88B3ABDDBD05CC2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C877BD94C8548722E60045862EE03DB /* GooglePlaces.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7BA42A85BB62987ED5F961B8560F3286 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0011EAD728A96396134C5BB39DFE9B5F /* GoogleMapsBase.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -146,27 +193,36 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				385FA015FFB9210F372AB1078B856AAB /* Pods */,
-				4CC7FAC83FC40E85FDFF3B55C968563E /* Products */,
-				21A4F3D86CF306EA3C3687894BF65E63 /* Targets Support Files */,
+				7712D8FBD53869E7AAD2ADBC9D2D6AAF /* Pods */,
+				449627459368E1803667562DD119698C /* Products */,
+				8980A7D186725FB4E7D9825B7828E698 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		82CE66B3B7EC3F6274BF43A52FEEAE6E /* Frameworks */ = {
+		7FD6321F9691B9EAFD9B2A775A9BF2B2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				08F1229163C7F5E61C7C4B361510F11C /* GoogleMaps.framework */,
-				A92DFDA40F47C0FD221B2872C31099A1 /* GoogleMapsCore.framework */,
+				70716ACA92449E98AC45809B18D53A7F /* GoogleMaps.bundle */,
 			);
-			name = Frameworks;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		B2F22323EA3B1ADB4F96376E3F709A68 /* Base */ = {
+		8980A7D186725FB4E7D9825B7828E698 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				4CFA8C2E94378AFFDBA3DF92FBE7E3DC /* Frameworks */,
+				23204B52B8E3D02B4AD8B9A19D8B5601 /* Pods-GoQueer */,
 			);
-			name = Base;
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		BAF0D58996817D5B398E1F3627A74D34 /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				0E0E4FD4B31CABB94A0C34DA80D58CAB /* Base */,
+				F2256B07A862EFFC41E36C6829590CB2 /* Maps */,
+			);
+			name = GoogleMaps;
+			path = GoogleMaps;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -185,24 +241,71 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		F2256B07A862EFFC41E36C6829590CB2 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				3D1E43890B869944DA1BECD615FBB7EC /* Frameworks */,
+				7FD6321F9691B9EAFD9B2A775A9BF2B2 /* Resources */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		54E93EF5F46DD549145D3C906360BDA2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE445D94FF854D3B588ABAEAECAF6422 /* SwiftGifOrigin-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7493BBF4BAC0AE21112F05EADFC32B8A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC9FA14E847F7C0783A789AF6986F9D0 /* Pods-GoQueer-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		9A38C0DE7511833B2793E22AA77A7313 /* Pods-GoQueer */ = {
+		29497DE5A4C312D691FEE3BB1235F896 /* SwiftGifOrigin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 99F5E0769D389D34C744FA1C540B5E9E /* Build configuration list for PBXNativeTarget "Pods-GoQueer" */;
+			buildConfigurationList = A1B497AF13B9A8B4A158D76450672B99 /* Build configuration list for PBXNativeTarget "SwiftGifOrigin" */;
 			buildPhases = (
-				5C80AD8A7BE46C2009AC50892DC126E0 /* Sources */,
-				DDFFD5B6B71DCBE58FCE96CFB0B530A1 /* Frameworks */,
+				F0FEE567C29906D27153A742E343DE4D /* Sources */,
+				3ED020160951711ABA469AAF02297F80 /* Frameworks */,
+				54E93EF5F46DD549145D3C906360BDA2 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
+			name = SwiftGifOrigin;
+			productName = SwiftGifOrigin;
+			productReference = A9F23F39EF21EE9111432BB27738DDE7 /* SwiftGifOrigin.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DC3212292F7C875AC07172E94D708B9E /* Pods-GoQueer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CE2E3AD14C81679F7274AA8B11C8C66 /* Build configuration list for PBXNativeTarget "Pods-GoQueer" */;
+			buildPhases = (
+				4FB191CDA8D8E73F32A6B0C375A18442 /* Sources */,
+				5095D86E0D313D55E06A269F995F50E8 /* Frameworks */,
+				7493BBF4BAC0AE21112F05EADFC32B8A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69A02F76A10C775A604B59BF09568F57 /* PBXTargetDependency */,
+			);
 			name = "Pods-GoQueer";
 			productName = "Pods-GoQueer";
-			productReference = B25DD2B90D11CF09163D34E62EB40070 /* libPods-GoQueer.a */;
-			productType = "com.apple.product-type.library.static";
+			productReference = 215FAA207511C2B9493590A4B540416C /* Pods_GoQueer.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -221,25 +324,44 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 4CC7FAC83FC40E85FDFF3B55C968563E /* Products */;
+			productRefGroup = 449627459368E1803667562DD119698C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9A38C0DE7511833B2793E22AA77A7313 /* Pods-GoQueer */,
+				DC3212292F7C875AC07172E94D708B9E /* Pods-GoQueer */,
+				29497DE5A4C312D691FEE3BB1235F896 /* SwiftGifOrigin */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5C80AD8A7BE46C2009AC50892DC126E0 /* Sources */ = {
+		4FB191CDA8D8E73F32A6B0C375A18442 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C661548506896CFBED2668DBD4D5201 /* Pods-GoQueer-dummy.m in Sources */,
+				322D604B05FC305D90DC46D66120B66E /* Pods-GoQueer-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0FEE567C29906D27153A742E343DE4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1004648489ADA3A26D4497FD8621BCD /* SwiftGifOrigin-dummy.m in Sources */,
+				849D5FD7C88BAA4E928A99C918E59057 /* UIImage+Gif.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		69A02F76A10C775A604B59BF09568F57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftGifOrigin;
+			target = 29497DE5A4C312D691FEE3BB1235F896 /* SwiftGifOrigin */;
+			targetProxy = A544A22D10E8E8AFBA236F62D92791FE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		12C4B864767C59600DBFA238F1E2F8BC /* Release */ = {
@@ -296,6 +418,74 @@
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
+		};
+		2D346452F757AF288B6985069CBDAD67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3EBA019B8A9BC3B5D77DD19BDECEA1E /* Pods-GoQueer.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-GoQueer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GoQueer/Pods-GoQueer.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_GoQueer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		45AFC197E4865812E30422548770DF8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4FBF716C491D3F8C222D3450DA447BB /* Pods-GoQueer.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-GoQueer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GoQueer/Pods-GoQueer.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_GoQueer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		59F0302F2371FCC6B73EF0A418D40734 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -357,44 +547,66 @@
 			};
 			name = Debug;
 		};
-		6FED8954EFEF96892ED584C3B4DA98C6 /* Debug */ = {
+		7E58B21E057DA648295C0688CF4485BB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D46DEBDBE199EEF32F58BB34CBEC1BB /* Pods-GoQueer.debug.xcconfig */;
+			baseConfigurationReference = 88583249ADC44114B36F5CCC708B36BF /* SwiftGifOrigin.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftGifOrigin/SwiftGifOrigin-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftGifOrigin/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftGifOrigin/SwiftGifOrigin.modulemap";
+				PRODUCT_NAME = SwiftGifOrigin;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		A2F1087032E3C625EA32DE3D1A25D182 /* Release */ = {
+		84CA828C2A79FE32C18FCB0DA0115935 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8F8AAFA52DD644353652AFCA30A96E9 /* Pods-GoQueer.release.xcconfig */;
+			baseConfigurationReference = 88583249ADC44114B36F5CCC708B36BF /* SwiftGifOrigin.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				MACH_O_TYPE = staticlib;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftGifOrigin/SwiftGifOrigin-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftGifOrigin/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftGifOrigin/SwiftGifOrigin.modulemap";
+				PRODUCT_NAME = SwiftGifOrigin;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -410,11 +622,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		99F5E0769D389D34C744FA1C540B5E9E /* Build configuration list for PBXNativeTarget "Pods-GoQueer" */ = {
+		3CE2E3AD14C81679F7274AA8B11C8C66 /* Build configuration list for PBXNativeTarget "Pods-GoQueer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6FED8954EFEF96892ED584C3B4DA98C6 /* Debug */,
-				A2F1087032E3C625EA32DE3D1A25D182 /* Release */,
+				45AFC197E4865812E30422548770DF8E /* Debug */,
+				2D346452F757AF288B6985069CBDAD67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1B497AF13B9A8B4A158D76450672B99 /* Build configuration list for PBXNativeTarget "SwiftGifOrigin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E58B21E057DA648295C0688CF4485BB /* Debug */,
+				84CA828C2A79FE32C18FCB0DA0115935 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

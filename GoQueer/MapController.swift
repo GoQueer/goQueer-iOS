@@ -3,6 +3,7 @@ import UIKit
 import GLKit
 import GoogleMaps
 import CoreLocation
+import SwiftGifOrigin
 
 
 
@@ -400,6 +401,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                     marker.iconView = markerView
                     marker.title = myLocation.name
                     marker.snippet = myLocation.description
+                    marker.zIndex = Int32(myLocation.galleryId)
                     marker.map = mapView
                     var flag = false
                     for gallery in myGalleries {
@@ -441,7 +443,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                     centerMarker.iconView = markerView
                     centerMarker.title = myLocation.name
                     centerMarker.snippet = myLocation.description
-                    
+                    centerMarker.zIndex = Int32(myLocation.galleryId)
                     centerMarker.map = mapView
                 }
             }
@@ -486,6 +488,9 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
   
     func initThumNailView(){
         closeButton.addTarget(self, action: #selector(MapController.closeButtonClicked(_:)), for: .touchUpInside)
+        
+        
+
         titleLable.font = UIFont.boldSystemFont(ofSize: 20)
         titleLable.isEditable = false
         mainView.backgroundColor = UIColor(red: 0.0, green: 0.5, blue: 1.0, alpha: 0.5)
@@ -502,6 +507,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         self.view.addSubview(mainView)
         mainView.isHidden = true
     }
+    var selectedGalleryId: Int32 = 0
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
     
         
@@ -510,12 +516,24 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         
         titleLable.text = marker.title
         
-        
+        selectedGalleryId = marker.zIndex
         descriptionLable.text = marker.snippet
-        let url = URL(string: MapController.baseUrl + "client/downloadMediaById?media_id=" + "38")
+        
+        let url = URL(string: MapController.baseUrl + "client/downloadMediaById?media_id=" + findCoverPicture(galleryId: Int(selectedGalleryId)))
         fetchImageFromURL(imageURL: url!)
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(navigateToGallery(galleryID: )))
+        thumbNailView.isUserInteractionEnabled = true
+        thumbNailView.addGestureRecognizer(tapGestureRecognizer)
         
     }
+    func navigateToGallery(galleryID: Int32)
+    {
+        
+        print("hi")
+        
+        
+    }
+    
     func closeButtonClicked(_ sender: AnyObject?)
     {
         if sender === closeButton {
@@ -524,21 +542,25 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
     }
     
     
-    func findCoverPicture(galleryId: Int) -> Int {
+    func findCoverPicture(galleryId: Int) -> String {
         for gallery in myGalleries {
             if gallery.id ==  galleryId && gallery.media.count > 0 {
-                return gallery.media[0].id
+                return String(gallery.media[0].id)
             }
         }
-        return 0
+        return ""
     }
     
     func fetchImageFromURL(imageURL: URL)   {
+        //self.thumbNailView.image = UIImage.gif(url: imageURL)
         DispatchQueue.global(qos: DispatchQoS.userInitiated.qosClass).async {
             let fetch = NSData(contentsOf: imageURL as URL)
             // Display about the actual image
+            
             DispatchQueue.main.async {
                 if let imageData = fetch {
+                    //self.thumbNailView.loadGif(name: "jeremy")
+                    //self.thumbNailView.image = UIImage.gif(data: imageData as Data)
                     self.thumbNailView.image =   UIImage(data: imageData as Data)
                 }
             }
