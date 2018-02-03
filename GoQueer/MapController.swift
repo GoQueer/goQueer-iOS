@@ -106,6 +106,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         startLocation = nil
+        initThumNailView()
         
         
     }
@@ -487,31 +488,41 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
     }
     
     
-    
-    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-      
-        //let customPin = CustomPin(coordinates: CLLocationCoordinate2D(latitude: Double(item.lat)!, longitude: Double(item.lng)!))
-        let mainView = UIView(frame: CGRect(x: 0, y: 0, width: 350, height: 200))
-        let button = UIButton(frame: CGRect(x: 335, y: 0, width: 15, height: 15))
-        let titleLable = UILabel(frame: CGRect(x: 150, y: 20, width: 200, height: 40))
-        let thumbNail = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 200))
-        
-        titleLable.text = marker.title
-        titleLable.font = titleLable.font.withSize(20)
-        let descriptionLable = UILabel(frame: CGRect(x: 150, y: 5, width: 200, height: 150))
-        descriptionLable.text = marker.snippet
-        descriptionLable.font = descriptionLable.font.withSize(16)
-        button.backgroundColor = UIColor.darkGray
-        button.setTitle("X", for: .normal)
-        mainView.center = CGPoint(x: self.view.frame.size.width - 250, y: self.view.frame.size.height - 180)
+    let closeButton = UIButton(frame: CGRect(x: 335, y: 0, width: 15, height: 15))
+    let mainView = UIView(frame: CGRect(x: 0, y: 0, width: 350, height: 200))
+    let descriptionLable = UITextView(frame: CGRect(x: 150, y: 60, width: 200, height: 130))
+    let titleLable = UITextView(frame: CGRect(x: 150, y: 20, width: 200, height: 40))
+    let thumbNail = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 200))
+    func initThumNailView(){
+        closeButton.addTarget(self, action: #selector(MapController.closeButtonClicked(_:)), for: .touchUpInside)
+        titleLable.font = titleLable.font?.withSize(20)
         mainView.backgroundColor = UIColor.lightGray
-        mainView.addSubview(button)
+        mainView.addSubview(closeButton)
         mainView.addSubview(titleLable)
         mainView.addSubview(descriptionLable)
+        descriptionLable.font = descriptionLable.font?.withSize(16)
+        closeButton.backgroundColor = UIColor.darkGray
+        closeButton.setTitle("X", for: .normal)
+        mainView.center = CGPoint(x: self.view.frame.size.width - 250, y: self.view.frame.size.height - 180)
         self.view.addSubview(mainView)
+        mainView.isHidden = true
+    }
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+    
+        
+        mainView.isHidden = false
         
         
+        titleLable.text = marker.title
         
+        
+        descriptionLable.text = marker.snippet
+    }
+    func closeButtonClicked(_ sender: AnyObject?)
+    {
+        if sender === closeButton {
+            mainView.isHidden = true
+        }
     }
     
     
@@ -524,13 +535,13 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         return 0
     }
     
-    func fetchImageFromURL(imageURL: URL, point: CustomPin)   {
+    func fetchImageFromURL(imageURL: URL, point: UIImage)   {
         DispatchQueue.global(qos: DispatchQoS.userInitiated.qosClass).async {
             let fetch = NSData(contentsOf: imageURL as URL)
             // Display about the actual image
             DispatchQueue.main.async {
                 if let imageData = fetch {
-                    point.image =   UIImage(data: imageData as Data)
+                    point =   UIImage(data: imageData as Data)
                 }
             }
         }
