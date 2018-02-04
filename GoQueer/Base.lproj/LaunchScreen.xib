@@ -1,43 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+            <rect key="frame" x="0.0" y="0.0" width="588" height="948"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bCm-DQ-ws6">
-                    <rect key="frame" x="21" y="77" width="424" height="282"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashScreen" highlightedImage="splashScreen" translatesAutoresizingMaskIntoConstraints="NO" id="ZuO-cg-VFn">
-                            <rect key="frame" x="0.0" y="0.0" width="424" height="282"/>
-                        </imageView>
-                    </subviews>
-                </stackView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Go Queer v1.0" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="121" y="218" width="236" height="43"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashScreen" highlightedImage="splashScreen" translatesAutoresizingMaskIntoConstraints="NO" id="ZuO-cg-VFn">
+                    <rect key="frame" x="82" y="333" width="424" height="282"/>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go Queer  v1.0" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="none" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
+                    <rect key="frame" x="82" y="273" width="424" height="388"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="61"/>
+                    <nil key="textColor"/>
                     <nil key="highlightedColor"/>
+                    <size key="shadowOffset" width="3" height="-1"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="0.016537375748157501" green="0.38065773248672485" blue="0.9855310320854187" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="bCm-DQ-ws6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ctg-eY-8JS"/>
-                <constraint firstItem="bCm-DQ-ws6" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="UHq-iW-Mzp"/>
+                <constraint firstItem="ZuO-cg-VFn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="333" id="25d-IX-q5M"/>
+                <constraint firstAttribute="trailing" secondItem="kId-c2-rCX" secondAttribute="trailing" constant="82" id="7ck-WW-0XE"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="273" id="90u-mO-Hid"/>
+                <constraint firstAttribute="bottom" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="287" id="Hiu-TR-gOi"/>
+                <constraint firstItem="ZuO-cg-VFn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="82" id="K9J-L4-RuN"/>
+                <constraint firstAttribute="bottom" secondItem="ZuO-cg-VFn" secondAttribute="bottom" constant="333" id="XKW-le-HdO"/>
+                <constraint firstAttribute="trailing" secondItem="ZuO-cg-VFn" secondAttribute="trailing" constant="82" id="aRY-4N-bwc"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="82" id="rZv-AE-563"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="548" y="455"/>
+            <point key="canvasLocation" x="602" y="221"/>
         </view>
     </objects>
     <resources>

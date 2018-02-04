@@ -479,11 +479,13 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
     static let thumbNailViewWidth = 400
     static let thumbNailViewHeight = 250
     let closeButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+    let moreButton = UIButton(frame: CGRect(x: 295, y: thumbNailViewHeight - 35, width: 100, height: 30))
     let mainView = UIView(frame: CGRect(x: 0, y: 0, width: thumbNailViewWidth, height: thumbNailViewHeight))
     let descriptionLable = UITextView(frame: CGRect(x: 200, y: 40, width: 195, height: 205))
     let titleLable = UITextView(frame: CGRect(x: 200, y: 5, width: 195, height: 40))
     var image: UIImage = UIImage()
     var thumbNailView = UIImageView(frame: CGRect(x: 5, y: 5, width: 195, height: thumbNailViewHeight-5))
+    var activityIndicator = UIActivityIndicatorView()
     
   
     func initThumNailView(){
@@ -500,43 +502,58 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         descriptionLable.isEditable = false
         closeButton.backgroundColor = UIColor.black
         closeButton.setTitle("X", for: .normal)
+        moreButton.backgroundColor = UIColor.green
+        moreButton.setTitle("Read More", for: .normal)
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        activityIndicator.frame = CGRect(x: 80, y: 100, width: 46, height: 46)
+        mainView.addSubview(activityIndicator)
+        
+        
+        
         
         mainView.addSubview(thumbNailView)
         mainView.center = CGPoint(x: self.view.frame.size.width - 250, y: self.view.frame.size.height - 180)
         mainView.addSubview(closeButton)
+        mainView.addSubview(moreButton)
         self.view.addSubview(mainView)
         mainView.isHidden = true
     }
-    var selectedGalleryId: Int32 = 0
+    var selectedGalleryId: Int = 0
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
     
-        
+        activityIndicator.startAnimating()
         mainView.isHidden = false
         
         
         titleLable.text = marker.title
         
-        selectedGalleryId = marker.zIndex
+        selectedGalleryId = Int(marker.zIndex)
         descriptionLable.text = marker.snippet
         
         let url = URL(string: MapController.baseUrl + "client/downloadMediaById?media_id=" + findCoverPicture(galleryId: Int(selectedGalleryId)))
         fetchImageFromURL(imageURL: url!)
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(navigateToGallery(galleryID: )))
         thumbNailView.isUserInteractionEnabled = true
-        thumbNailView.addGestureRecognizer(tapGestureRecognizer)
-        
+        moreButton.addTarget(self, action: #selector(MapController.navigateToGallery(galleryID: )), for: .touchUpInside)
+
     }
-    func navigateToGallery(galleryID: Int32)
+    
+    @objc func navigateToGallery(galleryID: Int32)
     {
-        
-        print("hi")
-        
-        
+        var resultGallery = QGallery()
+        for gallery in myGalleries {
+            if gallery.id == selectedGalleryId {
+                resultGallery = gallery
+            }
+        }
+        GalleryController.myGallery = resultGallery
+        performSegue(withIdentifier: "gallerySegue", sender: self)
     }
     
     func closeButtonClicked(_ sender: AnyObject?)
     {
         if sender === closeButton {
+            thumbNailView.image = nil
             mainView.isHidden = true
         }
     }
@@ -562,6 +579,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                     //self.thumbNailView.loadGif(name: "jeremy")
                     //self.thumbNailView.image = UIImage.gif(data: imageData as Data)
                     self.thumbNailView.image =   UIImage(data: imageData as Data)
+                    
                 }
             }
         }
