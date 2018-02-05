@@ -76,6 +76,8 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                                 
                             }))
                         }
+                          alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [weak alert] (_) in}))
+                        
                     }
                 }
                 catch {}
@@ -367,10 +369,8 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                             }
                         }
                         
-                        //let allAnnotations = self.mapView.annotations
-                        //self.mapView.removeAnnotations(allAnnotations)
                         self.mapView.clear()
-                        if (getProfile().show == "1") {
+                        if ( (getProfile().show == "1") || (getProfile().show == "2") ) {
                             processLocations(locations: allLocations)
                         } else {
                             processLocations(locations: myLocations)
@@ -401,7 +401,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                     marker.iconView = markerView
                     marker.title = myLocation.name
                     marker.snippet = myLocation.description
-                    marker.zIndex = Int32(myLocation.galleryId)
+                    marker.zIndex = Int32(myLocation.id)
                     marker.map = mapView
                     var flag = false
                     for gallery in myGalleries {
@@ -443,7 +443,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                     centerMarker.iconView = markerView
                     centerMarker.title = myLocation.name
                     centerMarker.snippet = myLocation.description
-                    centerMarker.zIndex = Int32(myLocation.galleryId)
+                    centerMarker.zIndex = Int32(myLocation.id)
                     centerMarker.map = mapView
                 }
             }
@@ -519,20 +519,40 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         mainView.isHidden = true
     }
     var selectedGalleryId: Int = 0
+   
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-    
+        selectedLocationId = Int(marker.zIndex)
+        var found: Bool = false
+        if (getProfile().show == "2" ) {
+            for location in myLocations {
+                if (location.id == selectedLocationId) {
+                    found = true
+                }
+            }
+            if found == false{
+                showToast(message: "You have to discover this location first")
+                return
+            }
+        }
+        
         activityIndicator.startAnimating()
         mainView.isHidden = false
         
         
         titleLable.text = marker.title
         
-        selectedGalleryId = Int(marker.zIndex)
+        
+        for location in allLocations {
+            if (location.id == selectedLocationId) {
+                selectedGalleryId = location.galleryId
+            }
+        }
+    
         descriptionLable.text = marker.snippet
         
-        let url = URL(string: MapController.baseUrl + "client/downloadMediaById?media_id=" + findCoverPicture(galleryId: Int(selectedGalleryId)))
-        fetchImageFromURL(imageURL: url!)
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(navigateToGallery(galleryID: )))
+        
+        fetchImageFromURL(media: findCoverPicture(galleryId: Int(selectedGalleryId)))
+        _ = UITapGestureRecognizer(target: self, action: #selector(navigateToGallery(galleryID: )))
         thumbNailView.isUserInteractionEnabled = true
         moreButton.addTarget(self, action: #selector(MapController.navigateToGallery(galleryID: )), for: .touchUpInside)
 
@@ -550,7 +570,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         performSegue(withIdentifier: "gallerySegue", sender: self)
     }
     
-    func closeButtonClicked(_ sender: AnyObject?)
+    @objc func closeButtonClicked(_ sender: AnyObject?)
     {
         if sender === closeButton {
             thumbNailView.image = nil
@@ -559,27 +579,29 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
     }
     
     
-    func findCoverPicture(galleryId: Int) -> String {
+    func findCoverPicture(galleryId: Int) -> QMedia {
         for gallery in myGalleries {
             if gallery.id ==  galleryId && gallery.media.count > 0 {
-                return String(gallery.media[0].id)
+                return gallery.media[0]
             }
         }
-        return ""
+        return QMedia()
+      
     }
     
-    func fetchImageFromURL(imageURL: URL)   {
-        //self.thumbNailView.image = UIImage.gif(url: imageURL)
+    func fetchImageFromURL(media: QMedia)   {
+        
+        let url = URL(string: MapController.baseUrl + "client/downloadMediaById?media_id=" + String(media.id))
         DispatchQueue.global(qos: DispatchQoS.userInitiated.qosClass).async {
-            let fetch = NSData(contentsOf: imageURL as URL)
-            // Display about the actual image
-            
+            let fetch = NSData(contentsOf: url as! URL)
             DispatchQueue.main.async {
                 if let imageData = fetch {
-                    //self.thumbNailView.loadGif(name: "jeremy")
-                    //self.thumbNailView.image = UIImage.gif(data: imageData as Data)
-                    self.thumbNailView.image =   UIImage(data: imageData as Data)
-                    
+                    if media.typeId == 4 {
+                        self.thumbNailView.image =   UIImage(data: imageData as Data)
+                    }else if media.typeId == 5 {
+                        
+                        self.thumbNailView.image = UIImage.gif(data: imageData as Data)
+                    }
                 }
             }
         }
@@ -844,7 +866,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         calloutView.addGestureRecognizer(gestureRec)
         
         mapView.setCenter((view.annotation?.coordinate)!, animated: true)
-    }*/
+    }
     
     @objc func someAction(_ sender:UITapGestureRecognizer){
         var resultGallery = QGallery()
@@ -859,7 +881,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         }
         GalleryController.myGallery = resultGallery
         performSegue(withIdentifier: "gallerySegue", sender: self)
-    }
+    }*/
     
     
     /*func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {

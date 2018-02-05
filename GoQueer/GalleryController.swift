@@ -11,12 +11,12 @@ import UIKit
 class GalleryController: BaseViewController {
 
     @IBAction func previousPressed(_ sender: UIButton) {
-        chooseImage(mediaId: GalleryController.myGallery.media[getPrevious(index: self.index)].id)
+        chooseImage(media: GalleryController.myGallery.media[getPrevious(index: self.index)])
         descriptionText.text = GalleryController.myGallery.media[self.index].description
         titleText.text = GalleryController.myGallery.media[self.index].name
     }
     @IBAction func nextPressed(_ sender: UIButton) {
-            chooseImage(mediaId: GalleryController.myGallery.media[getNext(index: self.index)].id)
+            chooseImage(media: GalleryController.myGallery.media[getNext(index: self.index)])
             descriptionText.text = GalleryController.myGallery.media[self.index].description
             titleText.text = GalleryController.myGallery.media[self.index].name
     }
@@ -47,7 +47,7 @@ class GalleryController: BaseViewController {
     public static var myGallery = QGallery()
     override func viewDidLoad() {
         super.viewDidLoad()
-        chooseImage(mediaId: GalleryController.myGallery.media[index].id)
+        chooseImage(media: GalleryController.myGallery.media[self.index])
         descriptionText.text = GalleryController.myGallery.media[index].description
         titleText.text = GalleryController.myGallery.media[index].name
     }
@@ -55,23 +55,30 @@ class GalleryController: BaseViewController {
     
     
     @IBOutlet weak var picture: UIImageView!
-    func chooseImage(mediaId: Int) {
+    func chooseImage(media: QMedia) {
         var imageURL = URL(string: "")
-        imageURL = URL(string: MapController.baseUrl + "client/downloadMediaById?media_id=" + String(mediaId) )
-        fetchImageFromURL(imageURL: imageURL!)
+        imageURL = URL(string: MapController.baseUrl + "client/downloadMediaById?media_id=" + String(media.id) )
+        fetchImageFromURL(imageURL: imageURL!, media: media)
     }
     
-    func fetchImageFromURL(imageURL: URL) {
+    func fetchImageFromURL(imageURL: URL,media: QMedia) {
         DispatchQueue.global(qos: DispatchQoS.userInitiated.qosClass).async {
             let fetch = NSData(contentsOf: imageURL as URL)
-            // Display about the actual image
+            
             DispatchQueue.main.async {
                 if let imageData = fetch {
                     
                     let imageView = UIImageView(frame: self.view.bounds)
-                    self.picture.image = UIImage(data: imageData as Data)
-                    //imageView.image = UIImage(named: "bkgrd")
-                    self.view.addSubview(imageView)
+                    if media.typeId == 4 {
+                        self.picture.image = UIImage(data: imageData as Data)
+                        self.view.addSubview(imageView)
+                    }else if media.typeId == 5 {
+                        self.picture.image = UIImage.gif(data: imageData as Data)
+                        self.view.addSubview(imageView)
+                    }
+                    
+                    
+                    
                 }
             }
         }
