@@ -112,6 +112,8 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         initThumNailView()
         
         
+        
+        
     }
     /*
     func mapView(mapView: GMSMapView, didSelectAnnotationView view: GSMapAnn) {
@@ -476,19 +478,27 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         return result;
     }
     
-    static let thumbNailViewWidth = 400
-    static let thumbNailViewHeight = 250
-    let closeButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-    let moreButton = UIButton(frame: CGRect(x: 295, y: thumbNailViewHeight - 35, width: 100, height: 30))
-    let mainView = UIView(frame: CGRect(x: 0, y: 0, width: thumbNailViewWidth, height: thumbNailViewHeight))
-    let descriptionLable = UITextView(frame: CGRect(x: 200, y: 40, width: 195, height: 205))
-    let titleLable = UITextView(frame: CGRect(x: 200, y: 5, width: 195, height: 40))
-    var image: UIImage = UIImage()
-    var thumbNailView = UIImageView(frame: CGRect(x: 5, y: 5, width: 195, height: thumbNailViewHeight-5))
-    var activityIndicator = UIActivityIndicatorView()
-    
   
+    var closeButton: UIButton!
+    var moreButton: UIButton!
+    var mainView: UIView!
+    var descriptionLable: UITextView!
+    var titleLable: UITextView!
+    var image: UIImage!
+    var thumbNailView: UIImageView!
+    var activityIndicator: UIActivityIndicatorView!
     func initThumNailView(){
+        
+        
+        let thumbNailViewWidth = self.view.frame.width * 0.75
+        let thumbNailViewHeight = self.view.frame.height  * 0.25
+        closeButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+        moreButton = UIButton(frame: CGRect(x: thumbNailViewWidth-100, y: thumbNailViewHeight - 35, width: 100, height: 30))
+        mainView = UIView(frame: CGRect(x: 0, y: 0, width: thumbNailViewWidth, height: thumbNailViewHeight))
+        descriptionLable = UITextView(frame: CGRect(x: thumbNailViewWidth/2, y: 40, width: thumbNailViewWidth/2 - 5, height: thumbNailViewHeight-45))
+        titleLable = UITextView(frame: CGRect(x: thumbNailViewWidth/2, y: 5, width: thumbNailViewWidth/2-5, height: 40))
+        thumbNailView = UIImageView(frame: CGRect(x: 5, y: 5, width: thumbNailViewWidth/2-5, height: thumbNailViewHeight-5))
+        activityIndicator = UIActivityIndicatorView()
         closeButton.addTarget(self, action: #selector(MapController.closeButtonClicked(_:)), for: .touchUpInside)
         
         
@@ -505,17 +515,23 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         moreButton.backgroundColor = UIColor.green
         moreButton.setTitle("Read More", for: .normal)
         activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
-        activityIndicator.frame = CGRect(x: 80, y: 100, width: 46, height: 46)
+        activityIndicator.frame = CGRect(x: thumbNailViewWidth/4, y: thumbNailViewHeight/2, width: 40, height: 40)
         mainView.addSubview(activityIndicator)
         
         
         
         
         mainView.addSubview(thumbNailView)
-        mainView.center = CGPoint(x: self.view.frame.size.width - 250, y: self.view.frame.size.height - 180)
+        mainView.center = CGPoint(x: self.view.frame.size.width - CGFloat(thumbNailViewWidth/2) - 10, y: self.view.frame.size.height - CGFloat(thumbNailViewHeight/2) - 10 )
         mainView.addSubview(closeButton)
         mainView.addSubview(moreButton)
         self.view.addSubview(mainView)
+        
+        
+        
+        
+        
+        
         mainView.isHidden = true
     }
     var selectedGalleryId: Int = 0
