@@ -10,6 +10,8 @@ import UIKit
 
 class GalleryController: BaseViewController {
 
+    @IBOutlet weak var imageViewWidth: NSLayoutConstraint!
+    @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
     @IBAction func previousPressed(_ sender: UIButton) {
         chooseImage(media: GalleryController.myGallery.media[getPrevious(index: self.index)])
         descriptionText.text = GalleryController.myGallery.media[self.index].description
@@ -50,6 +52,10 @@ class GalleryController: BaseViewController {
         chooseImage(media: GalleryController.myGallery.media[self.index])
         descriptionText.text = GalleryController.myGallery.media[index].description
         titleText.text = GalleryController.myGallery.media[index].name
+        titleText.textAlignment = .center
+        //imageViewWidth.constant = self.view.frame.width * 0.95
+        //imageViewHeight.constant = self.view.frame.height * 0.5
+        // Make width 85% of Screen Width
     }
     
     

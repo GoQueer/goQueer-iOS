@@ -4,7 +4,7 @@ import GLKit
 import GoogleMaps
 import CoreLocation
 import SwiftGifOrigin
-
+import AudioToolbox
 
 
 class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDelegate, GMSMapViewDelegate {
@@ -719,7 +719,8 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                     if let url = URL(string: MapController.baseUrl + "/client/setDiscoveryStatus?device_id=" + getDeviceId() + "&location_id=" + String(locationFromAll.id)) {
                         do {
                             let contents = try String(contentsOf: url)
-                                showToast(message: "You have discovered something! stop!")
+                                showToast(message: "You have discovered something! Wait a second!")
+                                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                         }
                         catch {
                             
