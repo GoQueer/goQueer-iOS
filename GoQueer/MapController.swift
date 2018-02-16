@@ -493,7 +493,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         let thumbNailViewWidth = self.view.frame.width * 0.75
         let thumbNailViewHeight = self.view.frame.height  * 0.25
         closeButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-        moreButton = UIButton(frame: CGRect(x: thumbNailViewWidth-100, y: thumbNailViewHeight - 35, width: 100, height: 30))
+        moreButton = UIButton(frame: CGRect(x: thumbNailViewWidth-105, y: thumbNailViewHeight - 35, width: 100, height: 30))
         mainView = UIView(frame: CGRect(x: 0, y: 0, width: thumbNailViewWidth, height: thumbNailViewHeight))
         descriptionLable = UITextView(frame: CGRect(x: thumbNailViewWidth/2, y: 40, width: thumbNailViewWidth/2 - 5, height: thumbNailViewHeight-45))
         titleLable = UITextView(frame: CGRect(x: thumbNailViewWidth/2, y: 5, width: thumbNailViewWidth/2-5, height: 40))
@@ -515,7 +515,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
         moreButton.backgroundColor = UIColor.green
         moreButton.setTitle("Read More", for: .normal)
         activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
-        activityIndicator.frame = CGRect(x: thumbNailViewWidth/4, y: thumbNailViewHeight/2, width: 40, height: 40)
+        activityIndicator.frame = CGRect(x: thumbNailViewWidth/4-20, y: thumbNailViewHeight/2-20, width: 40, height: 40)
         mainView.addSubview(activityIndicator)
         
         
@@ -663,8 +663,12 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
             qMedia.source = myresult[1].components(separatedBy: "source\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
             qMedia.name = myresult[2].components(separatedBy: "name\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
             qMedia.description = myresult[3].components(separatedBy: "description\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+               .replacingOccurrences(of: "\\r\\n", with: "", options: .literal, range: nil)
+                .replacingOccurrences(of: "\\", with: "", options: .literal, range: nil)
             qMedia.displayDate = myresult[5].components(separatedBy: "display_date\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
-            qMedia.typeId = Int( myresult[6].components(separatedBy: "type_id\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil).replacingOccurrences(of: "}", with: "", options: .literal, range: nil).replacingOccurrences(of: "]", with: "", options: .literal, range: nil) )!
+            qMedia.typeId = Int( myresult[6].components(separatedBy: "type_id\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil))!
+            qMedia.mediaURL =  myresult[7].components(separatedBy: "media_url\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil).replacingOccurrences(of: "}", with: "", options: .literal, range: nil).replacingOccurrences(of: "]", with: "", options: .literal, range: nil).replacingOccurrences(of: "\\", with: "", options: .literal, range: nil)
+            
             qMedidas.append(qMedia)
         }
         return qMedidas

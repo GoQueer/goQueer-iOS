@@ -13,5 +13,6 @@ class QMedia {
     var name: String!
     var description: String!
     var displayDate: String!
+    var mediaURL: String!
     var typeId: Int = 0
 }

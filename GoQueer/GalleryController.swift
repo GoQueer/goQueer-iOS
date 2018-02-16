@@ -1,26 +1,31 @@
-//
-//  PlayVC.swift
-//  AKSwiftSlideMenu
-//
-//  Created by MAC-186 on 4/8/16.
-//  Copyright © 2016 Kode. All rights reserved.
-//
-
 import UIKit
 
 class GalleryController: BaseViewController {
 
+    @IBOutlet weak var progress: UIActivityIndicatorView!
+    @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var imageViewWidth: NSLayoutConstraint!
     @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
     @IBAction func previousPressed(_ sender: UIButton) {
-        chooseImage(media: GalleryController.myGallery.media[getPrevious(index: self.index)])
-        descriptionText.text = GalleryController.myGallery.media[self.index].description
-        titleText.text = GalleryController.myGallery.media[self.index].name
+        
+            chooseImage(media: GalleryController.myGallery.media[getPrevious(index: self.index)])
+            descriptionText.text = GalleryController.myGallery.media[self.index].description
+            titleText.text = GalleryController.myGallery.media[self.index].name
+            if (GalleryController.myGallery.media[self.index].typeId == 1){
+                linkText.text = GalleryController.myGallery.media[self.index].mediaURL
+            } else {
+                linkText.text = ""
+            }
     }
     @IBAction func nextPressed(_ sender: UIButton) {
             chooseImage(media: GalleryController.myGallery.media[getNext(index: self.index)])
             descriptionText.text = GalleryController.myGallery.media[self.index].description
             titleText.text = GalleryController.myGallery.media[self.index].name
+            if (GalleryController.myGallery.media[self.index].typeId == 1){
+                    linkText.text = GalleryController.myGallery.media[self.index].mediaURL
+            } else {
+                linkText.text = ""
+            }
     }
     func getPrevious(index: Int) -> Int{
         if index > 0 {
@@ -35,6 +40,7 @@ class GalleryController: BaseViewController {
     
     
     
+    @IBOutlet weak var linkText: UITextView!
     func getNext(index: Int) -> Int{
         if index < GalleryController.myGallery.media.count-1 {
             self.index = index+1 
@@ -53,18 +59,17 @@ class GalleryController: BaseViewController {
         descriptionText.text = GalleryController.myGallery.media[index].description
         titleText.text = GalleryController.myGallery.media[index].name
         titleText.textAlignment = .center
-        //imageViewWidth.constant = self.view.frame.width * 0.95
-        //imageViewHeight.constant = self.view.frame.height * 0.5
-        // Make width 85% of Screen Width
     }
     
     
     
     @IBOutlet weak var picture: UIImageView!
     func chooseImage(media: QMedia) {
+        progress.startAnimating()
         var imageURL = URL(string: "")
         imageURL = URL(string: MapController.baseUrl + "client/downloadMediaById?media_id=" + String(media.id) )
         fetchImageFromURL(imageURL: imageURL!, media: media)
+        
     }
     
     func fetchImageFromURL(imageURL: URL,media: QMedia) {
@@ -84,13 +89,12 @@ class GalleryController: BaseViewController {
                     }
                     
                     
-                    
                 }
             }
         }
     }
     
-    @IBOutlet weak var descriptionText: UILabel!
+    
 
     @IBOutlet weak var titleText: UILabel!
 }

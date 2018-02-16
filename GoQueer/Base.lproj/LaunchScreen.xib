@@ -15,11 +15,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashScreen" highlightedImage="splashScreen" translatesAutoresizingMaskIntoConstraints="NO" id="ZuO-cg-VFn">
-                    <rect key="frame" x="82" y="333" width="424" height="282"/>
+                    <rect key="frame" x="50" y="333" width="488" height="282"/>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go Queer  v1.0" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="none" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Go Queer" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="none" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX" userLabel="Go Queer ">
                     <rect key="frame" x="82" y="273" width="424" height="388"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="61"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                     <size key="shadowOffset" width="3" height="-1"/>
@@ -27,14 +27,12 @@
             </subviews>
             <color key="backgroundColor" red="0.016537375748157501" green="0.38065773248672485" blue="0.9855310320854187" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ZuO-cg-VFn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="333" id="25d-IX-q5M"/>
-                <constraint firstAttribute="trailing" secondItem="kId-c2-rCX" secondAttribute="trailing" constant="82" id="7ck-WW-0XE"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="273" id="90u-mO-Hid"/>
-                <constraint firstAttribute="bottom" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="287" id="Hiu-TR-gOi"/>
-                <constraint firstItem="ZuO-cg-VFn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="82" id="K9J-L4-RuN"/>
-                <constraint firstAttribute="bottom" secondItem="ZuO-cg-VFn" secondAttribute="bottom" constant="333" id="XKW-le-HdO"/>
-                <constraint firstAttribute="trailing" secondItem="ZuO-cg-VFn" secondAttribute="trailing" constant="82" id="aRY-4N-bwc"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="82" id="rZv-AE-563"/>
+                <constraint firstItem="ZuO-cg-VFn" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="7va-a0-mep"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Ag9-Et-tEf"/>
+                <constraint firstItem="kId-c2-rCX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="KlD-JM-rEU"/>
+                <constraint firstItem="ZuO-cg-VFn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="YUk-db-A1R"/>
+                <constraint firstAttribute="trailing" secondItem="ZuO-cg-VFn" secondAttribute="trailing" constant="50" id="sSb-bl-FHU"/>
+                <constraint firstItem="ZuO-cg-VFn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="wGd-D1-cRr"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
