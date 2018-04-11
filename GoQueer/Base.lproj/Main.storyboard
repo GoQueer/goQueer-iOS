@@ -139,6 +139,11 @@
                                 <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="shadowOffset" width="2" height="1"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ToC-p9-Ql7" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                                <rect key="frame" x="20" y="100" width="280" height="292"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9py-vd-bkJ">
                                 <rect key="frame" x="20" y="100" width="280" height="380"/>
                                 <constraints>
@@ -220,6 +225,7 @@
                         <outlet property="picture" destination="9py-vd-bkJ" id="Prr-4W-yuf"/>
                         <outlet property="progress" destination="O5Y-H1-1ou" id="oVg-az-Ad8"/>
                         <outlet property="titleText" destination="vzf-3P-qSS" id="WDr-qi-Nt9"/>
+                        <outlet property="videoPlayer" destination="ToC-p9-Ql7" id="Lti-oa-FDN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mmn-PL-HS6" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -667,7 +667,8 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                 .replacingOccurrences(of: "\\", with: "", options: .literal, range: nil)
             qMedia.displayDate = myresult[5].components(separatedBy: "display_date\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
             qMedia.typeId = Int( myresult[6].components(separatedBy: "type_id\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil))!
-            qMedia.mediaURL =  myresult[7].components(separatedBy: "media_url\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil).replacingOccurrences(of: "}", with: "", options: .literal, range: nil).replacingOccurrences(of: "]", with: "", options: .literal, range: nil).replacingOccurrences(of: "\\", with: "", options: .literal, range: nil)
+            qMedia.mediaURL =  myresult[7].components(separatedBy: "media_url\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+            qMedia.extraLinks = myresult[8].components(separatedBy: "extra_links\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil) .replacingOccurrences(of: "}", with: "", options: .literal, range: nil).replacingOccurrences(of: "]", with: "", options: .literal, range: nil).replacingOccurrences(of: "\\", with: "", options: .literal, range: nil)
             
             qMedidas.append(qMedia)
         }

@@ -7,17 +7,20 @@ PODS:
   - GooglePlaces (2.5.0):
     - GoogleMaps/Base (= 2.5.0)
   - SwiftGifOrigin (1.6.1)
+  - YouTubePlayer (0.4.0)
 
 DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - SwiftGifOrigin (~> 1.6.1)
+  - YouTubePlayer
 
 SPEC CHECKSUMS:
   GoogleMaps: c087b8e5dfe87ca6ebf59adb9b4894a4146bec4f
   GooglePlaces: dd70d9d71ea1c7944846afe67de3712c99b30a77
   SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
+  YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
 
-PODFILE CHECKSUM: 56fd7aaec582248bd75bac36490b522727c8f9d8
+PODFILE CHECKSUM: 10034d76b37740186edce72fc31a44275f3d8ad3
 
 COCOAPODS: 1.4.0

@@ -6,6 +6,7 @@ target 'GoQueer' do
   pod 'GoogleMaps'
   pod 'GooglePlaces'
 pod 'SwiftGifOrigin', '~> 1.6.1'
+pod 'YouTubePlayer'
 end
 
 

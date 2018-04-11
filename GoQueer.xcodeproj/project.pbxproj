@@ -59,7 +59,7 @@
 		B63E56492022BC2700CEB025 /* retro.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = retro.json; path = GoQueer/retro.json; sourceTree = "<group>"; };
 		B63E564D2022BDE800CEB025 /* night.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = night.json; path = GoQueer/night.json; sourceTree = "<group>"; };
 		B63E564F2022BE0B00CEB025 /* grayscale.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = grayscale.json; path = GoQueer/grayscale.json; sourceTree = "<group>"; };
-		B6F9305920109CA5007986BE /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		B6F9305920109CA5007986BE /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C6EEF9F51CB7E2AD00A3DC6D /* GalleryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryController.swift; sourceTree = "<group>"; };
 		C6EEF9F71CB7E4E000A3DC6D /* MapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		CE5A4CCE1EDB8A010015872F /* QGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QGallery.swift; sourceTree = "<group>"; };
@@ -302,10 +302,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GoQueer/Pods-GoQueer-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework",
+				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGifOrigin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

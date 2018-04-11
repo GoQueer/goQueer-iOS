@@ -7,91 +7,104 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		322D604B05FC305D90DC46D66120B66E /* Pods-GoQueer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 209D1608FE9AE0B66143008D4C28FC81 /* Pods-GoQueer-dummy.m */; };
-		849D5FD7C88BAA4E928A99C918E59057 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435766018947597AF7548A5177415456 /* UIImage+Gif.swift */; };
-		BE445D94FF854D3B588ABAEAECAF6422 /* SwiftGifOrigin-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B2187EB506B6DB7D628D4642CFBA2DC /* SwiftGifOrigin-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BF8120BA53C8ADCC181AAE5AC082248B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		D7A6BCD2B0E10F541DE8F38B1B46537C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		EC9FA14E847F7C0783A789AF6986F9D0 /* Pods-GoQueer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F894C382F214A46FABD67C66A3E3AED /* Pods-GoQueer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F1004648489ADA3A26D4497FD8621BCD /* SwiftGifOrigin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB160414C59B8695AB91FBDE4451F7A /* SwiftGifOrigin-dummy.m */; };
+		24DD31C5BAA6DE13A2347EE6C5FD91F4 /* YouTubePlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1FAFAB37422993071324026ED90B51 /* YouTubePlayer-dummy.m */; };
+		2D832FA031998CB1A533DCC78ADD7C4A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		45232AB5DC010866988D7DCD32C57B3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		552648ACFCF512EF9DF5F97DF8F46CFA /* YouTubePlayer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 67A225C6D83E7BF26AA2515F01C38945 /* YouTubePlayer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56DBEA8C375F5DAECB13BF8BCA9A857B /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1929DD75775073A47E7820CA314D11BE /* UIImage+Gif.swift */; };
+		76A039292034DE687889660911C0766D /* SwiftGifOrigin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9C099E04CAB9BBCF0C1E4199EC48F3 /* SwiftGifOrigin-dummy.m */; };
+		ABEE18F708D24BA2CEC2032B09DF0F2E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		C6962652A5C840F7AE4CF264F6037BF5 /* YTPlayer.html in Resources */ = {isa = PBXBuildFile; fileRef = E8DA5BE1C538559A9044ED3CD1D36BCE /* YTPlayer.html */; };
+		CB595F3D9025135242A5EF12F7EE76BF /* Pods-GoQueer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 209D1608FE9AE0B66143008D4C28FC81 /* Pods-GoQueer-dummy.m */; };
+		D39497767DAE4D2C8CBD6C3081AD2C45 /* SwiftGifOrigin-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B0EA880493E842EA607DECFA826599A7 /* SwiftGifOrigin-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F3C9F4771575E8BEB318E4F5D3AE4B97 /* YouTubePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A4E3C2EBF63D4AC6862E28D954EDED /* YouTubePlayer.swift */; };
+		F4C7C6C3BCEC722D5223A0AE0BADBFBC /* Pods-GoQueer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F894C382F214A46FABD67C66A3E3AED /* Pods-GoQueer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A544A22D10E8E8AFBA236F62D92791FE /* PBXContainerItemProxy */ = {
+		7FF94302A9866B934C30F325ACC490EF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 29497DE5A4C312D691FEE3BB1235F896;
+			remoteGlobalIDString = CD91CEDA2BCBB98B009D4FB7951AD3F5;
+			remoteInfo = YouTubePlayer;
+		};
+		AEA03D78EE347EA8CBDF3190E71D378F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C70BD1C5C074F2C4FC316A51482147F1;
 			remoteInfo = SwiftGifOrigin;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0011EAD728A96396134C5BB39DFE9B5F /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		01A4E3C2EBF63D4AC6862E28D954EDED /* YouTubePlayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YouTubePlayer.swift; path = YouTubePlayer/YouTubePlayer/YouTubePlayer.swift; sourceTree = "<group>"; };
+		026C0FD6305A9E76B8F5DFC8BA629824 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0366083DA260BCEE075C8D9E0F80CB6B /* Pods-GoQueer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-GoQueer.modulemap"; sourceTree = "<group>"; };
+		075C1F3765F52691E0B510084753B5AC /* SwiftGifOrigin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftGifOrigin.framework; path = SwiftGifOrigin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		162518445260233665D4835C03C33D49 /* SwiftGifOrigin.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftGifOrigin.xcconfig; sourceTree = "<group>"; };
+		1929DD75775073A47E7820CA314D11BE /* UIImage+Gif.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Gif.swift"; path = "SwiftGifCommon/UIImage+Gif.swift"; sourceTree = "<group>"; };
+		1A05F8A4B120B4C0EDAABF0629A3C54A /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
 		209D1608FE9AE0B66143008D4C28FC81 /* Pods-GoQueer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GoQueer-dummy.m"; sourceTree = "<group>"; };
-		215FAA207511C2B9493590A4B540416C /* Pods_GoQueer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GoQueer.framework; path = "Pods-GoQueer.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28B6583C4796DBDA364DF86D7E928E4D /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		2BD5C20C24098DE3AC316E584BE6883A /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
 		2DA1FCA292C9AA02E093ECEC84F3C54B /* Pods-GoQueer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GoQueer-acknowledgements.markdown"; sourceTree = "<group>"; };
 		2EE3CB16437D3A0F82D59DFF7B34CC32 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		435766018947597AF7548A5177415456 /* UIImage+Gif.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Gif.swift"; path = "SwiftGifCommon/UIImage+Gif.swift"; sourceTree = "<group>"; };
-		486D417E817F4193ACE138669A52358D /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
+		35BB675C3C601DC5B93D1691F43B1C36 /* YouTubePlayer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YouTubePlayer.xcconfig; sourceTree = "<group>"; };
 		5F894C382F214A46FABD67C66A3E3AED /* Pods-GoQueer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GoQueer-umbrella.h"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		6C877BD94C8548722E60045862EE03DB /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
-		70716ACA92449E98AC45809B18D53A7F /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
-		73084ED6B8CA8E7F5830F8ACDD0AED7B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		79BFE6E6047D8FCC9F56683441EB674F /* SwiftGifOrigin-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftGifOrigin-prefix.pch"; sourceTree = "<group>"; };
-		88583249ADC44114B36F5CCC708B36BF /* SwiftGifOrigin.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftGifOrigin.xcconfig; sourceTree = "<group>"; };
-		8B2187EB506B6DB7D628D4642CFBA2DC /* SwiftGifOrigin-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftGifOrigin-umbrella.h"; sourceTree = "<group>"; };
+		668CBB3C2562D27A84B44F95736F9D99 /* SwiftGifOrigin.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftGifOrigin.modulemap; sourceTree = "<group>"; };
+		67A225C6D83E7BF26AA2515F01C38945 /* YouTubePlayer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YouTubePlayer-umbrella.h"; sourceTree = "<group>"; };
+		6E9C099E04CAB9BBCF0C1E4199EC48F3 /* SwiftGifOrigin-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftGifOrigin-dummy.m"; sourceTree = "<group>"; };
+		7C69CC0BFA50157E04BE1EF90BC99223 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		8D0BBCBF3C0CA2F579761637D3D0966C /* Pods-GoQueer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GoQueer-acknowledgements.plist"; sourceTree = "<group>"; };
-		914B12E0515910059634F2F69281EFFB /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94C18205D6E829D7278CB6A4C123B649 /* SwiftGifOrigin-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftGifOrigin-prefix.pch"; sourceTree = "<group>"; };
+		9B2D1E1C70F44B39152E2DFB37D63490 /* YouTubePlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YouTubePlayer.framework; path = YouTubePlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4FBF716C491D3F8C222D3450DA447BB /* Pods-GoQueer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GoQueer.debug.xcconfig"; sourceTree = "<group>"; };
 		A726DE97956FD2403DC0D089AAFC8306 /* Pods-GoQueer-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GoQueer-frameworks.sh"; sourceTree = "<group>"; };
-		A9F23F39EF21EE9111432BB27738DDE7 /* SwiftGifOrigin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftGifOrigin.framework; path = SwiftGifOrigin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AEB160414C59B8695AB91FBDE4451F7A /* SwiftGifOrigin-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftGifOrigin-dummy.m"; sourceTree = "<group>"; };
+		AD1FAFAB37422993071324026ED90B51 /* YouTubePlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YouTubePlayer-dummy.m"; sourceTree = "<group>"; };
+		B0EA880493E842EA607DECFA826599A7 /* SwiftGifOrigin-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftGifOrigin-umbrella.h"; sourceTree = "<group>"; };
 		B3EBA019B8A9BC3B5D77DD19BDECEA1E /* Pods-GoQueer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GoQueer.release.xcconfig"; sourceTree = "<group>"; };
+		BBB9889B68829DA789C8E5E8F1ECCD3C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE8ADFECFF341E2248B597E5222DD513 /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
+		C3438976670FF14DD17347B6F61EC4E3 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
+		CAA18C1DAD5FD10FD0205D60EBF0B8B1 /* Pods_GoQueer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GoQueer.framework; path = "Pods-GoQueer.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8DA5BE1C538559A9044ED3CD1D36BCE /* YTPlayer.html */ = {isa = PBXFileReference; includeInIndex = 1; name = YTPlayer.html; path = YouTubePlayer/YouTubePlayer/YTPlayer.html; sourceTree = "<group>"; };
+		E91B6D245891C4F81F92C36114CA7108 /* YouTubePlayer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YouTubePlayer-prefix.pch"; sourceTree = "<group>"; };
 		EC65B2080D8BA046018C3BDD53096AAF /* Pods-GoQueer-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GoQueer-resources.sh"; sourceTree = "<group>"; };
-		F14651EEF01A99DD41618B532CC096B1 /* SwiftGifOrigin.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftGifOrigin.modulemap; sourceTree = "<group>"; };
-		FB53B5AA2125041757F5643FA20C4AC9 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsCore.framework; path = Maps/Frameworks/GoogleMapsCore.framework; sourceTree = "<group>"; };
+		F2F58452B638E669D6CD9A236F6E9AEA /* YouTubePlayer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = YouTubePlayer.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3ED020160951711ABA469AAF02297F80 /* Frameworks */ = {
+		016D0E8C902FA39585DA1EA753CA4BDB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7A6BCD2B0E10F541DE8F38B1B46537C /* Foundation.framework in Frameworks */,
+				45232AB5DC010866988D7DCD32C57B3E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5095D86E0D313D55E06A269F995F50E8 /* Frameworks */ = {
+		37529F3B701C7FAA3F9E9B9387727F05 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF8120BA53C8ADCC181AAE5AC082248B /* Foundation.framework in Frameworks */,
+				ABEE18F708D24BA2CEC2032B09DF0F2E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BECF3A6E31F683C6E10061528C4E195A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D832FA031998CB1A533DCC78ADD7C4A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E0E4FD4B31CABB94A0C34DA80D58CAB /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				7BA42A85BB62987ED5F961B8560F3286 /* Frameworks */,
-			);
-			name = Base;
-			sourceTree = "<group>";
-		};
-		21564D1FA219765E5ADCE84EED899B68 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				486D417E817F4193ACE138669A52358D /* GooglePlaces.bundle */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		23204B52B8E3D02B4AD8B9A19D8B5601 /* Pods-GoQueer */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,82 +123,53 @@
 			path = "Target Support Files/Pods-GoQueer";
 			sourceTree = "<group>";
 		};
-		3D1E43890B869944DA1BECD615FBB7EC /* Frameworks */ = {
+		3D000D4C1B456129628F1A5D757CEE9A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				914B12E0515910059634F2F69281EFFB /* GoogleMaps.framework */,
-				FB53B5AA2125041757F5643FA20C4AC9 /* GoogleMapsCore.framework */,
+				1A05F8A4B120B4C0EDAABF0629A3C54A /* GooglePlaces.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		449627459368E1803667562DD119698C /* Products */ = {
+		44243ECC14ADE6B373D8C753C77C9606 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				215FAA207511C2B9493590A4B540416C /* Pods_GoQueer.framework */,
-				A9F23F39EF21EE9111432BB27738DDE7 /* SwiftGifOrigin.framework */,
+				7C69CC0BFA50157E04BE1EF90BC99223 /* GoogleMaps.bundle */,
 			);
-			name = Products;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		6A84DBF7F127E6F1EF4DA62A7C8CAB46 /* SwiftGifOrigin */ = {
+		4ECA4B67F6E9917B92A1643396BE14EB /* YouTubePlayer */ = {
 			isa = PBXGroup;
 			children = (
-				435766018947597AF7548A5177415456 /* UIImage+Gif.swift */,
-				72FC94A3B7B5E5C24386E5895D58DE26 /* Support Files */,
+				01A4E3C2EBF63D4AC6862E28D954EDED /* YouTubePlayer.swift */,
+				D3F5ACFD10CD395B30469331E8ADB492 /* Resources */,
+				60A9019891082EEDBD2210571212A6BC /* Support Files */,
 			);
-			name = SwiftGifOrigin;
-			path = SwiftGifOrigin;
+			name = YouTubePlayer;
+			path = YouTubePlayer;
 			sourceTree = "<group>";
 		};
-		71D6AB74EFC1556E7B756A6BC768E0CB /* GooglePlaces */ = {
+		52BF64B7A90F89C87CA003F5B9D66F2D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7AD9B28915385B69A88B3ABDDBD05CC2 /* Frameworks */,
-				21564D1FA219765E5ADCE84EED899B68 /* Resources */,
+				BE8ADFECFF341E2248B597E5222DD513 /* GooglePlaces.bundle */,
 			);
-			name = GooglePlaces;
-			path = GooglePlaces;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		72FC94A3B7B5E5C24386E5895D58DE26 /* Support Files */ = {
+		60A9019891082EEDBD2210571212A6BC /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				73084ED6B8CA8E7F5830F8ACDD0AED7B /* Info.plist */,
-				F14651EEF01A99DD41618B532CC096B1 /* SwiftGifOrigin.modulemap */,
-				88583249ADC44114B36F5CCC708B36BF /* SwiftGifOrigin.xcconfig */,
-				AEB160414C59B8695AB91FBDE4451F7A /* SwiftGifOrigin-dummy.m */,
-				79BFE6E6047D8FCC9F56683441EB674F /* SwiftGifOrigin-prefix.pch */,
-				8B2187EB506B6DB7D628D4642CFBA2DC /* SwiftGifOrigin-umbrella.h */,
+				BBB9889B68829DA789C8E5E8F1ECCD3C /* Info.plist */,
+				F2F58452B638E669D6CD9A236F6E9AEA /* YouTubePlayer.modulemap */,
+				35BB675C3C601DC5B93D1691F43B1C36 /* YouTubePlayer.xcconfig */,
+				AD1FAFAB37422993071324026ED90B51 /* YouTubePlayer-dummy.m */,
+				E91B6D245891C4F81F92C36114CA7108 /* YouTubePlayer-prefix.pch */,
+				67A225C6D83E7BF26AA2515F01C38945 /* YouTubePlayer-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/SwiftGifOrigin";
-			sourceTree = "<group>";
-		};
-		7712D8FBD53869E7AAD2ADBC9D2D6AAF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BAF0D58996817D5B398E1F3627A74D34 /* GoogleMaps */,
-				71D6AB74EFC1556E7B756A6BC768E0CB /* GooglePlaces */,
-				6A84DBF7F127E6F1EF4DA62A7C8CAB46 /* SwiftGifOrigin */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		7AD9B28915385B69A88B3ABDDBD05CC2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6C877BD94C8548722E60045862EE03DB /* GooglePlaces.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		7BA42A85BB62987ED5F961B8560F3286 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0011EAD728A96396134C5BB39DFE9B5F /* GoogleMapsBase.framework */,
-			);
-			name = Frameworks;
+			path = "../Target Support Files/YouTubePlayer";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -193,18 +177,29 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				7712D8FBD53869E7AAD2ADBC9D2D6AAF /* Pods */,
-				449627459368E1803667562DD119698C /* Products */,
+				9AB9C002B85F92C9C79B4250CC5AC34C /* Pods */,
+				C5C9F4C2C5FD5AE55168211553074D7A /* Products */,
 				8980A7D186725FB4E7D9825B7828E698 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		7FD6321F9691B9EAFD9B2A775A9BF2B2 /* Resources */ = {
+		814A1331D0B358D67F03E4DDCF65761E /* GoogleMaps */ = {
 			isa = PBXGroup;
 			children = (
-				70716ACA92449E98AC45809B18D53A7F /* GoogleMaps.bundle */,
+				ED7CA9ED4D23562CC2A8857390C50F87 /* Base */,
+				BC9E02856B8B057D1CF812728C551A55 /* Maps */,
 			);
-			name = Resources;
+			name = GoogleMaps;
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		8397CED8332D6AD140C5993DE748A97B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28B6583C4796DBDA364DF86D7E928E4D /* GoogleMaps.framework */,
+				C3438976670FF14DD17347B6F61EC4E3 /* GoogleMapsCore.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		8980A7D186725FB4E7D9825B7828E698 /* Targets Support Files */ = {
@@ -215,14 +210,47 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		BAF0D58996817D5B398E1F3627A74D34 /* GoogleMaps */ = {
+		9AB9C002B85F92C9C79B4250CC5AC34C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0E0E4FD4B31CABB94A0C34DA80D58CAB /* Base */,
-				F2256B07A862EFFC41E36C6829590CB2 /* Maps */,
+				814A1331D0B358D67F03E4DDCF65761E /* GoogleMaps */,
+				EC11F9C7850DD55CD7C2AC5D92B8AD6B /* GooglePlaces */,
+				A3B6A490C250583189012535F92703B3 /* SwiftGifOrigin */,
+				4ECA4B67F6E9917B92A1643396BE14EB /* YouTubePlayer */,
 			);
-			name = GoogleMaps;
-			path = GoogleMaps;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9EDD34C87CEB8A7E4854D27C0C8457C7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				026C0FD6305A9E76B8F5DFC8BA629824 /* Info.plist */,
+				668CBB3C2562D27A84B44F95736F9D99 /* SwiftGifOrigin.modulemap */,
+				162518445260233665D4835C03C33D49 /* SwiftGifOrigin.xcconfig */,
+				6E9C099E04CAB9BBCF0C1E4199EC48F3 /* SwiftGifOrigin-dummy.m */,
+				94C18205D6E829D7278CB6A4C123B649 /* SwiftGifOrigin-prefix.pch */,
+				B0EA880493E842EA607DECFA826599A7 /* SwiftGifOrigin-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftGifOrigin";
+			sourceTree = "<group>";
+		};
+		A068ACB5E56896EA7EB666DA2831F918 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2BD5C20C24098DE3AC316E584BE6883A /* GoogleMapsBase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3B6A490C250583189012535F92703B3 /* SwiftGifOrigin */ = {
+			isa = PBXGroup;
+			children = (
+				1929DD75775073A47E7820CA314D11BE /* UIImage+Gif.swift */,
+				9EDD34C87CEB8A7E4854D27C0C8457C7 /* Support Files */,
+			);
+			name = SwiftGifOrigin;
+			path = SwiftGifOrigin;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -233,6 +261,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BC9E02856B8B057D1CF812728C551A55 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				8397CED8332D6AD140C5993DE748A97B /* Frameworks */,
+				44243ECC14ADE6B373D8C753C77C9606 /* Resources */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
+		C5C9F4C2C5FD5AE55168211553074D7A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CAA18C1DAD5FD10FD0205D60EBF0B8B1 /* Pods_GoQueer.framework */,
+				075C1F3765F52691E0B510084753B5AC /* SwiftGifOrigin.framework */,
+				9B2D1E1C70F44B39152E2DFB37D63490 /* YouTubePlayer.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,44 +288,88 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		F2256B07A862EFFC41E36C6829590CB2 /* Maps */ = {
+		D3F5ACFD10CD395B30469331E8ADB492 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3D1E43890B869944DA1BECD615FBB7EC /* Frameworks */,
-				7FD6321F9691B9EAFD9B2A775A9BF2B2 /* Resources */,
+				E8DA5BE1C538559A9044ED3CD1D36BCE /* YTPlayer.html */,
 			);
-			name = Maps;
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		EC11F9C7850DD55CD7C2AC5D92B8AD6B /* GooglePlaces */ = {
+			isa = PBXGroup;
+			children = (
+				3D000D4C1B456129628F1A5D757CEE9A /* Frameworks */,
+				52BF64B7A90F89C87CA003F5B9D66F2D /* Resources */,
+			);
+			name = GooglePlaces;
+			path = GooglePlaces;
+			sourceTree = "<group>";
+		};
+		ED7CA9ED4D23562CC2A8857390C50F87 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A068ACB5E56896EA7EB666DA2831F918 /* Frameworks */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		54E93EF5F46DD549145D3C906360BDA2 /* Headers */ = {
+		8DEFD2576363C2BE7261D6E4D8F23963 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE445D94FF854D3B588ABAEAECAF6422 /* SwiftGifOrigin-umbrella.h in Headers */,
+				D39497767DAE4D2C8CBD6C3081AD2C45 /* SwiftGifOrigin-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7493BBF4BAC0AE21112F05EADFC32B8A /* Headers */ = {
+		B9EA55DD17077AA6431007373A211324 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC9FA14E847F7C0783A789AF6986F9D0 /* Pods-GoQueer-umbrella.h in Headers */,
+				552648ACFCF512EF9DF5F97DF8F46CFA /* YouTubePlayer-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6E25923C34240EBFC76A26D98963140 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4C7C6C3BCEC722D5223A0AE0BADBFBC /* Pods-GoQueer-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		29497DE5A4C312D691FEE3BB1235F896 /* SwiftGifOrigin */ = {
+		4382F17DFF0D6F5F4766CAE4B76738AB /* Pods-GoQueer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1B497AF13B9A8B4A158D76450672B99 /* Build configuration list for PBXNativeTarget "SwiftGifOrigin" */;
+			buildConfigurationList = 077AB2426AE94D80AFCEA39418626DCD /* Build configuration list for PBXNativeTarget "Pods-GoQueer" */;
 			buildPhases = (
-				F0FEE567C29906D27153A742E343DE4D /* Sources */,
-				3ED020160951711ABA469AAF02297F80 /* Frameworks */,
-				54E93EF5F46DD549145D3C906360BDA2 /* Headers */,
+				EAEE11993D8917812F46AD8899B8F287 /* Sources */,
+				37529F3B701C7FAA3F9E9B9387727F05 /* Frameworks */,
+				C6E25923C34240EBFC76A26D98963140 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4976FA659BD23FDDC2783E44C98D43A /* PBXTargetDependency */,
+				04FBAA7306C83D98DCD6D9CE7351CE08 /* PBXTargetDependency */,
+			);
+			name = "Pods-GoQueer";
+			productName = "Pods-GoQueer";
+			productReference = CAA18C1DAD5FD10FD0205D60EBF0B8B1 /* Pods_GoQueer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C70BD1C5C074F2C4FC316A51482147F1 /* SwiftGifOrigin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5483C9B0794392570DDCF934D18BEDE1 /* Build configuration list for PBXNativeTarget "SwiftGifOrigin" */;
+			buildPhases = (
+				D576B5FB07ABACC9A1333101C3680DB6 /* Sources */,
+				016D0E8C902FA39585DA1EA753CA4BDB /* Frameworks */,
+				8DEFD2576363C2BE7261D6E4D8F23963 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -286,25 +377,25 @@
 			);
 			name = SwiftGifOrigin;
 			productName = SwiftGifOrigin;
-			productReference = A9F23F39EF21EE9111432BB27738DDE7 /* SwiftGifOrigin.framework */;
+			productReference = 075C1F3765F52691E0B510084753B5AC /* SwiftGifOrigin.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		DC3212292F7C875AC07172E94D708B9E /* Pods-GoQueer */ = {
+		CD91CEDA2BCBB98B009D4FB7951AD3F5 /* YouTubePlayer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3CE2E3AD14C81679F7274AA8B11C8C66 /* Build configuration list for PBXNativeTarget "Pods-GoQueer" */;
+			buildConfigurationList = 69AA97C3DCF5FBEB3C2D9480FB3776C8 /* Build configuration list for PBXNativeTarget "YouTubePlayer" */;
 			buildPhases = (
-				4FB191CDA8D8E73F32A6B0C375A18442 /* Sources */,
-				5095D86E0D313D55E06A269F995F50E8 /* Frameworks */,
-				7493BBF4BAC0AE21112F05EADFC32B8A /* Headers */,
+				5181F6A1CD6CE31DD9C534532514D304 /* Sources */,
+				BECF3A6E31F683C6E10061528C4E195A /* Frameworks */,
+				F482622F0EC722D006945D72354822C7 /* Resources */,
+				B9EA55DD17077AA6431007373A211324 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				69A02F76A10C775A604B59BF09568F57 /* PBXTargetDependency */,
 			);
-			name = "Pods-GoQueer";
-			productName = "Pods-GoQueer";
-			productReference = 215FAA207511C2B9493590A4B540416C /* Pods_GoQueer.framework */;
+			name = YouTubePlayer;
+			productName = YouTubePlayer;
+			productReference = 9B2D1E1C70F44B39152E2DFB37D63490 /* YouTubePlayer.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -324,42 +415,69 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 449627459368E1803667562DD119698C /* Products */;
+			productRefGroup = C5C9F4C2C5FD5AE55168211553074D7A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DC3212292F7C875AC07172E94D708B9E /* Pods-GoQueer */,
-				29497DE5A4C312D691FEE3BB1235F896 /* SwiftGifOrigin */,
+				4382F17DFF0D6F5F4766CAE4B76738AB /* Pods-GoQueer */,
+				C70BD1C5C074F2C4FC316A51482147F1 /* SwiftGifOrigin */,
+				CD91CEDA2BCBB98B009D4FB7951AD3F5 /* YouTubePlayer */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXSourcesBuildPhase section */
-		4FB191CDA8D8E73F32A6B0C375A18442 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+/* Begin PBXResourcesBuildPhase section */
+		F482622F0EC722D006945D72354822C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				322D604B05FC305D90DC46D66120B66E /* Pods-GoQueer-dummy.m in Sources */,
+				C6962652A5C840F7AE4CF264F6037BF5 /* YTPlayer.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F0FEE567C29906D27153A742E343DE4D /* Sources */ = {
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5181F6A1CD6CE31DD9C534532514D304 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1004648489ADA3A26D4497FD8621BCD /* SwiftGifOrigin-dummy.m in Sources */,
-				849D5FD7C88BAA4E928A99C918E59057 /* UIImage+Gif.swift in Sources */,
+				24DD31C5BAA6DE13A2347EE6C5FD91F4 /* YouTubePlayer-dummy.m in Sources */,
+				F3C9F4771575E8BEB318E4F5D3AE4B97 /* YouTubePlayer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D576B5FB07ABACC9A1333101C3680DB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76A039292034DE687889660911C0766D /* SwiftGifOrigin-dummy.m in Sources */,
+				56DBEA8C375F5DAECB13BF8BCA9A857B /* UIImage+Gif.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAEE11993D8917812F46AD8899B8F287 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB595F3D9025135242A5EF12F7EE76BF /* Pods-GoQueer-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		69A02F76A10C775A604B59BF09568F57 /* PBXTargetDependency */ = {
+		04FBAA7306C83D98DCD6D9CE7351CE08 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = YouTubePlayer;
+			target = CD91CEDA2BCBB98B009D4FB7951AD3F5 /* YouTubePlayer */;
+			targetProxy = 7FF94302A9866B934C30F325ACC490EF /* PBXContainerItemProxy */;
+		};
+		D4976FA659BD23FDDC2783E44C98D43A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftGifOrigin;
-			target = 29497DE5A4C312D691FEE3BB1235F896 /* SwiftGifOrigin */;
-			targetProxy = A544A22D10E8E8AFBA236F62D92791FE /* PBXContainerItemProxy */;
+			target = C70BD1C5C074F2C4FC316A51482147F1 /* SwiftGifOrigin */;
+			targetProxy = AEA03D78EE347EA8CBDF3190E71D378F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -419,7 +537,70 @@
 			};
 			name = Release;
 		};
-		2D346452F757AF288B6985069CBDAD67 /* Release */ = {
+		3647FC3DEE8FE62398455973BB101538 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35BB675C3C601DC5B93D1691F43B1C36 /* YouTubePlayer.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/YouTubePlayer/YouTubePlayer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/YouTubePlayer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/YouTubePlayer/YouTubePlayer.modulemap";
+				PRODUCT_NAME = YouTubePlayer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		45966532EE5AC7FFA258D09B9B2C6987 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 162518445260233665D4835C03C33D49 /* SwiftGifOrigin.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftGifOrigin/SwiftGifOrigin-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftGifOrigin/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwiftGifOrigin/SwiftGifOrigin.modulemap";
+				PRODUCT_NAME = SwiftGifOrigin;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		49D6DC28B8A5A9525A86E5407D5EF2BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B3EBA019B8A9BC3B5D77DD19BDECEA1E /* Pods-GoQueer.release.xcconfig */;
 			buildSettings = {
@@ -452,40 +633,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		45AFC197E4865812E30422548770DF8E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4FBF716C491D3F8C222D3450DA447BB /* Pods-GoQueer.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-GoQueer/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-GoQueer/Pods-GoQueer.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_GoQueer;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		59F0302F2371FCC6B73EF0A418D40734 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -547,9 +694,9 @@
 			};
 			name = Debug;
 		};
-		7E58B21E057DA648295C0688CF4485BB /* Debug */ = {
+		60B52BECDBF7E63FA886915FB4FB6C91 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88583249ADC44114B36F5CCC708B36BF /* SwiftGifOrigin.xcconfig */;
+			baseConfigurationReference = A4FBF716C491D3F8C222D3450DA447BB /* Pods-GoQueer.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -560,13 +707,47 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftGifOrigin/SwiftGifOrigin-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftGifOrigin/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-GoQueer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-GoQueer/Pods-GoQueer.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_GoQueer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		60BF6BCD415231FC98255CADCA96F711 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35BB675C3C601DC5B93D1691F43B1C36 /* YouTubePlayer.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/YouTubePlayer/YouTubePlayer-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/YouTubePlayer/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftGifOrigin/SwiftGifOrigin.modulemap";
-				PRODUCT_NAME = SwiftGifOrigin;
+				MODULEMAP_FILE = "Target Support Files/YouTubePlayer/YouTubePlayer.modulemap";
+				PRODUCT_NAME = YouTubePlayer;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
@@ -578,9 +759,9 @@
 			};
 			name = Debug;
 		};
-		84CA828C2A79FE32C18FCB0DA0115935 /* Release */ = {
+		DEF41F33A7A89F89069FE1F571BFE41F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88583249ADC44114B36F5CCC708B36BF /* SwiftGifOrigin.xcconfig */;
+			baseConfigurationReference = 162518445260233665D4835C03C33D49 /* SwiftGifOrigin.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -613,6 +794,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		077AB2426AE94D80AFCEA39418626DCD /* Build configuration list for PBXNativeTarget "Pods-GoQueer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60B52BECDBF7E63FA886915FB4FB6C91 /* Debug */,
+				49D6DC28B8A5A9525A86E5407D5EF2BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -622,20 +812,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3CE2E3AD14C81679F7274AA8B11C8C66 /* Build configuration list for PBXNativeTarget "Pods-GoQueer" */ = {
+		5483C9B0794392570DDCF934D18BEDE1 /* Build configuration list for PBXNativeTarget "SwiftGifOrigin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				45AFC197E4865812E30422548770DF8E /* Debug */,
-				2D346452F757AF288B6985069CBDAD67 /* Release */,
+				45966532EE5AC7FFA258D09B9B2C6987 /* Debug */,
+				DEF41F33A7A89F89069FE1F571BFE41F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1B497AF13B9A8B4A158D76450672B99 /* Build configuration list for PBXNativeTarget "SwiftGifOrigin" */ = {
+		69AA97C3DCF5FBEB3C2D9480FB3776C8 /* Build configuration list for PBXNativeTarget "YouTubePlayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7E58B21E057DA648295C0688CF4485BB /* Debug */,
-				84CA828C2A79FE32C18FCB0DA0115935 /* Release */,
+				60BF6BCD415231FC98255CADCA96F711 /* Debug */,
+				3647FC3DEE8FE62398455973BB101538 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

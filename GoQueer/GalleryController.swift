@@ -1,7 +1,10 @@
 import UIKit
+import YouTubePlayer
 
 class GalleryController: BaseViewController {
 
+    
+    @IBOutlet weak var videoPlayer: YouTubePlayerView!
     @IBOutlet weak var progress: UIActivityIndicatorView!
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var imageViewWidth: NSLayoutConstraint!
@@ -11,8 +14,8 @@ class GalleryController: BaseViewController {
             chooseImage(media: GalleryController.myGallery.media[getPrevious(index: self.index)])
             descriptionText.text = GalleryController.myGallery.media[self.index].description
             titleText.text = GalleryController.myGallery.media[self.index].name
-            if (GalleryController.myGallery.media[self.index].typeId == 1){
-                linkText.text = GalleryController.myGallery.media[self.index].mediaURL
+            if (GalleryController.myGallery.media[self.index].extraLinks != "" && GalleryController.myGallery.media[self.index].extraLinks != nil){
+                linkText.text = GalleryController.myGallery.media[self.index].extraLinks.replacingOccurrences(of: "\\", with: "")
             } else {
                 linkText.text = ""
             }
@@ -68,7 +71,18 @@ class GalleryController: BaseViewController {
         progress.startAnimating()
         var imageURL = URL(string: "")
         imageURL = URL(string: MapController.baseUrl + "client/downloadMediaById?media_id=" + String(media.id) )
-        fetchImageFromURL(imageURL: imageURL!, media: media)
+        if (media.typeId == 5 || media.typeId == 4) {
+            self.videoPlayer.isHidden = true
+            fetchImageFromURL(imageURL: imageURL!, media: media)
+        } else if media.typeId == 1 {
+            self.videoPlayer.isHidden = false
+            let myVideoURL = NSURL(string: media.mediaURL.replacingOccurrences(of: "\\", with: ""))
+            self.videoPlayer.loadVideoURL(myVideoURL! as URL)
+        } else {
+            self.videoPlayer.isHidden = true
+        }
+        
+        
         
     }
     
@@ -87,7 +101,6 @@ class GalleryController: BaseViewController {
                         self.picture.image = UIImage.gif(data: imageData as Data)
                         self.view.addSubview(imageView)
                     }
-                    
                     
                 }
             }
