@@ -176,10 +176,19 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
             self.present(alert, animated: true, completion: nil)
             break
         case 1:
-            print("Play\n", terminator: "")
-            
-            self.openViewControllerBasedOnIdentifier("PlayVC")
-            
+            showToast(message: "This feature is coming soon!")
+            break
+        case 2:
+            showToast(message: "This feature is coming soon!")
+            break
+        case 3:
+            showToast(message: "This feature is coming soon!")
+            break
+        case 4:
+            showToast(message: "This feature is coming soon!")
+            break
+        case 5:
+            showToast(message: "This feature is coming soon!")
             break
         case 6:
             
@@ -205,23 +214,24 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
             }
             break
         case 7:
-            
-            if let url = URL(string: MapController.baseUrl + "/client/getSetStatusSummary?device_id=" + getDeviceId() + "&gallery_id=16" ) {
-                do {
-                    let contents = try String(contentsOf: url)
-                    if (contents != ""){
-                        let alertController = UIAlertController(title: "Set Status:", message:
-                            contents, preferredStyle: UIAlertControllerStyle.alert)
-                        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-                        
-                        self.present(alertController, animated: true, completion: nil)
-                    }
-                    
-                }catch {
-                    
-                }
-            }
+            showToast(message: "This feature is coming soon!")
             break
+//            if let url = URL(string: MapController.baseUrl + "/client/getSetStatusSummary?device_id=" + getDeviceId() + "&gallery_id=16" ) {
+//                do {
+//                    let contents = try String(contentsOf: url)
+//                    if (contents != ""){
+//                        let alertController = UIAlertController(title: "Set Status:", message:
+//                            contents, preferredStyle: UIAlertControllerStyle.alert)
+//                        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+//                        
+//                        self.present(alertController, animated: true, completion: nil)
+//                    }
+//                    
+//                }catch {
+//                    
+//                }
+//            }
+//            break
         default:
             print("default\n", terminator: "")
         }
