@@ -18,6 +18,8 @@ class QProfile {
     var bearing: String!
     var viewingAngle: String!
     var visibleToPlayer: String!
+    var passwordProtected: String!
+    var password: String!
     
 }
 

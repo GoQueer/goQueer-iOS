@@ -92,8 +92,26 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                         let profiles = parseProfiles(contents)
                         for profile in profiles {
                             if (profile.name == getProfile().name){
-                                
-                                self.moveToRegion(profile: profile)
+                                if (profile.passwordProtected != "1" ) {
+                                    self.moveToRegion(profile: profile)
+                                } else {
+                                    //1. Create the alert controller.
+                                    let alert = UIAlertController(title: "Password Protecte", message: "Enter a text", preferredStyle: .alert)
+                                    
+                                    //2. Add the text field. You can configure it however you need.
+                                    alert.addTextField { (textField) in
+                                        textField.text = "*****"
+                                    }
+                                    
+                                    // 3. Grab the value from the text field, and print it when the user clicks OK.
+                                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+                                        let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+                                        print("Text field: \(textField?.text)")
+                                    }))
+                                    
+                                    // 4. Present the alert.
+                                    self.present(alert, animated: true, completion: nil)
+                                }
                             }
                             
                         }
@@ -175,7 +193,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
             }
             self.present(alert, animated: true, completion: nil)
             break
-        case 1:
+        /*case 1:
             showToast(message: "This feature is coming soon!")
             break
         case 2:
@@ -189,8 +207,8 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
             break
         case 5:
             showToast(message: "This feature is coming soon!")
-            break
-        case 6:
+            break*/
+        case 1:
             
             if let url = URL(string: MapController.baseUrl + "/client/getHint?device_id=" + getDeviceId()+"&profile_name=" + getProfile().name ) {
                 do {
@@ -213,9 +231,9 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                 }
             }
             break
-        case 7:
-            showToast(message: "This feature is coming soon!")
-            break
+    //    case 7:
+     //       showToast(message: "This feature is coming soon!")
+      //      break
 //            if let url = URL(string: MapController.baseUrl + "/client/getSetStatusSummary?device_id=" + getDeviceId() + "&gallery_id=16" ) {
 //                do {
 //                    let contents = try String(contentsOf: url)
@@ -702,7 +720,10 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
             qProfile.viewingAngle = myresult[8].components(separatedBy: "tilt\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
             qProfile.zoom = myresult[9].components(separatedBy: "zoom\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
             qProfile.bearing = myresult[10].components(separatedBy: "bearing\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
-            qProfile.visibleToPlayer = myresult[11].components(separatedBy: "visibleToPlayer\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil).replacingOccurrences(of: "}]", with: "", options: .literal, range: nil)
+            qProfile.visibleToPlayer = myresult[11].components(separatedBy: "visibleToPlayer\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+            qProfile.passwordProtected = myresult[12].components(separatedBy: "passwordProtected\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+            qProfile.passwordProtected = myresult[13].components(separatedBy: "password\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+                .replacingOccurrences(of: "}]", with: "", options: .literal, range: nil)
 
            qProfiles.append(qProfile)
         }
@@ -730,7 +751,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                 let coordinate0 = CLLocation(latitude: my.latitude, longitude: my.longitude)
                 let coordinate1 = CLLocation(latitude: Double(locationFromAll.getLat())!, longitude: Double(locationFromAll.getlong())!)
                 let distanceInMeters = coordinate0.distance(from: coordinate1) // result is in meters
-                if distanceInMeters < 10 {
+                if distanceInMeters < 50 {
                     if let url = URL(string: MapController.baseUrl + "/client/setDiscoveryStatus?device_id=" + getDeviceId() + "&location_id=" + String(locationFromAll.id)) {
                         do {
                             let contents = try String(contentsOf: url)
