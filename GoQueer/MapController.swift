@@ -67,17 +67,41 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                         for profile in profiles {
                             alert.addAction(UIAlertAction(title: profile.name, style: .default, handler: { [weak alert] (_) in
                                 let defaults = UserDefaults.standard
-                                defaults.set(profile.name, forKey: defaultsKeys.keyOne)
-                                defaults.set(profile.id, forKey: defaultsKeys.keyTwo)
-                                defaults.set(profile.show, forKey: defaultsKeys.keyThree)
                                 
-                                self.moveToRegion(profile: profile)
+                                if(profile.passwordProtected != "1"){
+                                    defaults.set(profile.name, forKey: defaultsKeys.keyOne)
+                                    defaults.set(profile.id, forKey: defaultsKeys.keyTwo)
+                                    defaults.set(profile.show, forKey: defaultsKeys.keyThree)
+                                    self.moveToRegion(profile: profile)
+                                } else {
+                                    
+                                    let alert = UIAlertController(title: "This Item Is Private", message: "You need to enter the password to gain access:", preferredStyle: .alert)
+                                    alert.addTextField { (textField) in
+                                        textField.text = ""
+                                    }
+                                    
+                                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+                                        let enteredPassword = alert?.textFields![0] // Force unwrapping because we know it exists.
+                                        if (profile.password == enteredPassword?.text){
+                                            self.showToast(message: "Access Granted!")
+                                            defaults.set(profile.name, forKey: defaultsKeys.keyOne)
+                                            defaults.set(profile.id, forKey: defaultsKeys.keyTwo)
+                                            defaults.set(profile.show, forKey: defaultsKeys.keyThree)
+                                            self.moveToRegion(profile: profile)
+                                            
+                                        } else {
+                                            self.showToast(message: "Wrong Password!")
+                                        }
+                                    }))
+                                    
+                                    self.present(alert, animated: true, completion: nil)
+                                }
                                 
                                 
                             }))
+                           
                         }
-                          alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [weak alert] (_) in}))
-                        
+                         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [weak alert] (_) in}))
                     }
                 }
                 catch {}
@@ -92,28 +116,11 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                         let profiles = parseProfiles(contents)
                         for profile in profiles {
                             if (profile.name == getProfile().name){
-                                if (profile.passwordProtected != "1" ) {
+                                
                                     self.moveToRegion(profile: profile)
-                                } else {
-                                    //1. Create the alert controller.
-                                    let alert = UIAlertController(title: "Password Protecte", message: "Enter a text", preferredStyle: .alert)
-                                    
-                                    //2. Add the text field. You can configure it however you need.
-                                    alert.addTextField { (textField) in
-                                        textField.text = "*****"
-                                    }
-                                    
-                                    // 3. Grab the value from the text field, and print it when the user clicks OK.
-                                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-                                        let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-                                        print("Text field: \(textField?.text)")
-                                    }))
-                                    
-                                    // 4. Present the alert.
-                                    self.present(alert, animated: true, completion: nil)
-                                }
-                            }
+                                
                             
+                            }
                         }
                     }
                 }
@@ -178,15 +185,41 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                         for profile in profiles {
                             alert.addAction(UIAlertAction(title: profile.name, style: .default, handler: { [weak alert] (_) in
                                 let defaults = UserDefaults.standard
-                                defaults.set(profile.name, forKey: defaultsKeys.keyOne)
-                                defaults.set(profile.id, forKey: defaultsKeys.keyTwo)
-                                defaults.set(profile.show, forKey: defaultsKeys.keyThree)
+                
+                                if(profile.passwordProtected != "1"){
+                                    defaults.set(profile.name, forKey: defaultsKeys.keyOne)
+                                    defaults.set(profile.id, forKey: defaultsKeys.keyTwo)
+                                    defaults.set(profile.show, forKey: defaultsKeys.keyThree)
+                                    self.moveToRegion(profile: profile)
+                                } else {
+                                    
+                                    let alert = UIAlertController(title: "This Item Is Private", message: "You need to enter the password to gain access:", preferredStyle: .alert)
+                                    alert.addTextField { (textField) in
+                                    textField.text = ""
+                                    }
                                 
-                                self.moveToRegion(profile: profile)
+                                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+                                            let enteredPassword = alert?.textFields![0] // Force unwrapping because we know it exists.
+                                        if (profile.password == enteredPassword?.text){
+                                            self.showToast(message: "Access Granted!")
+                                            defaults.set(profile.name, forKey: defaultsKeys.keyOne)
+                                            defaults.set(profile.id, forKey: defaultsKeys.keyTwo)
+                                            defaults.set(profile.show, forKey: defaultsKeys.keyThree)
+                                            self.moveToRegion(profile: profile)
+                                            
+                                        } else {
+                                            self.showToast(message: "Wrong Password!")
+                                        }
+                                    }))
+                                
+                                        self.present(alert, animated: true, completion: nil)
+                                }
                                 
                                 
                             }))
+                            
                         }
+                        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { [weak alert] (_) in}))
                     }
                 }
                     catch {}
@@ -722,7 +755,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
             qProfile.bearing = myresult[10].components(separatedBy: "bearing\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
             qProfile.visibleToPlayer = myresult[11].components(separatedBy: "visibleToPlayer\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
             qProfile.passwordProtected = myresult[12].components(separatedBy: "passwordProtected\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
-            qProfile.passwordProtected = myresult[13].components(separatedBy: "password\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+            qProfile.password  = myresult[13].components(separatedBy: "password\":")[1].replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
                 .replacingOccurrences(of: "}]", with: "", options: .literal, range: nil)
 
            qProfiles.append(qProfile)
