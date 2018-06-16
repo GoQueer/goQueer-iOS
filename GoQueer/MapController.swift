@@ -115,7 +115,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                         
                         let profiles = parseProfiles(contents)
                         for profile in profiles {
-                            if (profile.name == getProfile().name){
+                            if (profile.id == getProfile().id){
                                 
                                     self.moveToRegion(profile: profile)
                                 
@@ -243,7 +243,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
             break*/
         case 1:
             
-            if let url = URL(string: MapController.baseUrl + "/client/getHint?device_id=" + getDeviceId()+"&profile_name=" + getProfile().name ) {
+            if let url = URL(string: MapController.baseUrl + "/client/getHint?device_id=" + getDeviceId() + "&profile_id=" + String(getProfile().id)) {
                 do {
                     let contents = try String(contentsOf: url)
                     if (contents != ""){
@@ -400,7 +400,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
     }
    
     @objc func updateLocations(){
-        if let url = URL(string: MapController.baseUrl + "/client/getAllLocations?device_id=" + getDeviceId() + "&profile_name=" + getProfile().name) {
+        if let url = URL(string: MapController.baseUrl + "/client/getAllLocations?device_id=" + getDeviceId() + "&profile_id=" + String(getProfile().id)) {
             do {
                 let contents = try String(contentsOf: url)
                 
@@ -409,7 +409,7 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
        
                 
                
-                if let url = URL(string: MapController.baseUrl + "/client/getMyLocations?device_id=" + getDeviceId() + "&profile_name=" + getProfile().name) {
+                if let url = URL(string: MapController.baseUrl + "/client/getMyLocations?device_id=" + getDeviceId() + "&profile_id=" + String(getProfile().id)) {
                     do {
                         let contents = try String(contentsOf: url)
                         let tempMyLocations = parseLocations(contents)
@@ -441,11 +441,11 @@ class MapController: BaseViewController, CLLocationManagerDelegate, SlideMenuDel
                         
                         
                     } catch {
-                        
+                        NSLog("Problem loading locations")
                     }
                 }
             } catch {
-                
+                NSLog("Problem loading locations")
             }
         }
     

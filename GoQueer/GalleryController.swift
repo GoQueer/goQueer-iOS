@@ -14,8 +14,9 @@ class GalleryController: BaseViewController {
             chooseImage(media: GalleryController.myGallery.media[getPrevious(index: self.index)])
             descriptionText.text = GalleryController.myGallery.media[self.index].description
             titleText.text = GalleryController.myGallery.media[self.index].name
-            if (GalleryController.myGallery.media[self.index].extraLinks != "" && GalleryController.myGallery.media[self.index].extraLinks != nil){
-                linkText.text = GalleryController.myGallery.media[self.index].extraLinks.replacingOccurrences(of: "\\", with: "")
+            if (GalleryController.myGallery.media[self.index].extraLinks != "" && GalleryController.myGallery.media[self.index].extraLinks != nil &&
+                GalleryController.myGallery.media[self.index].extraLinks != "null"){
+                linkText.text = GalleryController.myGallery.media[self.index].extraLinks.replacingOccurrences(of: "\\/", with: "/")
             } else {
                 linkText.text = ""
             }
@@ -25,7 +26,7 @@ class GalleryController: BaseViewController {
             descriptionText.text = GalleryController.myGallery.media[self.index].description
             titleText.text = GalleryController.myGallery.media[self.index].name
             if (GalleryController.myGallery.media[self.index].typeId == 1){
-                    linkText.text = GalleryController.myGallery.media[self.index].mediaURL
+                linkText.text = String(GalleryController.myGallery.media[self.index].mediaURL).replacingOccurrences(of: "\\/",  with: "/", options: .literal, range: nil)
             } else {
                 linkText.text = ""
             }
@@ -58,10 +59,12 @@ class GalleryController: BaseViewController {
     public static var myGallery = QGallery()
     override func viewDidLoad() {
         super.viewDidLoad()
-        chooseImage(media: GalleryController.myGallery.media[self.index])
-        descriptionText.text = GalleryController.myGallery.media[index].description
-        titleText.text = GalleryController.myGallery.media[index].name
-        titleText.textAlignment = .center
+        if (self.index > -1 && self.index < GalleryController.myGallery.media.count ){
+            chooseImage(media: GalleryController.myGallery.media[self.index])
+            descriptionText.text = GalleryController.myGallery.media[index].description
+            titleText.text = GalleryController.myGallery.media[index].name
+            titleText.textAlignment = .center
+        }
     }
     
     

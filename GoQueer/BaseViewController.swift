@@ -21,6 +21,10 @@ class BaseViewController: UIViewController {
         
         static let keyTwo = "secondStringKey"
         static let keyThree = "currentProfileShow"
+        static let keyFour = "currentProfileDesc"
+        static let keyFive = "currentProfileShow"
+        static let keySix = "secondStringKey"
+        static let keySeven = "currentProfileShow"
     }
     
     override func didReceiveMemoryWarning() {
